@@ -1,0 +1,6 @@
+/node_modules
+/.env
+/config
+/php
+/public/images/blog
+/public/images/inventory

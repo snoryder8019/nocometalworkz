@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+    <body>
+           
+    <canvas id="bkgdCanvas"></canvas>  
+    <div id="backgroundFX">
+    <%- include('config/head.ejs')%>
+    <%- include('config/header.ejs')%>
+    <%- include('config/bkgdImg.ejs')%>
+    <%- include('config/loadScreen.ejs')%>
+
+    <h1><%=title%></h1>
+    <div class="mainStyle">
+      <div class="landingPage">
+
+  <div class="mainStyle">
+    <h1 id="adminZero" onclick="expander(0)">Post Event or Blog Post</h1>
+      <div class="eventBody" id="admin0">
+
+      <form action="/upload"method="post" enctype="multipart/form-data">
+      
+       <h2>Step 1: Add Details</h2>
+       <input placeholder="Event Title"  type="text" name="title">
+       <input placeholder="Date or Subtitle" type="text" name="subtitle">
+       <textarea placeholder="Event Details" type="text" name="details"></textarea>
+       <h2 style="margin: 0;">Step 2: Attach One Image</h2> 
+       <input type="file" accept="image/*" name="photo">
+       <h2>Step 3: Submit</h2> 
+        <button type="submit" >Submit</button>
+      </form>
+        </div>
+    </div>
+   
+
+  <div class="mainStyle">
+    <h1 id="adminTwo" onclick="expander(2)">Live Posts</h1>
+    <div class="eventBody" id="admin2">
+<table>
+
+  <thead>
+ <th>Blog Title</th><th>Date or Subtitle</th><th>Remove</th>
+  </thead>
+<tbody>
+      <% for(var i=0; i<blogs.length;i++){%>
+    <tr>
+    <td>
+     <%= blogs[i].bTitle %>
+    </td>
+    <td><%= blogs[i].bSubtitle%></td>
+    <td><img src="<%= blogs[i].imgName%>" alt=""></td>
+  <td>  
+   <form action="/delBlog" method="post"><button name="blogDelete" value="<%= blogs[i]._id%>"> delete</button>
+   </form> 
+   </td>
+  </tr>
+   <% } %>
+  </tbody>
+</table>
+</div>
+</div>
+
+<div class="mainStyle">
+  <h1 id="adminZero" onclick="expander(3)">Add Inventory Item</h1>
+    <div class="eventBody" id="admin0">
+
+    <form action="/newItem"method="post" enctype="multipart/form-data">
+    
+     <h2>Step 1: Add Details</h2>
+     <p>Category Type:</p>
+     <select name="catSelect"  id="">
+      <option value="">Select a Category</option>
+   <% for(let i=0;i<catagory.length;i++){%>
+    <option  value="<%= catagory[i].catName%>"><%= catagory[i].catName%></option>
+   <%}%>
+     </select>
+
+     <input placeholder="Item Name"  type="text" name="inventoryName">
+     <input placeholder="Price w/ Shipping" type="text" name="inventoryPrice">
+     <textarea placeholder="Item Details" type="text" name="inventoryDetails"></textarea>
+     <textarea placeholder="Paypal Code" type="text" name="paypalCode"></textarea>
+     <h2 style="margin: 0;">Step 2: Attach One Image</h2> 
+     <input type="file" accept="image/*" name="photo">
+     <h2>Step 3: Submit</h2> 
+      <button type="submit" >Submit</button>
+       </form>
+      </div>
+  </div>
+
+  <div class="mainStyle">
+    <h1 id="adminZero" onclick="expander(3)">Add and Remove Options</h1>
+      <div class="eventBody" id="admin3">
+  
+      <form action="/newCat"method="post">
+      
+       <h2>Add: New Category Name</h2>
+       <input placeholder="New Name"  type="text" name="catName">
+              <button type="submit" >Submit</button>
+           </form>
+   
+       <!----COLOR-------->
+      <form action="/newColor"method="post">
+            <h2>Add: New Color Name</h2>
+        <input placeholder="Insert ColorTags"  type="text" name="clrTag">
+        <input placeholder="Insert RGBA"  type="color" name="clrHex">
+               <button type="submit" >Create Color</button>
+             </form>
+
+             <form action="/delCat"method="post">
+             <h2><span class="alert">Delete:</span>  A Category</h2>
+             <select placeholder="categories from db" name="catDel" id="">
+              <option value="">Select a Category</option>
+              <% for(let i=0;i<catagory.length;i++){%>
+                <option value="<%= catagory[i]._id%>"><%= catagory[i].catName%></option>
+               <%}%>
+             </select>
+             <button type="submit" >Delete</button>
+                  </form>
+       
+             <form action="/delColor"method="post">
+      
+        <h2><span class="alert"> Delete:</span> Color Option</h2>
+           <div class="colorFlex">
+          
+        <% for(let i=0;i<colors.length;i++){%>
+          <div class="colorBox">
+              <div class="colorDiv" style="background-color:<%= colors[i].colorHex%>"> </div>
+               <button class="colorButton" name="colorDel" value="<%= colors[i]._id%>" type="submit" ><%= colors[i].colorTag%></button>
+           
+           </div>
+               <%}%>
+            </div>
+           
+       </form>
+
+        </div>
+    </div>
+
+</div>
+
+
+        </div>
+
+ <!--script src="javascripts/backgroundFX1.js"></script-->
+
+<%- include('config/footer.ejs')%> 
+    </div>
+
+    </body> </html>

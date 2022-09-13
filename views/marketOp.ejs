@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <body >
+           
+    <canvas id="bkgdCanvas"></canvas>  
+    <div id="backgroundFX">
+    <%- include('config/head.ejs')%>
+    <%- include('config/header.ejs')%>
+    <%- include('config/bkgdImg.ejs')%>
+    <%- include('config/loadScreen.ejs')%>
+
+    <div class="mainStyle">
+        <dis="landingPage">
+          <h1><%= title%></h1>
+            <form action="/marketOp">
+                <div class="marketFilter">
+                    <select onchange="submit()"  name="catID" id="">
+                        <option >Choose a Different Catagory</option>
+                      <% for(var i=1;i<catagory.length;i++){%>
+                        <option value="<%= catagory[i].catName%>"><%= catagory[i].catName%></option>
+                        <%}%>
+                      
+                    </select>
+                </div>
+
+                </form>
+     </div>
+   
+     <% if(data.length<1){%>
+      <div class="mainStyle">
+     <h2>No inventory found for this Catagory</h2>
+    s
+    <%}%>
+    <div class="invGrid">
+      <% for(var i=0;i<data.length;i++){%>
+        <div  style="background-image: url('<%= data[i].imgName%>')" class="invBox">
+      <div class="gridContain">
+          <div class="invName"><%= data[i].name%></div>
+          <div class="invPrice"><%= data[i].price%></div>
+      
+      </div>
+      </div>
+      <%}%>
+   </div>
+ </div>
+    <%- include('config/footer.ejs')%> 
+    <!--script src="javascripts/backgroundFX1.js"></script-->
+   
+    </body> </html>

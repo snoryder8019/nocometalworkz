@@ -1,0 +1,1048 @@
+@media screen and (max-width:768px) {
+  .imgBox {
+    width: 100%;
+  }
+
+  a {
+    font-size: 1em;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .pricing {
+    font-size: 2rem;
+  }
+}
+@media screen and (min-width:769px) and (max-width:1000px) {
+  .imgBox {
+    width: 100%;
+  }
+
+  li {
+    font-size: 2.6em;
+  }
+
+  a {
+    font-size: 1.1em;
+  }
+
+  p {
+    font-size: 1.7rem;
+  }
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+}
+@media screen and (min-width:1001px) and (max-width:1680px) {
+  .imgBox {
+    width: 50%;
+  }
+
+  li {
+    font-size: 1.6em;
+  }
+
+  a {
+    font-size: 1.2em;
+  }
+
+  p {
+    font-size: 1.3rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  .pricing {
+    font-size: 2rem;
+  }
+
+  p {
+    text-align: justify;
+  }
+}
+@media screen and (min-width:1681px) {
+  .imgBox {
+    width: 50%;
+  }
+
+  a {
+    font-size: 1.2em;
+  }
+
+  p {
+    font-size: 1.5rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  .pricing {
+    font-size: 3rem;
+  }
+
+  p {
+    text-align: justify;
+  }
+}
+@font-face {
+  font-family: "combo";
+  src: url("../fonts/Combo/Combo-Regular.ttf");
+}
+@font-face {
+  font-family: "kScript";
+  src: url("../fonts/Kaushan_Script/KaushanScript-Regular.ttf");
+}
+@font-face {
+  font-family: "righteous";
+  src: url("../fonts/Righteous/Righteous-Regular.ttf");
+}
+body {
+  margin: 0;
+  padding: 0;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: black;
+  color: white;
+}
+
+@keyframes slidein {
+  0% {
+    opacity: 0;
+    transform: translateX(-45px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+.intro {
+  padding: 3%;
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+}
+
+.introHead {
+  min-width: 100%;
+  min-height: 50%;
+}
+
+.introType {
+  font-family: "combo";
+  animation: none;
+  width: 100%;
+  font-size: 5rem;
+  text-rendering: geometricPrecision;
+}
+.introType::after {
+  color: blue;
+  font-size: 4.1rem;
+  z-index: -1;
+  font-weight: 800;
+}
+.introType::after::after {
+  border-bottom: 1px solid #dcf6ff;
+  min-width: 100%;
+}
+.introType::before {
+  color: #dcf6ff;
+  font-size: 4rem;
+}
+.introType::after, .introType::before {
+  width: 100%;
+  animation: none;
+  content: "  NoCo Metalworkz";
+  position: absolute;
+  left: 3%;
+  top: 8%;
+}
+
+.introFoot {
+  margin-left: 10%;
+  min-width: 80%;
+  min-height: 30%;
+  position: absolute;
+  bottom: 28%;
+  border-radius: 50%;
+}
+
+span.alert {
+  color: #ff5e00;
+}
+
+button {
+  min-width: 92%;
+  min-height: 35px;
+  margin-left: 4%;
+  border-radius: 25px;
+  border: inset 3px solid black;
+}
+
+a {
+  text-decoration: none;
+  color: #dcf6ff;
+}
+
+h1 {
+  animation: 0.9s cubic-bezier(0.075, 0.82, 0.165, 1) 1 slidein;
+  font-size: 3rem;
+  margin-bottom: 1px;
+  font-family: "combo";
+  color: #dcf6ff;
+}
+h1 .imgBox {
+  width: 100%;
+}
+h1 a {
+  font-size: 1em;
+}
+h1 p {
+  font-size: 1rem;
+}
+h1 h1 {
+  font-size: 2rem;
+}
+h1 h2 {
+  font-size: 1.5rem;
+}
+h1 .pricing {
+  font-size: 2rem;
+}
+h1 .imgBox {
+  width: 100%;
+}
+h1 li {
+  font-size: 2.6em;
+}
+h1 a {
+  font-size: 1.1em;
+}
+h1 p {
+  font-size: 1.7rem;
+}
+h1 h1 {
+  font-size: 3rem;
+}
+h1 h2 {
+  font-size: 2rem;
+}
+h1 .imgBox {
+  width: 50%;
+}
+h1 li {
+  font-size: 1.6em;
+}
+h1 a {
+  font-size: 1.2em;
+}
+h1 p {
+  font-size: 1.3rem;
+}
+h1 h1 {
+  font-size: 2rem;
+}
+h1 h2 {
+  font-size: 2rem;
+}
+h1 .pricing {
+  font-size: 2rem;
+}
+h1 .imgBox {
+  width: 50%;
+}
+h1 a {
+  font-size: 1.2em;
+}
+h1 p {
+  font-size: 1.5rem;
+}
+h1 h1 {
+  font-size: 2rem;
+}
+h1 h2 {
+  font-size: 2rem;
+}
+h1 .pricing {
+  font-size: 3rem;
+}
+
+h2 {
+  font-family: "righteous";
+}
+h2 .imgBox {
+  width: 100%;
+}
+h2 a {
+  font-size: 1em;
+}
+h2 p {
+  font-size: 1rem;
+}
+h2 h1 {
+  font-size: 2rem;
+}
+h2 h2 {
+  font-size: 1.5rem;
+}
+h2 .pricing {
+  font-size: 2rem;
+}
+h2 .imgBox {
+  width: 100%;
+}
+h2 li {
+  font-size: 2.6em;
+}
+h2 a {
+  font-size: 1.1em;
+}
+h2 p {
+  font-size: 1.7rem;
+}
+h2 h1 {
+  font-size: 3rem;
+}
+h2 h2 {
+  font-size: 2rem;
+}
+h2 .imgBox {
+  width: 50%;
+}
+h2 li {
+  font-size: 1.6em;
+}
+h2 a {
+  font-size: 1.2em;
+}
+h2 p {
+  font-size: 1.3rem;
+}
+h2 h1 {
+  font-size: 2rem;
+}
+h2 h2 {
+  font-size: 2rem;
+}
+h2 .pricing {
+  font-size: 2rem;
+}
+h2 .imgBox {
+  width: 50%;
+}
+h2 a {
+  font-size: 1.2em;
+}
+h2 p {
+  font-size: 1.5rem;
+}
+h2 h1 {
+  font-size: 2rem;
+}
+h2 h2 {
+  font-size: 2rem;
+}
+h2 .pricing {
+  font-size: 3rem;
+}
+
+p {
+  padding: 1%;
+}
+p .imgBox {
+  width: 100%;
+}
+p a {
+  font-size: 1em;
+}
+p p {
+  font-size: 1rem;
+}
+p h1 {
+  font-size: 2rem;
+}
+p h2 {
+  font-size: 1.5rem;
+}
+p .pricing {
+  font-size: 2rem;
+}
+p .imgBox {
+  width: 100%;
+}
+p li {
+  font-size: 2.6em;
+}
+p a {
+  font-size: 1.1em;
+}
+p p {
+  font-size: 1.7rem;
+}
+p h1 {
+  font-size: 3rem;
+}
+p h2 {
+  font-size: 2rem;
+}
+p .imgBox {
+  width: 50%;
+}
+p li {
+  font-size: 1.6em;
+}
+p a {
+  font-size: 1.2em;
+}
+p p {
+  font-size: 1.3rem;
+}
+p h1 {
+  font-size: 2rem;
+}
+p h2 {
+  font-size: 2rem;
+}
+p .pricing {
+  font-size: 2rem;
+}
+p .imgBox {
+  width: 50%;
+}
+p a {
+  font-size: 1.2em;
+}
+p p {
+  font-size: 1.5rem;
+}
+p h1 {
+  font-size: 2rem;
+}
+p h2 {
+  font-size: 2rem;
+}
+p .pricing {
+  font-size: 3rem;
+}
+
+a {
+  font-family: "righteous";
+  color: rgba(205, 202, 241, 0.857);
+}
+a .imgBox {
+  width: 100%;
+}
+a a {
+  font-size: 1em;
+}
+a p {
+  font-size: 1rem;
+}
+a h1 {
+  font-size: 2rem;
+}
+a h2 {
+  font-size: 1.5rem;
+}
+a .pricing {
+  font-size: 2rem;
+}
+a .imgBox {
+  width: 100%;
+}
+a li {
+  font-size: 2.6em;
+}
+a a {
+  font-size: 1.1em;
+}
+a p {
+  font-size: 1.7rem;
+}
+a h1 {
+  font-size: 3rem;
+}
+a h2 {
+  font-size: 2rem;
+}
+a .imgBox {
+  width: 50%;
+}
+a li {
+  font-size: 1.6em;
+}
+a a {
+  font-size: 1.2em;
+}
+a p {
+  font-size: 1.3rem;
+}
+a h1 {
+  font-size: 2rem;
+}
+a h2 {
+  font-size: 2rem;
+}
+a .pricing {
+  font-size: 2rem;
+}
+a .imgBox {
+  width: 50%;
+}
+a a {
+  font-size: 1.2em;
+}
+a p {
+  font-size: 1.5rem;
+}
+a h1 {
+  font-size: 2rem;
+}
+a h2 {
+  font-size: 2rem;
+}
+a .pricing {
+  font-size: 3rem;
+}
+
+li {
+  font-family: "righteous";
+}
+li .imgBox {
+  width: 100%;
+}
+li a {
+  font-size: 1em;
+}
+li p {
+  font-size: 1rem;
+}
+li h1 {
+  font-size: 2rem;
+}
+li h2 {
+  font-size: 1.5rem;
+}
+li .pricing {
+  font-size: 2rem;
+}
+li .imgBox {
+  width: 100%;
+}
+li li {
+  font-size: 2.6em;
+}
+li a {
+  font-size: 1.1em;
+}
+li p {
+  font-size: 1.7rem;
+}
+li h1 {
+  font-size: 3rem;
+}
+li h2 {
+  font-size: 2rem;
+}
+li .imgBox {
+  width: 50%;
+}
+li li {
+  font-size: 1.6em;
+}
+li a {
+  font-size: 1.2em;
+}
+li p {
+  font-size: 1.3rem;
+}
+li h1 {
+  font-size: 2rem;
+}
+li h2 {
+  font-size: 2rem;
+}
+li .pricing {
+  font-size: 2rem;
+}
+li .imgBox {
+  width: 50%;
+}
+li a {
+  font-size: 1.2em;
+}
+li p {
+  font-size: 1.5rem;
+}
+li h1 {
+  font-size: 2rem;
+}
+li h2 {
+  font-size: 2rem;
+}
+li .pricing {
+  font-size: 3rem;
+}
+
+#menu {
+  font-weight: 950;
+}
+#menu a {
+  color: white;
+}
+
+.footer {
+  font-family: "righteous";
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 50;
+  color: white;
+  background-color: black;
+  text-shadow: white;
+}
+.footer p {
+  margin: 0;
+  padding: 0;
+  font-size: 1.2rem;
+}
+.footer a {
+  font-size: 1.2rem;
+}
+
+.adminSection {
+  border: 1px solid black;
+  margin: 2%;
+  padding: 2%;
+}
+
+#bkgdCanvas {
+  z-index: -1;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+@keyframes slowMove {
+  0% {
+    transform: translateY(-50px) translateX(-50px) scale(100%);
+  }
+  50% {
+    transform: translateY(50px) translateX(50px) scale(125%);
+  }
+  100% {
+    transform: translateY(-50px) translateX(-50px) scale(100%);
+  }
+}
+#backgroundFX {
+  margin-top: 24%;
+  margin-bottom: 17%;
+  padding: 0;
+  min-width: 100vw;
+  min-height: 100vh;
+}
+@media screen and (min-width: 865px) {
+  #backgroundFX {
+    margin-top: 13%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  #backgroundFX {
+    margin-top: 7%;
+  }
+}
+
+img.okImg {
+  animation: 120s ease-in-out infinite slowMove;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  max-width: 194%;
+  filter: brightness(175%) contrast(103%);
+  transform-style: preserve-3d;
+}
+@media screen and (min-width: 1290px) {
+  img.okImg {
+    transform: rotate(0deg) translateY(-28%);
+    width: 100%;
+  }
+}
+@media screen and (min-width: 1625px) {
+  img.okImg {
+    margin: 0% 0%;
+    transform: rotate(0deg) translateY(-15%);
+    width: 114%;
+  }
+}
+
+form {
+  font-family: "righteous";
+  margin: 0;
+  padding: 0;
+}
+form h2 {
+  padding: 2%;
+  margin: 0%;
+}
+
+input {
+  border: 1px solid rgba(0, 0, 0, 0.9);
+  min-width: 96%;
+  max-height: 35px;
+  margin: 1%;
+  padding: 1%;
+  color: black;
+  background-color: rgba(205, 202, 241, 0.857);
+}
+
+textarea {
+  background-color: rgba(205, 202, 241, 0.857);
+  min-width: 96%;
+  min-height: 60px;
+  margin: 1%;
+  padding: 0;
+}
+
+input:focus {
+  border: 3px solid #dcf6ff;
+  background-color: white;
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+    background-color: rgba(255, 0, 0, 0.674);
+  }
+  50% {
+    opacity: 0;
+    background-color: rgba(255, 0, 0, 0.674);
+  }
+  95% {
+    opacity: 50;
+    background-color: rgba(255, 242, 0, 0.733);
+  }
+  100% {
+    opacity: 100;
+    background-color: rgba(255, 0, 0, 0.674);
+  }
+}
+.delButton {
+  display: none;
+  animation: 2s ease-in-out 1 fadein;
+  background-color: rgba(255, 0, 0, 0.674);
+}
+
+.validateError {
+  padding: 0;
+  margin: 1%;
+  color: #ff5e00;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+  transform-style: preserve-3d;
+  transform: translateY(-15px);
+}
+
+.mainStyle {
+  padding: 0;
+  animation: 0.6s ease-in 1 slidein;
+  scroll-behavior: smooth;
+}
+@media screen and (min-width: 700px) {
+  .mainStyle {
+    max-width: 80%;
+    margin-left: 10%;
+  }
+}
+
+img.mainImg {
+  width: 100%;
+  padding: 0%;
+  margin: 0%;
+}
+@media screen and (min-width: 400px) and (-webkit-min-device-pixel-ratio: 1) {
+  img.mainImg {
+    width: 80%;
+    margin: 0 10%;
+  }
+}
+@media screen and (min-width: 600px) and (-webkit-min-device-pixel-ratio: 1) {
+  img.mainImg {
+    width: 40%;
+    margin: 0 30%;
+  }
+}
+@media screen and (min-width: 760px) and (-webkit-max-device-pixel-ratio: 1) {
+  img.mainImg {
+    width: 20%;
+    margin: 0 40%;
+  }
+}
+
+.eventBody, .navBox {
+  border: 5px solid #dcf6ff;
+  background-color: #3f4452d6;
+}
+
+.navBox {
+  text-align: center;
+  width: 94%;
+  margin-left: 3%;
+  margin: 1%;
+  min-height: 28%;
+  font-family: "combo";
+  font-size: 3rem;
+}
+.navBox:hover {
+  background-color: #e1a817;
+}
+
+.imgBox {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.menu {
+  position: fixed;
+  min-width: 100vw;
+  top: 0;
+  left: 0;
+  display: flex;
+  background-color: black;
+  z-index: 50;
+}
+
+select {
+  font-family: "righteous";
+  width: 80%;
+  margin: 3% 10%;
+  height: 45px;
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+table {
+  width: 100%;
+  max-height: 50%;
+  overflow-y: scroll;
+}
+
+td {
+  padding: 1%;
+}
+td img {
+  max-width: 40px;
+}
+
+th {
+  text-align: left;
+}
+
+.messagebox {
+  width: 100%;
+  font-size: 1em;
+}
+
+.details {
+  justify-content: space-evenly;
+  padding: 2%;
+  display: flex;
+}
+
+.detailItem {
+  flex-grow: 2;
+  padding: 2%;
+  border: 1px solid black;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg) translateY(-50%) translateX(-50%);
+  }
+  100% {
+    transform: rotate(360deg) translateY(-50%) translateX(-50%);
+  }
+}
+.loadContainer {
+  animation: 1.3s infinite linear spinner;
+  position: absolute;
+  transform-origin: 0 -8%;
+  transform: translateY(-50%) translateX(-50%);
+  margin-top: 50vh;
+  margin-left: 50vw;
+  min-height: 80px;
+  min-width: 80px;
+  background-color: rgba(255, 192, 203, 0.377);
+  border-radius: 40px;
+}
+
+.loadScreen {
+  top: 0;
+  left: 0;
+  position: fixed;
+  min-height: 100vh;
+  min-width: 100vw;
+  z-index: 10;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+.vDetails {
+  left: 5%;
+  display: none;
+  position: fixed;
+  background-color: #dcf6ff;
+  z-index: 3;
+  min-width: 90%;
+  min-height: 90%;
+}
+
+.landingPage {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 2%;
+  text-align: center;
+}
+@media screen and (min-width: 800px) {
+  .landingPage {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.invGrid {
+  min-height: 62vh;
+  margin-bottom: 1%;
+  margin: 1%;
+  padding: 1%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 32% 31% 31%;
+  grid-gap: 3%;
+}
+@media screen and (min-width: 800px) {
+  .invGrid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .invGrid {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+.gridButton {
+  margin-bottom: 1%;
+  font-family: "righteous";
+  font-size: 2rem;
+  transition-timing-function: ease-in-out;
+  transition-duration: 0.5s;
+  transform-style: preserve-3d;
+  transform: rotateY(-1%) rotateZ(1%) skewX(20%);
+}
+.gridButton:hover {
+  transform: scale(1.08) translateY(-1px);
+  transition-timing-function: ease-in-out;
+  transition-duration: 0.8s;
+  transform-style: preserve-3d;
+}
+
+.invBox {
+  padding: 0;
+  margin: 0;
+  border-radius: 20px;
+  z-index: 5;
+  background-repeat: no-repeat;
+  background-position: 10% 40%;
+  background-size: cover;
+  transition-timing-function: ease-in-out;
+  transition-duration: 0.5s;
+  transform-style: preserve-3d;
+  transform: rotateY(-1%) rotateZ(1%) skewX(20%);
+}
+.invBox:hover {
+  transform: scale(1.18) translateY(-1px);
+  transition-timing-function: ease-in-out;
+  transition-duration: 0.8s;
+  transform-style: preserve-3d;
+}
+
+.invName {
+  width: 100%;
+  font-family: "combo";
+  font-size: 2rem;
+  text-shadow: 1px 1px 1px white;
+  font-weight: 800;
+  color: #dcf6ff;
+  text-align: center;
+}
+
+.invPrice {
+  width: 100%;
+  font-family: "righteous";
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-shadow: 1px 1px 1px white;
+  color: #dcf6ff;
+  text-align: center;
+}
+.invPrice::before {
+  font-size: 1.95rem;
+  content: "$ ";
+}
+.invPrice::after {
+  font-size: 1rem;
+  content: ".00";
+}
+
+.colorBox {
+  width: 30%;
+  flex-shrink: none;
+}
+
+.colorFlex {
+  display: flex;
+  flex-wrap: wrap;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.colorButton {
+  max-width: 20%;
+}
+
+.colorDiv {
+  margin-left: 10%;
+  width: 80%;
+  min-height: 40px;
+}
+
+/*# sourceMappingURL=style.css.map */
