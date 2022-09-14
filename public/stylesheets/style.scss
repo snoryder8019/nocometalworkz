@@ -1,4 +1,5 @@
 @use './media.scss';
+@use './truck_icon.scss';
 //BRAND COLORS
 $red:rgba(255, 0, 0, 0.674);
 $blue:rgba(205, 202, 241, 0.857);
@@ -91,7 +92,9 @@ min-height: 50%;
     position: absolute;
    left: 3%;
    top:8%;
-    
+    @media (min-width:750px) {
+      top:17%;
+    }
   
   
     }
@@ -123,12 +126,21 @@ a{
   color: $accent;
 }
 h1{
+ 
+  text-align: center;
   animation: .9s cubic-bezier(0.075, 0.82, 0.165, 1) 1 slidein;
   font-size: 3rem;
   margin-bottom: 1px;
   font-family: $fontMain;
   color:$accent;
   @include mqs();
+  
+}
+.h1Span{
+  background-color: black;
+  color: white;
+  padding: 2%;
+  margin-top: 0;
 }
 h2{
   font-family: $fontSecondary;
@@ -220,7 +232,12 @@ img.okImg{
   max-width: 194%;
   filter: brightness(175%) contrast(103%);
   transform-style: preserve-3d;
-@include media.bkgdImg();
+  @include media.bkgdImg();
+  @media (min-width:900px) {
+    width: 125%;
+    margin-top: -68%;
+    filter: brightness(155%) contrast(99%);
+}
 }
 
 
@@ -290,8 +307,8 @@ input:focus{
   animation: .6s ease-in 1 slidein;
   scroll-behavior: smooth;
   @media screen and (min-width:700px) {
-    max-width :80%;
-    margin-left: 10%;
+    width :100%;
+  
    
   }
 }
@@ -307,13 +324,16 @@ img.mainImg{
   background-color: $eventBodyColor;
 }
 .navBox{
+  background-color: black;
+  color: white;
   text-align: center;
-  width: 94%;
+  width: 92;
   margin-left: 3%;
   margin: 1%;
   min-height: 28%;
   font-family: 'combo';
   font-size: 3rem;
+
   &:hover{
     background-color: rgb(225, 168, 23);
   }
@@ -322,6 +342,52 @@ img.mainImg{
   margin: 0;
   padding: 0;
   width: 100%;
+}
+.midBar{
+  padding: 2%;
+  background-color: black;
+  margin-top: 15%;
+  margin-bottom: 15%;
+  display: block;
+  @media (min-width:1200px) {
+    padding: 3%;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+  }
+}
+.midRight{
+
+ display: grid;
+ grid-template-columns: 1fr 1fr 1fr;
+  min-height: 98%;
+  margin: 1% 8% 1% 8%;
+  justify-items: center;
+  justify-content: center;
+  vertical-align: middle;
+ 
+}
+.icons{
+  filter:invert(100%);
+  background-clip:content-box;
+//  background-color: $accent;
+  background-size: 60%;
+  background-position: 66% 20%;
+  background-repeat: no-repeat;
+  margin: 1%;
+  text-align: center;
+  width: 100%;
+  min-height: 100px;
+
+  @media (min-width:768px) {
+  width: 65%;
+  //background-size: 70%;
+ // background-position: 64% -27%;
+  }
+  @media (min-width:2000px) {
+  width: 43%;
+ // background-size: 70%;
+  //background-position: 36% 159%;
+  }
 }
 //MENU STYLES
 .menu{
@@ -419,6 +485,12 @@ border: 1px solid black;
   
   @media screen and (min-width:800px) {
     grid-template-columns: 1fr 1fr;
+  }
+  @media screen and (min-width:1200px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  @media screen and (min-width:1800px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
 .invGrid{

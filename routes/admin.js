@@ -4,7 +4,7 @@ const { MongoClient} = require('mongodb');
 const client = require('../config/mongo');
 const alert = require('alert');
 const dbName= 'nocoMetal';
-const imageFP = 'MEVNmarketV1'
+const imageFP = 'nocometalworkz'
 const cookieParser = require('cookie-parser');
 const fs = require('fs');
 const multer = require('multer');
@@ -71,8 +71,8 @@ router.get('/admin', (req,res) =>{
   const str2 = imageData.filename;
   const strSplit= str.split('.');
   const ext = strSplit[1];
-  const oldFilepath = "/"+imageFP+"/uploads/";
-  const newFilepath = "/"+imageFP+"/public/images/blog/"
+  const oldFilepath = "../"+imageFP+"/uploads/";
+  const newFilepath = "../"+imageFP+"/public/images/blog/"
   const newName = 'blog_Image_'+ Date.now()+"."+ext;
 
 
@@ -140,8 +140,8 @@ router.post('/newItem',upload.single('photo'), function(req,res){
   const str2 = imageData.filename;
   const strSplit= str.split('.');
   const ext = strSplit[1];
-  const oldFilepath = "/"+imageFP+"/uploads/";
-  const newFilepath = "/"+imageFP+"/public/images/inventory/"
+  const oldFilepath = "../"+imageFP+"/uploads/";
+  const newFilepath = "../"+imageFP+"/public/images/inventory/"
   const newName = 'inventory_image_'+ Date.now()+"."+ext;
 
 
