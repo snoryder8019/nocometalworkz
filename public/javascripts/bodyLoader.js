@@ -1,4 +1,4 @@
 
 function bodyLoader(){
-    slide();
+   // slide();
 }
