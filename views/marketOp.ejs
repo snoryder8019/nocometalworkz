@@ -33,12 +33,9 @@
     <%}%>
     <div class="invGrid">
       <% for(var i=0;i<data.length;i++){%>
-        <div  style="background-image: url('<%= data[i].imgName%>')" class="invBox">
-      <div class="gridContain">
-          <div class="invName"><%= data[i].name%></div>
-          <div class="invPrice"><%= data[i].price%></div>
-      
-      </div>
+        <div class="gridContain">
+        <a href="/productID/<%= data[i]._id%>">  <div  style="background-image: url('<%= data[i].imgName%>')" class="invBox"></div></a>
+        </div>
       </div>
       <%}%>
    </div>

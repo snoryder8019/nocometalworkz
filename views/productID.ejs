@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <link rel="stylesheet" href="/stylesheets/style.css">
+        <link rel="shortcut icon" type="image/png"href="/images/logo.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style></style>
+    </head>
+
+<body>
+<canvas id="bkgdCanvas"></canvas>  
+<div id="backgroundFX">
+ <div class="mainStyle">
+ 
+    <%- include('../views/config/bkgdImg.ejs')%>
+    <%- include('../views/config/header.ejs')%>
+  
+    <h3> <%= title%></h3>
+<div class="eventBody">
+     <h1 class="h1Span"><%= data.name%></h1>
+        </div>
+        <!----LANDING PAGE CLASS IS GRID DISPLAY-->
+        <!----LARGE SCREEN 4 GRID !!!! MEDIUM SCREEN 3 GRID !!!!! SMALL 2 and single GRID-->
+  <div class="landingPage">
+    <div class="eventBody">
+        <div class="invPrice"><%= data.price%></div> 
+        <div ><h3><%= data.details%></h3></div> 
+    </div>
+
+    <div style="background-image:url('/<%= data.imgName%>');" class="imgBox"></div> 
+
+    <div>
+        <a onclick="goBack()">     <div class="navBox">
+            Back
+        </div></a>
+        <a href="/">     <div class="navBox">
+            home
+        </div></a>
+    </div>
+</div>
+
+      <%- include('../views/config/footer.ejs')%>
+
+    </div>
+</div>
+
+
+</body>
+<script src="/javascripts/menu.js"></script>
+<script src="/javascripts/bodyLoader.js"></script>
+ </html>

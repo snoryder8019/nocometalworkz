@@ -36,6 +36,7 @@ router.get('/market', (req,res) =>{
   //calling the function
   gettingBlogs().catch(console.error);
   async function getBlogs(client){
+ 
   const catagory = await client.db(dbName).collection('nm_catagories').find().toArray();
   const data = await client.db(dbName).collection('nm_inventory').find().toArray();
    res.render('market', {title:"Our Designs", data:data, catagory:catagory})
@@ -65,6 +66,28 @@ router.get('/marketOp', (req,res)=>{
       const data = await client.db(dbName).collection('nm_inventory').find({"catRef":responses}).toArray();
       console.log(data)
   res.render('marketOp',{title:"filtered: "+responses, catagory:catagory, data:data})
+}})
+
+
+router.get('/productID/:_id', (req,res)=>{
+  async function gettingBlogs(){
+    try {
+      await client.connect();
+      await getBlogs(client);
+    }
+    catch(err){
+      console.log(err)
+    }
+    finally{
+      await client.close();
+    }}
+       gettingBlogs().catch(console.error);
+    
+     async function getBlogs(client){
+      const newID =ObjectId(req.params._id);
+       const data = await client.db(dbName).collection('nm_inventory').findOne({"_id":newID});
+  
+  res.render('productID',{title:"Product Page", data:data})
 }})
 
 module.exports = router;

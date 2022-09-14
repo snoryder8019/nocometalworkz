@@ -191,6 +191,11 @@ body {
   border-bottom: 1px solid #dcf6ff;
   min-width: 100%;
 }
+@media only screen and (min-width: 350px) and (max-width: 370px) {
+  .introType::after {
+    color: black;
+  }
+}
 .introType::before {
   color: #dcf6ff;
   font-size: 4rem;
@@ -871,7 +876,10 @@ img.mainImg {
 .imgBox {
   margin: 0;
   padding: 0;
-  width: 100%;
+  min-width: 100%;
+  min-height: 300px;
+  background-size: 90%;
+  background-position: center;
 }
 
 .midBar {
@@ -1076,6 +1084,8 @@ th {
 }
 
 .invBox {
+  min-height: 100%;
+  min-width: 100%;
   padding: 0;
   margin: 0;
   border-radius: 20px;
