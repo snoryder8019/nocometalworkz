@@ -1,0 +1,48 @@
+  <div class="mainStyle">
+    <h1 class="h1Span">Options</h1>
+      <div class="eventBody" id="admin3">
+  
+      <form action="/newCat"method="post">
+      
+       <h2>Add: New Category Name</h2>
+       <input placeholder="New Name"  type="text" name="catName">
+              <button type="submit" >Submit</button>
+           </form>
+   
+       <!----COLOR-------->
+      <form action="/newColor"method="post">
+            <h2>Add: New Color Name</h2>
+        <input placeholder="Insert ColorTags"  type="text" name="clrTag">
+        <input placeholder="Insert RGBA"  type="color" name="clrHex">
+               <button type="submit" >Create Color</button>
+             </form>
+
+             <form action="/delCat"method="post">
+             <h2><span class="alert">Delete:</span>  A Category</h2>
+             <select placeholder="categories from db" name="catDel" id="">
+              <option value="">Select a Category</option>
+              <% for(let i=0;i<catagory.length;i++){%>
+                <option value="<%= catagory[i]._id%>"><%= catagory[i].catName%></option>
+               <%}%>
+             </select>
+             <button type="submit" >Delete</button>
+                  </form>
+       
+             <form action="/delColor"method="post">
+      
+        <h2><span class="alert"> Delete:</span> Color Option</h2>
+           <div class="colorFlex">
+          
+        <% for(let i=0;i<colors.length;i++){%>
+          <div class="colorBox">
+              <div class="colorDiv" style="background-color:<%= colors[i].colorHex%>"> </div>
+               <button class="colorButton" name="colorDel" value="<%= colors[i]._id%>" type="submit" ><%= colors[i].colorTag%></button>
+           
+           </div>
+               <%}%>
+            </div>
+           
+       </form>
+
+        </div>
+    </div>
