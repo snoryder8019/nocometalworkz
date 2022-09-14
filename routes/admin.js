@@ -132,6 +132,7 @@ router.post('/delBlog',(req,res)=>{
   }
 })
 ///////////////multer
+/////////////INVENTORY UPLOADS
 router.post('/newItem',upload.single('photo'), function(req,res){
   //isolate file extention
   const imageData= req.file;
@@ -153,6 +154,8 @@ if(err){
 }
  })
   async function saveBlog(bImgName,data){
+    const pplInfo =req.body.paypalcode; 
+    console.log(pplInfo);
     try {
       await client.connect();
       await createBlog(client,{
@@ -162,7 +165,7 @@ if(err){
         details:req.body.inventoryDetails,
         catRef:req.body.catSelect,
         imgName:bImgName,
-        paypalRef:req.body.paypalCode
+        //paypalRef:req.body.paypalCode
       });
      }
      catch(err){

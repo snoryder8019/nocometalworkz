@@ -705,8 +705,8 @@ li .pricing {
 #backgroundFX {
   margin-top: 24%;
   margin-bottom: 17%;
-  padding: 0;
-  min-width: 100vw;
+  padding: 1%;
+  min-width: 96vw;
   min-height: 100vh;
 }
 @media screen and (min-width: 865px) {
@@ -853,9 +853,14 @@ img.mainImg {
   }
 }
 
-.eventBody, .navBox {
+.eventBody, .navBox, .pplBody {
+  padding: 2%;
   border: 5px solid #dcf6ff;
   background-color: #3f4452d6;
+}
+
+.pplBody {
+  width: 100%;
 }
 
 .navBox {

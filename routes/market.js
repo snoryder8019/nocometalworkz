@@ -40,7 +40,7 @@ router.get('/market', (req,res) =>{
   const catagory = await client.db(dbName).collection('nm_catagories').find().toArray();
   const data = await client.db(dbName).collection('nm_inventory').find().toArray();
    res.render('market', {title:"Our Designs", data:data, catagory:catagory})
-
+console.log(data)
   }
 
    }
@@ -64,7 +64,7 @@ router.get('/marketOp', (req,res)=>{
       const catagory = await client.db(dbName).collection('nm_catagories').find().toArray();
       const responses= req.url.slice(req.url.trim().indexOf('=')+1);
       const data = await client.db(dbName).collection('nm_inventory').find({"catRef":responses}).toArray();
-      console.log(data)
+      console.log(data+'\n'+responses)
   res.render('marketOp',{title:"filtered: "+responses, catagory:catagory, data:data})
 }})
 

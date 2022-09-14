@@ -211,8 +211,8 @@ min-width: 100vw;
 #backgroundFX{
  margin-top:24%;
  margin-bottom: 17%;
-  padding: 0;
-  min-width: 100vw;
+  padding: 1%;
+  min-width: 96vw;
   min-height: 100vh;
   //background-image: src('./images/oklaImg.png');
   //background:linear-gradient(to right,rgb(0, 0, 0), black,black,rgba(48, 48, 62, 0.324));
@@ -322,9 +322,14 @@ img.mainImg{
   padding: 0%;
   margin: 0%;
 }
-.eventBody, .navBox{
+.eventBody, .navBox, .pplBody{
+  padding: 2%;
   border: 5px solid $accent;
   background-color: $eventBodyColor;
+}
+.pplBody{
+width:100%;
+
 }
 .navBox{
   background-color: black;

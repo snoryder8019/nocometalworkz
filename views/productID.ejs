@@ -8,7 +8,7 @@
     <style></style>
     </head>
 
-<body>
+<body onload="buttonSwap()">
 <canvas id="bkgdCanvas"></canvas>  
 <div id="backgroundFX">
  <div class="mainStyle">
@@ -23,23 +23,43 @@
         <!----LANDING PAGE CLASS IS GRID DISPLAY-->
         <!----LARGE SCREEN 4 GRID !!!! MEDIUM SCREEN 3 GRID !!!!! SMALL 2 and single GRID-->
   <div class="landingPage">
+      <div style="background-image:url('/<%= data.imgName%>');" class="imgBox"></div> 
     <div class="eventBody">
         <div class="invPrice"><%= data.price%></div> 
         <div ><h3><%= data.details%></h3></div> 
     </div>
 
-    <div style="background-image:url('/<%= data.imgName%>');" class="imgBox"></div> 
+  
+
+<div id ="pplBodyId"class="pplBody">
+    
+     <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="hosted_button_id" value="RYH2UKMJTN26E">
+        <table>
+        <tr><td><input type="hidden" name="on0" value="Sizing with Shipping">Sizing with Shipping</td></tr><tr><td><select name="os0">
+            <option value="sm">sm $250.00 USD</option>
+            <option value="med">med $450.00 USD</option>
+            <option value="lg">lg $750.00 USD</option>
+        </select> </td></tr>
+        <tr><td><input type="hidden" name="on1" value="Colors">Colors</td></tr><tr><td><select name="os1">
+            <option value="Blue">Blue </option>
+            <option value="Red">Red </option>
+            <option value="Green">Green </option>
+        </select> </td></tr>
+        </table>
+        <input type="hidden" name="currency_code" value="USD">
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form>
+        
+    </div>
 
     <div>
-        <a onclick="goBack()">     <div class="navBox">
-            Back
-        </div></a>
-        <a href="/">     <div class="navBox">
-            home
-        </div></a>
+        <a onclick="goBack()"><div class="navBox">back</div></a>
+        <a href="/"><div class="navBox">home</div></a>
     </div>
 </div>
-
       <%- include('../views/config/footer.ejs')%>
 
     </div>
@@ -47,6 +67,7 @@
 
 
 </body>
+<script src="/javascripts/pplButton.js"></script>
 <script src="/javascripts/menu.js"></script>
 <script src="/javascripts/bodyLoader.js"></script>
  </html>
