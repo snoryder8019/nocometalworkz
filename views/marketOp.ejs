@@ -11,7 +11,9 @@
 
     <div class="mainStyle">
         <div class="">
-          <h1><%= title%></h1>
+          <div class="eventBody">
+          <h1 class="h1Span"><%= title%></h1>
+        </div>
             <form action="/marketOp">
                 <div class="marketFilter">
                     <select onchange="submit()"  name="catID" id="">
@@ -28,8 +30,9 @@
    
      <% if(data.length<1){%>
       <div class="mainStyle">
-     <h2>No inventory found for this Catagory</h2>
-    s
+        <div class="eventBody">
+     <h1 class="h1Span">No inventory found for this Category</h1>
+    </div>
     <%}%>
     <div class="invGrid">
       <% for(var i=0;i<data.length;i++){%>
