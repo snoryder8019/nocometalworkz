@@ -15,7 +15,7 @@
             <form action="/marketOp">
                 <div class="marketFilter">
                     <select onchange="submit()"  name="catID" id="">
-                        <option >Choose a Different Catagory</option>
+                        <option >filter by category</option>
                       <% for(var i=1;i<catagory.length;i++){%>
                         <option value="<%= catagory[i].catName%>"><%= catagory[i].catName%></option>
                         <%}%>
@@ -36,8 +36,8 @@
         <div class="gridContain">
         <a href="/productID/<%= data[i]._id%>">  <div  style="background-image: url('<%= data[i].imgName%>')" class="invBox"></div></a>
         </div>
+        <%}%>
       </div>
-      <%}%>
    </div>
  </div>
     <%- include('config/footer.ejs')%> 
