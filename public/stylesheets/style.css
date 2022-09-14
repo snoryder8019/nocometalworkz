@@ -1058,7 +1058,7 @@ th {
   padding: 1%;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 32% 31% 31%;
+  grid-template-rows: auto;
   grid-gap: 3%;
 }
 @media screen and (min-width: 800px) {
