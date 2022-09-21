@@ -1,30 +1,13 @@
 <!DOCTYPE html>
 <html>
     <body>
-        <canvas id="bkgdCanvas"></canvas>  
-        <div id="backgroundFX">
-    <%- include('config/head.ejs')%>
-    <%- include('config/header.ejs')%>
-    <%- include('config/bkgdImg.ejs')%>
-    <div class="mainStyle">
-      <div class="landingPage"> 
-    <h1><%= title%></h1>
-  <form action="/loginU" method="post">
-    <br><h2>username</h2>
-      <input name="user">
-      <br><h2>password</h2>
-      <input name="loginpass"  type="password" >
-      <br>
-      <br>
-      <button type="submit"><h2>login</h2></button>
-      </form>
-      </div>
-  </div>
-     
-  
-  
+         
+        
+          <br> <a href="/auth/google">log in with google</a>
 
- <%- include('config/footer.ejs')%>
+    </body>
+</html>
+
         </div>
         <!--script src="javascripts/backgroundFX1.js"></script-->
 </body>

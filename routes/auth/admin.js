@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { MongoClient} = require('mongodb');
-const client = require('../config/mongo');
+const client = require('../../config/mongo');
 const alert = require('alert');
 const dbName= 'nocoMetal';
 const imageFP = 'nocometalworkz'
@@ -17,25 +17,9 @@ router.use((req,res,next)=>{
 next();
 })
 ////////////////////////////////////
-router.post('/loginU', (req,res)=>{
-  if (req.body.user===process.env.LOGIN && req.body.loginpass===process.env.LOGINPASS){
-    const whitelist = req.ip+", \n";
-    fs.appendFile('tmp/whitelist.txt',whitelist,(err)=>{
-      if(err){
-        console.log(err);
-      }
-      else{
-  console.log('appended to whitelist')
-      }
-    })
-    res.redirect('admin');
-  }else{
-    res.render('login',{title:"credentials failed"});
-  }
-})
-///////////////////////////////////
+
 router.get('/login', function(req, res) {
-  res.render('login', { title: 'login' });
+  res.render('login');
   });
 //////////////////////////////////
 router.get('/admin', (req,res) =>{

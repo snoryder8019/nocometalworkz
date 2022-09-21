@@ -1,5 +1,6 @@
+@use './icons.scss';
 @use './media.scss';
-@use './truck_icon.scss';
+@use './cart.scss';
 //BRAND COLORS
 $red:rgba(255, 0, 0, 0.674);
 $blue:rgba(205, 202, 241, 0.857);
@@ -9,6 +10,7 @@ $pink:rgba(235, 178, 173, 0.733);
 //TYPEFACE
 @font-face {
   font-family:"combo" ;
+  src: url('../fonts/Combo/Combo-Regular.ttf');
   src: url('../fonts/Combo/Combo-Regular.ttf');
 }
 @font-face {

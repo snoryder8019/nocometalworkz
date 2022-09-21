@@ -1,3 +1,11 @@
+.cartIcon {
+  width: 44%;
+}
+.cartIcon_inv {
+  width: 44%;
+  filter: invert(100%);
+}
+
 @media screen and (max-width:768px) {
   .imgBox {
     width: 100%;
@@ -110,30 +118,32 @@
     text-align: justify;
   }
 }
-.truckIcon {
-  min-width: 100px;
-  min-height: 100px;
-  background-color: pink;
+.cart {
+  display: none;
+  position: fixed;
+  margin: 0;
+  padding: 0;
+  width: 95%;
+  height: 85%;
+  z-index: 100;
+  background-color: green;
 }
 
-.wheel {
-  position: absolute;
-  min-height: auto;
-  min-width: 5%;
-  border: 3px solid white;
-  border-radius: 50%;
+.cartContain {
+  margin: 1%;
+  padding: 1%;
+  display: grid;
+  grid-template-columns: 1fr;
 }
-.wheel:after {
-  position: fixed;
-  min-height: 5%;
-  left: 5%;
-  min-width: 5%;
-  border: 3px solid white;
-  border-radius: 50%;
+@media (min-width: 768px) {
+  .cartContain {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 @font-face {
   font-family: "combo";
+  src: url("../fonts/Combo/Combo-Regular.ttf");
   src: url("../fonts/Combo/Combo-Regular.ttf");
 }
 @font-face {

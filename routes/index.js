@@ -5,6 +5,8 @@ var client = require('../config/mongo');
 const alert = require('alert')
 const app = express();
 const dbName = 'nocoMetal'
+const admin = require('./auth/admin');
+const { ensureAuth, ensureGuest} = require('../middleware/auth')
 
 /* GET home page. */
 router.get('/',(req, res, next)=> {

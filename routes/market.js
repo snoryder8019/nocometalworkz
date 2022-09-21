@@ -16,6 +16,7 @@ const { get } = require('http');
 const ObjectId = require('mongodb').ObjectId;
 //////////////////middleware
 router.use((req,res,next)=>{
+  res.locals.user = req.session.user
 next();
 })
 ////////////////////////////////////
@@ -39,7 +40,7 @@ router.get('/market', (req,res) =>{
  
   const catagory = await client.db(dbName).collection('nm_catagories').find().toArray();
   const data = await client.db(dbName).collection('nm_inventory').find().toArray();
-   res.render('market', {title:"Our Designs", data:data, catagory:catagory})
+   res.render('market', {title:"Our Designs", data:data, catagory:catagory, session:req.session})
 console.log(data)
   }
 
@@ -89,5 +90,6 @@ router.get('/productID/:_id', (req,res)=>{
   
   res.render('productID',{title:"Product Page", data:data})
 }})
+
 
 module.exports = router;

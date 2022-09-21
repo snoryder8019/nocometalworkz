@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html>
     <body >
-           
-    <canvas id="bkgdCanvas"></canvas>  
-    <div id="backgroundFX">
-    <%- include('config/head.ejs')%>
-    <%- include('config/header.ejs')%>
-    <%- include('config/bkgdImg.ejs')%>
-    <%- include('config/loadScreen.ejs')%>
-
+        
+        <%- include('partials/cart.ejs')%>
+        <canvas id="bkgdCanvas"></canvas>  
+        <div id="backgroundFX">
+            <%- include('config/head.ejs')%>
+            <%- include('config/header.ejs')%>
+            <%- include('config/bkgdImg.ejs')%>
+            <%- include('config/loadScreen.ejs')%>
+            
     <div class="mainStyle">
         <div class="">
             <div class="eventBody">
-    <h1 class="h1Span"><%=title%></h1>
-</div>
-<form action="/marketOp">
-<div class="marketFilter">
-    <select onchange="submit()" name="catID"   id="">
-        <option >Select a Catagory</option>
-      <% for(var i=1;i<catagory.length;i++){%>
-        <option value="<%= catagory[i].catName%>"><%= catagory[i].catName%></option>
+                <h1 class="h1Span"><%=title%></h1>
+            </div>
+            <form action="/marketOp">
+                <div class="marketFilter">
+                    <select onchange="submit()" name="catID"   id="">
+                        <option >Select a Catagory</option>
+                        <% for(var i=1;i<catagory.length;i++){%>
+                            <option value="<%= catagory[i].catName%>"><%= catagory[i].catName%></option>
         <%}%>
     </select>
 </div>
@@ -32,10 +33,10 @@
               </div>
               <%}%>
             </div>
-     </div>
+        </div>
     
- </div>
+    </div>
     <%- include('config/footer.ejs')%> 
     
-   
+    
     </body> </html>
