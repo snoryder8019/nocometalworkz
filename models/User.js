@@ -24,6 +24,8 @@ const UserSchema = new mongoose.Schema({
     image:{
         type: String,
                     },
+    cartItems:{
+    },
     isAdmin:{
         type:Boolean,
         default:false,

@@ -1,13 +1,17 @@
 
 .cart{
+    overflow-y: scroll;
     display: none;
     position: fixed;
     margin: 0;
     padding: 0;
-    width: 95%;
-    height:85%;
+    top:0;
+    left:0;
+    width: 100vw;
+    height:100vh;
     z-index: 100;
-    background-color:green;
+    background-color:rgb(56, 56, 66)
+    ;
 }
 .cartContain{
     margin:1%;

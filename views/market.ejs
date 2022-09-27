@@ -18,7 +18,7 @@
             <form action="/marketOp">
                 <div class="marketFilter">
                     <select onchange="submit()" name="catID"   id="">
-                        <option >Select a Catagory</option>
+                        <option >Filter by Category</option>
                         <% for(var i=1;i<catagory.length;i++){%>
                             <option value="<%= catagory[i].catName%>"><%= catagory[i].catName%></option>
         <%}%>
@@ -38,5 +38,5 @@
     </div>
     <%- include('config/footer.ejs')%> 
     
-    
+    <%- include('./config/baseScripts.ejs')%>
     </body> </html>

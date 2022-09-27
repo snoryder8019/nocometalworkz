@@ -1,10 +1,12 @@
 
 function getCart(){
+    const cartDiv= document.getElementById('cartDiv')
     console.log('getcart')
-   if(cartDiv.style.display="none")cartDiv.style.display="block";
+    if(cartDiv.style.display="none")cartDiv.style.display="block";
 }
 
 function shrinkCart(){
-    console.log('getcart')
+    const cartDiv= document.getElementById('cartDiv')
+    console.log('shrinkcart')
    if(cartDiv.style.display="none")cartDiv.style.display="none";
 }

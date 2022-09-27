@@ -4,29 +4,32 @@
     <%- include('config/head.ejs')%>
 
 <body onload="bodyLoader()">
-<canvas id="bkgdCanvas"></canvas>  
-<div id="backgroundFX">
+    <%- include('partials/cart.ejs')%>
+    <canvas id="bkgdCanvas"></canvas>  
+   
+    <div id="backgroundFX">
  <div class="mainStyle">
  
     <%- include('config/bkgdImg.ejs')%>
     <%- include('config/header.ejs')%>
     <%- include('config/intro.ejs')%>
-<div class="eventBody">
-     <h1 class="h1Span">Our Newest Workz!</h1>
-     <div class="invGrid">
-         <% for(var i=0;i<data.length;i++){%>
-            <div class="gridContain">
-           <a href="/productID/<%= data[i]._id%>"><div style="background-image: url('<%= data[i].imgName%>');" class="invBox"> </div></a>
-                        
+    <div class="eventBody">
+        <h1 class="h1Span">Our Newest Workz!</h1>
+        <div class="invGrid">
+            <% for(var i=0;i<data.length;i++){%>
+                <div class="gridContain">
+                    <a href="/productID/<%= data[i]._id%>"><div style="background-image: url('<%= data[i].imgName%>');" class="invBox"> </div></a>
+                    
+                </div>
+                <%}%>
             </div>
-            <%}%>
         </div>
-    </div>
-     
+        
+        <%= locals.hellos%>
         
         <div class="midBar">
             <div class="midLeft">
-        <div class="landingPage0">
+                <div class="landingPage0">
             <a href="/market">     <div class="navBox">
                 marketplace
             </div></a>
@@ -68,9 +71,7 @@
 
     </div>
 </div>
-<!--script src="javascripts/backgroundFX1.js"></script-->
-<script src="javascripts/menu.js"></script>
-<script src="javascripts/cart.js"></script>
-<script src="javascripts/bodyLoader.js"></script>
+
+<%- include('./config/baseScripts.ejs')%>
 </body>
  </html>

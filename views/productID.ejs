@@ -8,7 +8,8 @@
     <style></style>
     </head>
 
-<body ">
+<body >
+    <%- include('partials/cart.ejs')%>
 <canvas id="bkgdCanvas"></canvas>  
 <div id="backgroundFX">
  <div class="mainStyle">
@@ -30,25 +31,27 @@
         <div ><h3><%= data.details%></h3></div> 
     </div>
 
-  
-<div>
-    <%- include('./partials/paypal.ejs')%>
-</div>
+
 
 
     <div>
         <a onclick="goBack()"><div class="navBox">back</div></a>
         <a href="/"><div class="navBox">home</div></a>
+        <form action="/addToCart" method="post">
+            <input name="prodId" hidden="true" value="<%= data._id%>"></label>
+            <% if (typeof user == 'object' && user) { %>
+                <button type="submit" value="submit()" ><h2>add to cart</h2></button>
+                <%}else{%>
+                    <a href="/login"><div class="navBox">sign in to add to cart</div></a>
+            <%}%>
+    </form>   
     </div>
 </div>
       <%- include('../views/config/footer.ejs')%>
 
     </div>
 </div>
-
-
+<script src="/javascripts/cart.js"></script>
+<%- include('./config/baseScripts.ejs')%>
 </body>
-<!--script src="/javascripts/pplButton.js"></script-->
-<script src="/javascripts/menu.js"></script>
-<script src="/javascripts/bodyLoader.js"></script>
  </html>

@@ -22,7 +22,8 @@ router.get('/', (req,res,next) =>{
 })
 //
 router.get('/register', function(req, res, next) {
-  res.render('register', { title: 'Contact Us' });
+  const user = req.user
+  res.render('register', { title: 'Contact Us', user:user });
 });
 router.post('/registerUser', (req,res) => {
   var ipHit = req.ip;
@@ -62,8 +63,9 @@ if(emailCheck.email===req.body.email){
             }else{
    const result = await client.db(dbName).collection("registry").insertOne(newUser);
    const data = await client.db(dbName).collection("blogs").find().toArray();
+   const user= req.user
    console.log(' :new user\n id: '+result.insertedId+'\n email: '+ req.body.email+'\nIP:'+ipHit );
-   res.render('index',{title:'thanks for registering! redirected Home.', data:data})}
+   res.render('index',{title:'thanks for registering! redirected Home.', user:user, data:data})}
    }
 })
 

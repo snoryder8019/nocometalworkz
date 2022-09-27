@@ -37,11 +37,14 @@ router.get('/market', (req,res) =>{
   //calling the function
   gettingBlogs().catch(console.error);
   async function getBlogs(client){
- 
+ const user = req.user
   const catagory = await client.db(dbName).collection('nm_catagories').find().toArray();
   const data = await client.db(dbName).collection('nm_inventory').find().toArray();
-   res.render('market', {title:"Our Designs", data:data, catagory:catagory, session:req.session})
-console.log(data)
+  const cart = await client.db(dbName).collection('users').find({"cart":{"_id":ObjectId(req.user._id)}}).toArray();
+
+  console.log(JSON.stringify(cart))
+   res.render('market', {title:"Our Designs",cart:cart,user:user, data:data, catagory:catagory, session:req.session})
+
   }
 
    }
@@ -66,7 +69,8 @@ router.get('/marketOp', (req,res)=>{
       const responses= req.url.slice(req.url.trim().indexOf('=')+1);
       const data = await client.db(dbName).collection('nm_inventory').find({"catRef":responses}).toArray();
       console.log(data+'\n'+responses)
-  res.render('marketOp',{title:"filtered: "+responses, catagory:catagory, data:data})
+      const user= req.user
+  res.render('marketOp',{title:"filtered: "+responses,user:user, catagory:catagory, data:data,session:req.session})
 }})
 
 
@@ -87,9 +91,40 @@ router.get('/productID/:_id', (req,res)=>{
      async function getBlogs(client){
       const newID =ObjectId(req.params._id);
        const data = await client.db(dbName).collection('nm_inventory').findOne({"_id":newID});
-  
-  res.render('productID',{title:"Product Page", data:data})
+  const user= req.user
+  res.render('productID',{title:"Product Page",user:user, data:data,session:req.session})
 }})
 
+router.post('/addToCart',(req,res)=>{
+/////////
+async function gettingCart(){
+  const user= req.user
+  try {
+    await client.connect();
+    await getCart(client);
+  }
+  catch(err){
+    console.log(err)
+  }
+  finally{
+    await client.close();
+  }}
+     gettingCart().catch(console.error);
+  
+   async function getCart(client){
+    const user = req.user
+    const prodId = ObjectId(req.body.prodId)
+        const newID =ObjectId(user.id);
 
+await client.db(dbName).collection('users').updateOne(
+        {"_id":newID},{
+        $push:{ cart:{
+        $nm_inventory :  prodId}
+        }
+});
+////////
+ res.redirect(req.get('referrer'));
+}}
+)
+  
 module.exports = router;

@@ -6,6 +6,12 @@
   filter: invert(100%);
 }
 
+.gglButton {
+  max-width: 45px;
+  max-height: 45px;
+  filter: invert(50%);
+}
+
 @media screen and (max-width:768px) {
   .imgBox {
     width: 100%;
@@ -119,14 +125,17 @@
   }
 }
 .cart {
+  overflow-y: scroll;
   display: none;
   position: fixed;
   margin: 0;
   padding: 0;
-  width: 95%;
-  height: 85%;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   z-index: 100;
-  background-color: green;
+  background-color: #383842;
 }
 
 .cartContain {
@@ -889,6 +898,7 @@ img.mainImg {
 }
 
 .imgBox {
+  background-color: rgba(255, 166, 0, 0.248);
   margin: 0;
   padding: 0;
   min-width: 100%;
@@ -1105,6 +1115,7 @@ th {
   margin: 0;
   border-radius: 20px;
   z-index: 5;
+  background-color: rgba(255, 166, 0, 0.248);
   background-repeat: no-repeat;
   background-position: 10% 40%;
   background-size: cover;

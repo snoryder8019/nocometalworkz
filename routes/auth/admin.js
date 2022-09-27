@@ -11,6 +11,7 @@ const multer = require('multer');
 const { getEnabledCategories } = require('trace_events');
 const upload =multer({dest:"uploads/"});
 const path =require('path');
+const { userInfo } = require('os');
 const ObjectId = require('mongodb').ObjectId;
 //////////////////middleware
 router.use((req,res,next)=>{
@@ -23,6 +24,10 @@ router.get('/login', function(req, res) {
   });
 //////////////////////////////////
 router.get('/admin', (req,res) =>{
+  const user = req.user;
+  if(user.isAdmin===true){
+////
+
    async function gettingEmails(){
     try {
      await client.connect();
@@ -34,6 +39,7 @@ router.get('/admin', (req,res) =>{
     finally{
     await client.close();
   }}
+  ///////
  gettingEmails().catch(console.error);
 
   async function getEmails(client){
@@ -41,8 +47,13 @@ router.get('/admin', (req,res) =>{
    const blogs= await client.db(dbName).collection('blogs').find().toArray();
    const catagory = await client.db(dbName).collection('nm_catagories').find().toArray();
    const colors = await client.db(dbName).collection('nm_colors').find().toArray();
-   res.render('admin', {title:'Admin Page', data:data, blogs:blogs, catagory:catagory, colors:colors});
+   const user = req.user
+   res.render('admin', {title:'Admin Page', data:data, blogs:blogs, catagory:catagory, colors:colors, user:user});
    }
+  }else{
+    res.status(401)
+    res.redirect('config/404')
+  }
   })
 
 

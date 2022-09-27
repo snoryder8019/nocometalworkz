@@ -1,6 +1,7 @@
 @use './icons.scss';
 @use './media.scss';
 @use './cart.scss';
+@use'./scrollbar.scss';
 //BRAND COLORS
 $red:rgba(255, 0, 0, 0.674);
 $blue:rgba(205, 202, 241, 0.857);
@@ -349,6 +350,7 @@ width:100%;
   }
 }
 .imgBox{
+  background-color: rgba(255, 166, 0, 0.248);
   margin: 0;
   padding: 0;
  // width: 100%;
@@ -550,6 +552,7 @@ $invGrad2:$transparent;
   margin:0 ;
   border-radius: 20px;
   z-index: 5;
+  background-color: rgba(255, 166, 0, 0.248);
   background-repeat: no-repeat;
   background-position: 10% 40%;
   background-size: cover;

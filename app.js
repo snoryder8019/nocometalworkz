@@ -50,6 +50,9 @@ app.use(adminRouter);
 app.use(apiRouter);
 app.use(visitorRouter);
 app.use(marketRouter);
+app.use((req,res,next)=>{
+  locals.hellos = "hellos"
+})
 
 
 // catch 404 and forward to error handler
