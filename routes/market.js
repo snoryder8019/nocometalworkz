@@ -43,7 +43,7 @@ router.get('/market', (req,res) =>{
 if(user){
   const cart = await client.db(dbName).collection('users').findOne({"_id":ObjectId(req.user._id)});
    res.render('market', {title:"Our Designs",cart:cart,user:user, data:data, catagory:catagory, session:req.session})
-   console.log(cart)
+   console.log(cart.cart)
   }else{
     res.render('market', {title:"Our Designs",user:user, data:data, catagory:catagory, session:req.session})
 
