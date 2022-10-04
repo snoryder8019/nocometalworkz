@@ -40,11 +40,14 @@ router.get('/market', (req,res) =>{
  const user = req.user
   const catagory = await client.db(dbName).collection('nm_catagories').find().toArray();
   const data = await client.db(dbName).collection('nm_inventory').find().toArray();
-  const cart = await client.db(dbName).collection('users').find({"cart":{"_id":ObjectId(req.user._id)}}).toArray();
-
-  console.log(JSON.stringify(cart))
+if(user){
+  const cart = await client.db(dbName).collection('users').findOne({"_id":ObjectId(req.user._id)});
    res.render('market', {title:"Our Designs",cart:cart,user:user, data:data, catagory:catagory, session:req.session})
+   console.log(cart)
+  }else{
+    res.render('market', {title:"Our Designs",user:user, data:data, catagory:catagory, session:req.session})
 
+  }
   }
 
    }
