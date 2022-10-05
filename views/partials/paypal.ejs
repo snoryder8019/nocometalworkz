@@ -24,19 +24,19 @@
                           {
                               amount: {
                                 currency_code:'USD',
-                                  value: "<%= data.price%>",
+                                  value: "<%= cartTotal%>",
                                   breakdown:{
                                   item_total: {
                                        currency_code: "USD",
-                                        value: "<%= data.price%>"
+                                        value: "<%= cartTotal%>"
                 }          
                               }},
                               items:[{
-                                name:"<%= data.name%>",
-                                description:"<%= data.details%>",
+                                name:"",
+                                description:"some details",
                                 unit_amount:{
                                     currency_code:"USD",
-                                    value:"<%= data.price%>"
+                                    value:""
                                 },
                                 quantity:"1"
                               }]

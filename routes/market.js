@@ -43,7 +43,22 @@ router.get('/market', (req,res) =>{
   const data = await client.db(dbName).collection('nm_inventory').find().toArray();
 if(user){
   const cart = await client.db(dbName).collection('users').findOne({"_id":ObjectId(req.user._id)});
-   res.render('market', {title:"Our Designs",cart:cart,user:user, data:data, catagory:catagory, session:req.session})
+           //////total cart items
+           const cartArray = []
+           var cartTotal=0;
+    
+           function cartGather(){
+            for (i=0;i<cart.cart.length;i++){
+                cartArray.push(parseInt(cart.cart[i].price))
+                cartTotal +=cartArray[i]
+            }
+          }
+            cartGather()
+                   console.log(cartTotal)
+            console.log(cartArray)
+         ////END CART TOTALS
+  
+  res.render('market', {title:"Our Designs",cartTotal:cartTotal,cart:cart,user:user, data:data, catagory:catagory, session:req.session})
   }else{
     res.render('market', {title:"Our Designs",user:user, data:data, catagory:catagory, session:req.session})
 
@@ -74,6 +89,21 @@ router.get('/marketOp', (req,res)=>{
       const data = await client.db(dbName).collection('nm_inventory').find({"catRef":responses}).toArray();
       if(user){
         const cart = await client.db(dbName).collection('users').findOne({"_id":ObjectId(req.user._id)});
+                //////total cart items
+                const cartArray = []
+                var cartTotal=0;
+         
+                function cartGather(){
+                 for (i=0;i<cart.cart.length;i++){
+                     cartArray.push(parseInt(cart.cart[i].price))
+                     cartTotal +=cartArray[i]
+                 }
+               }
+                 cartGather()
+                        console.log(cartTotal)
+                 console.log(cartArray)
+              ////END CART TOTALS
+       
         const cartItemsID = [];
         for(let i =0;i<cart.cart.length;i++){
           let pushItem = [
@@ -81,13 +111,8 @@ router.get('/marketOp', (req,res)=>{
           ]
           cartItemsID.push(pushItem)
           
-        }
-        
-        
-     
-
-        
-         res.render('marketOp',{title:"filtered: "+responses,user:user,cart:cart ,catagory:catagory, data:data,session:req.session})
+        }              
+         res.render('marketOp',{title:"filtered: ",cartTotal:cartTotal,responses,user:user,cart:cart ,catagory:catagory, data:data,session:req.session})
         }else{
       res.render('marketOp',{title:"filtered: "+responses,user:user, catagory:catagory, data:data,session:req.session})
 
@@ -115,7 +140,22 @@ router.get('/productID/:_id', (req,res)=>{
        const data = await client.db(dbName).collection('nm_inventory').findOne({"_id":newID});
        if(user){
          const cart = await client.db(dbName).collection('users').findOne({"_id":ObjectId(req.user._id)});
-         res.render('productID',{title:"Product Page" ,cart:cart,user:user, data:data,session:req.session})
+   
+         //////total cart items
+         const cartArray = []
+       var cartTotal=0;
+
+       function cartGather(){
+        for (i=0;i<cart.cart.length;i++){
+            cartArray.push(parseInt(cart.cart[i].price))
+            cartTotal +=cartArray[i]
+        }
+      }
+        cartGather()
+               console.log(cartTotal)
+        console.log(cartArray)
+     ////END CART TOTALS
+         res.render('productID',{title:"Product Page" ,cartTotal:cartTotal,cart:cart,user:user, data:data,session:req.session})
         }else{
           res.render('productID',{title:"Product Page" ,user:user, data:data,session:req.session})
           

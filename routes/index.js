@@ -29,7 +29,21 @@ const user= req.user
     const data = await client.db(dbName).collection('nm_inventory').find().toArray();
     if(user){
     const cart = await client.db(dbName).collection('users').findOne({"_id":ObjectId(req.user._id)});
-    res.render('index', {title:'Welcome',cart:cart,user:user, data:data, blogs:blogs,session:req.session})
+            //////total cart items
+            const cartArray = []
+            var cartTotal=0;
+     
+            function cartGather(){
+             for (i=0;i<cart.cart.length;i++){
+                 cartArray.push(parseInt(cart.cart[i].price))
+                 cartTotal +=cartArray[i]
+             }
+           }
+             cartGather()
+                    console.log(cartTotal)
+             console.log(cartArray)
+          ////END CART TOTALS
+    res.render('index', {title:'Welcome',cartTotal:cartTotal,cart:cart,user:user, data:data, blogs:blogs,session:req.session})
   }else{
       res.render('index', {title:'Welcome',user:user, data:data, blogs:blogs,session:req.session})
 
