@@ -13,6 +13,7 @@ const upload =multer({dest:"uploads/"});
 const path =require('path');
 const { stringify } = require('querystring');
 const { get } = require('http');
+const { escapeRegExpChars } = require('ejs/lib/utils');
 const ObjectId = require('mongodb').ObjectId;
 //////////////////middleware
 router.use((req,res,next)=>{
@@ -43,7 +44,6 @@ router.get('/market', (req,res) =>{
 if(user){
   const cart = await client.db(dbName).collection('users').findOne({"_id":ObjectId(req.user._id)});
    res.render('market', {title:"Our Designs",cart:cart,user:user, data:data, catagory:catagory, session:req.session})
-   console.log(cart.cart)
   }else{
     res.render('market', {title:"Our Designs",user:user, data:data, catagory:catagory, session:req.session})
 
@@ -68,13 +68,31 @@ router.get('/marketOp', (req,res)=>{
     //calling the function
     gettingBlogs().catch(console.error);
     async function getBlogs(client){
+      const user= req.user
       const catagory = await client.db(dbName).collection('nm_catagories').find().toArray();
       const responses= req.url.slice(req.url.trim().indexOf('=')+1);
       const data = await client.db(dbName).collection('nm_inventory').find({"catRef":responses}).toArray();
-      console.log(data+'\n'+responses)
-      const user= req.user
-  res.render('marketOp',{title:"filtered: "+responses,user:user, catagory:catagory, data:data,session:req.session})
-}})
+      if(user){
+        const cart = await client.db(dbName).collection('users').findOne({"_id":ObjectId(req.user._id)});
+        const cartItemsID = [];
+        for(let i =0;i<cart.cart.length;i++){
+          let pushItem = [
+            cart.cart[i].$nm_inventory
+          ]
+          cartItemsID.push(pushItem)
+          
+        }
+        
+        
+     
+
+        
+         res.render('marketOp',{title:"filtered: "+responses,user:user,cart:cart ,catagory:catagory, data:data,session:req.session})
+        }else{
+      res.render('marketOp',{title:"filtered: "+responses,user:user, catagory:catagory, data:data,session:req.session})
+
+    }
+        }})
 
 
 router.get('/productID/:_id', (req,res)=>{
@@ -92,15 +110,21 @@ router.get('/productID/:_id', (req,res)=>{
        gettingBlogs().catch(console.error);
     
      async function getBlogs(client){
+       const user= req.user
       const newID =ObjectId(req.params._id);
        const data = await client.db(dbName).collection('nm_inventory').findOne({"_id":newID});
-  const user= req.user
-  res.render('productID',{title:"Product Page",user:user, data:data,session:req.session})
-}})
-
-router.post('/addToCart',(req,res)=>{
-/////////
-async function gettingCart(){
+       if(user){
+         const cart = await client.db(dbName).collection('users').findOne({"_id":ObjectId(req.user._id)});
+         res.render('productID',{title:"Product Page" ,cart:cart,user:user, data:data,session:req.session})
+        }else{
+          res.render('productID',{title:"Product Page" ,user:user, data:data,session:req.session})
+          
+        }
+      }})
+      
+      router.post('/addToCart',(req,res)=>{
+        /////////
+        async function gettingCart(data){
   const user= req.user
   try {
     await client.connect();
@@ -112,22 +136,60 @@ async function gettingCart(){
   finally{
     await client.close();
   }}
-     gettingCart().catch(console.error);
+  gettingCart().catch(console.error);
   
-   async function getCart(client){
+  async function getCart(client){
     const user = req.user
-    const prodId = ObjectId(req.body.prodId)
-        const newID =ObjectId(user.id);
 
-await client.db(dbName).collection('users').updateOne(
-        {"_id":newID},{
+    const prodId = ObjectId(req.body.prodId)
+    const newID =ObjectId(user.id);
+    // const data = await client.db(dbName).collection('nm_inventory').findOne({"_id":newID});
+    
+    await client.db(dbName).collection('users').updateOne(
+      {"_id":newID},{
         $push:{ cart:{
-        $nm_inventory :  prodId}
+          nm_inventory :  prodId,
+          price:req.body.prodPrice,
+          name:req.body.prodName,
+          img:req.body.prodImg}
         }
 });
 ////////
  res.redirect(req.get('referrer'));
 }}
 )
-  
+ 
+
+//////DELETE CART ITEM **Stable 10-5-22
+router.post('/delCart',(req,res)=>{
+  async function deleteCart(){
+    try{
+      await client.connect();
+      await getCart(client);  
+    }
+    catch(err){
+      console.log("error"+err);
+    }
+    finally{
+      await client.close();
+    }
+  }
+  deleteCart().catch(console.error);
+  async function getCart(client){
+    const newID =req.body.delCart;
+    const newCart =ObjectId(req.body.cartID);
+   // const cartFind =await client.db(dbName).collection('users').findOne({"_id":newCart});
+    const cartFind = await client.db(dbName).collection('users').findOne({"_id":ObjectId(req.user._id)});
+    const delItem = await client.db(dbName).collection('users').updateOne(
+      {"_id":ObjectId(req.user._id)},
+      {$pull:{"cart":{"name":req.body.cartNum}}});
+    //const cart = await client.db(dbName).collection('users').findOne({"_id":ObjectId(req.user._id)});
+    console.log(req.body.cartNum[0].name)
+    console.log(req.body.cartNum)
+   console.log(delItem)
+    res.redirect(req.get('referrer'));
+  }
+})
+//////////
+
 module.exports = router;

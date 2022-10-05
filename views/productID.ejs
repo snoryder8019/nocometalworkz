@@ -39,6 +39,9 @@
         <a href="/"><div class="navBox">home</div></a>
         <form action="/addToCart" method="post">
             <input name="prodId" hidden="true" value="<%= data._id%>"></label>
+            <input name="prodName" hidden="true" value="<%= data.name%>"></label>
+            <input name="prodPrice" hidden="true" value="<%= data.price%>"></label>
+            <input name="prodImg" hidden="true" value="<%= data.imgName%>"></label>
             <% if (typeof user == 'object' && user) { %>
                 <button type="submit" value="submit()" ><h2>add to cart</h2></button>
                 <%}else{%>

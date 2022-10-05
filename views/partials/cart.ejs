@@ -3,6 +3,44 @@
         <h1>Cart Details</h1>
 <div class="cartContain">
    
+<%if(typeof user == 'object' && user){%>
+ <!--THERE IS A USER-->
+<%=user.name%>
+    <%if(typeof cart.cart == 'object' && cart.cart[0]){%>
+      <table>
+        <thead>
+<td>name</td>
+<td>image</td>
+<td>price</td>
+        </thead>
+<tbody>
+    <%for(let i=0;i<cart.cart.length;i++){%>
+    <tr>
+       
+        <td> <h4>   <%=cart.cart[i].name%></h4></td>
+        <td>   <img src="/<%=cart.cart[i].img%>"></td>
+        <td>  $  <%=cart.cart[i].price%>.00</td>
+        <td><form action="/delCart"method="post"><button name="cartNum" type="submit" value="<%=cart.cart[i].name%>">delete Item</button></form> </td>
+    </tr>
+    <%}%>
+</tbody>
+    </table>
+
+    <div>
+
+        <%- include('paypal.ejs')%>
+
+    </div>
+     <!--THERE IS A CART ITEM PRESENT-->
+        <%}else{%>
+            <h2>You have no Cart Items</h2>
+           <!--THERE ARE NO CART ITEMS-->
+    <%}%>
+
+    <%}else{%>
+       <!--THERE IS NO USER-->
+<%}%>
+
 
     
   

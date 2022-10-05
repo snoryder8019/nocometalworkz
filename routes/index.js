@@ -1,9 +1,11 @@
 var express = require('express');
 var router = express.Router();
 const { MongoClient} = require('mongodb');
+
 var client = require('../config/mongo');
 const alert = require('alert')
 const app = express();
+const ObjectId = require('mongodb').ObjectId;
 const dbName = 'nocoMetal'
 const admin = require('./auth/admin');
 const { ensureAuth, ensureGuest} = require('../middleware/auth')
@@ -25,7 +27,13 @@ router.get('/',(req, res, next)=> {
 const user= req.user
     const blogs = await client.db(dbName).collection('blogs').find().toArray();
     const data = await client.db(dbName).collection('nm_inventory').find().toArray();
-    res.render('index', {title:'Welcome',user:user, data:data, blogs:blogs,session:req.session})
+    if(user){
+    const cart = await client.db(dbName).collection('users').findOne({"_id":ObjectId(req.user._id)});
+    res.render('index', {title:'Welcome',cart:cart,user:user, data:data, blogs:blogs,session:req.session})
+  }else{
+      res.render('index', {title:'Welcome',user:user, data:data, blogs:blogs,session:req.session})
+
+    }
     }
 });
 
