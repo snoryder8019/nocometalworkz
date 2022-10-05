@@ -43,7 +43,7 @@
             <input name="prodPrice" hidden="true" value="<%= data.price%>"></label>
             <input name="prodImg" hidden="true" value="<%= data.imgName%>"></label>
             <% if (typeof user == 'object' && user) { %>
-                <button type="submit" value="submit()" ><h2>add to cart</h2></button>
+                <button id="productAddButton" type="submit" value="submit()" ><h2>add to cart</h2></button>
                 <%}else{%>
                     <a href="/login"><div class="navBox">sign in to add to cart</div></a>
             <%}%>
@@ -56,5 +56,6 @@
 </div>
 <script src="/javascripts/cart.js"></script>
 <%- include('./config/baseScripts.ejs')%>
+
 </body>
  </html>
