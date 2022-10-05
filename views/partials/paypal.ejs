@@ -23,26 +23,10 @@
                       purchase_units: [
                           {
                               amount: {
-                                currency_code:'USD',
-                                  value: "<%= cartTotal%>",
-                                  breakdown:{
-                                  item_total: {
-                                       currency_code: "USD",
-                                        value: "<%= cartTotal%>"
-                }          
-                              }},
-                              items:[{
-                                name:"",
-                                description:"some details",
-                                unit_amount:{
-                                    currency_code:"USD",
-                                    value:""
-                                },
-                                quantity:"1"
-                              }]
+                                  value: <%=cartTotal%>
+                              }
                           }
                       ]
-                   
                   };
 
                   return actions.order.create(createOrderPayload);
