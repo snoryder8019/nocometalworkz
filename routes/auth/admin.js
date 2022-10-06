@@ -20,7 +20,8 @@ next();
 ////////////////////////////////////
 
 router.get('/login', function(req, res) {
-  res.render('login');
+  const user = req.user
+  res.render('login',{user:user});
   });
 //////////////////////////////////
 router.get('/admin', (req,res) =>{

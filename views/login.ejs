@@ -2,16 +2,40 @@
 <html>
     
     <%- include('config/head.ejs')%>
-
+    <canvas id="bkgdCanvas"></canvas>  
+   
+    <div id="backgroundFX">
+ <div class="mainStyle">
+ 
+    <%- include('config/bkgdImg.ejs')%>
+    <%- include('config/header.ejs')%>
     <body>
          
         <div class="eventBody">
-          <br> <a href="/auth/google">log in with <div ><img  class="gglButton" src="/images/icons/shipping.png" alt=""></div></a>
+        <div><a style="text-align:center" href="/auth/google">sign in with Google:
+          <div ><img  class="gglButton" src="/images/icons/google.png" alt=""></div></a>
+        </div> 
         </div>
-    </body>
-</html>
+  <div class="eventBody">
+    <form action="/login/password" method="post">
+      <div>
+          <label for="username">Username</label>
+          <input id="username" name="username" type="text" autocomplete="username" required />
+      </div>
+      <div>
+          <label for="current-password">Password</label>
+          <input id="current-password" name="password" type="password" autocomplete="current-password" required />
+      </div>
+      <div>
+          <button type="submit">Sign in</button>
+      </div>
+  </form>
+  </div>
 
         </div>
+        
+      </div>
+      <%- include('config/footer.ejs')%>
         <!--script src="javascripts/backgroundFX1.js"></script-->
 </body>
 </html>
