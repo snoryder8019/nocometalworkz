@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon --trace-warnings ./bin/www"
+    "start": "nodemon --trace-warnings ./bin/www",
+    "dev": "nodemon --trace-warnings ./bin/www"
   },
   "dependencies": {
     "alert": "^5.0.10",
@@ -22,6 +23,7 @@
     "morgan": "^1.9.1",
     "multer": "^1.4.5-lts.1",
     "passport": "^0.6.0",
+    "passport-facebook": "^3.0.0",
     "passport-google-oauth20": "^2.0.0",
     "passport-google-oidc": "^0.1.0",
     "passport-local": "^1.0.0"
@@ -29,5 +31,8 @@
   "description": "This is a validated registration form using vanilla JS, node, express, and ejs.",
   "main": "app.js",
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "kill-port": "^2.0.1"
+  }
 }
