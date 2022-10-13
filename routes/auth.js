@@ -17,22 +17,22 @@ router.get('/google/callback', passport.authenticate(
   }
 );
 
-// router.get('/auth/facebook',
-//   passport.authenticate('facebook',
-//   {scope:'profileFields'},
-//   {successRedirect:'/'},
-//   {failureRedirect:'/login'}
-//     )
-// );
+router.get('/facebook',
+  passport.authenticate('facebook',
 
-// router.get('/auth/facebook/callback',
-//   passport.authenticate('facebook', 
-//   {failureRedirect: '/login' }),
-//   function(req, res) {
-//     // Successful authentication, redirect home.
-//     res.redirect('/');
-//     }
-//   );
+  {successRedirect:'/'},
+  {failureRedirect:'/login'}
+    )
+);
+
+router.get('facebook/callback',
+  passport.authenticate('facebook', 
+  {failureRedirect: '/login' }),
+  function(req, res) {
+    // Successful authentication, redirect home.
+    res.redirect('/');
+    }
+  );
 
 
 

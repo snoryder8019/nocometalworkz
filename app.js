@@ -20,9 +20,6 @@ var apiRouter =require('./routes/api');
 var marketRouter =require('./routes/market');
 const auth = require('./routes/auth');
 
-
-
-
 var app = express();
 connectDB();
 // view engine setup
