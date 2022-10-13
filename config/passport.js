@@ -40,7 +40,7 @@ module.exports = function(passport){
 passport.use(new FacebookStrategy({
   clientID: process.env.FBAPPID,
   clientSecret: process.env.FBAPPSEC,
-  callbackURL:"/auth/facebook/callback",
+  callbackURL:"https://nocometalworkz.com/auth/facebook/callback",
   profileFields:['id','displayName']
 },
 async (accessToken, refreshToken, profile, done) => { 
