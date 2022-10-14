@@ -19,7 +19,7 @@ router.get('/google/callback', passport.authenticate(
 
 router.get('/facebook',
   passport.authenticate('facebook',
-
+{scope:['email', 'id']},
   {successRedirect:'/'},
   {failureRedirect:'/login'}
     )
