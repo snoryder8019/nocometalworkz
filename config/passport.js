@@ -40,12 +40,34 @@ module.exports = function(passport){
 passport.use(new FacebookStrategy({
   clientID: process.env.FBAPPID,
   clientSecret: process.env.FBAPPSEC,
-  callbackURL:"nocometalworkz.com/auth/facebook/callback",
+  callbackURL:"http://localhost:8282/auth/facebook/callback",
   profileFields:['id','displayName']
 },
-async (accessToken, refreshToken, profile, done) => { 
-console.log(profileFields)
-done()
+async (accessToken, refreshToken, profile, done) => {   
+  const newUser = {   
+      facebookId: profile.id,
+  //  email:profile.emails[0].value,
+      displayName: profile.displayName,
+  //  firstName:profile.name.givenName,
+  //  lastName:profile.name.familyName,
+      password:"",
+      isAdmin:false,
+  //  image: profile.photos[0].value
+  }
+  try{
+    console.log()
+      let user = await User.findOne({providerId:profile.id})
+      if(user){
+console.log('if user true')
+done(null,user)
+}else{
+  console.log('if user false')
+  user = await User.create(newUser)
+done(null,user)
+  }
+}catch (err){
+  console.error(err)
+      }
 }
 ))
 ////////////
