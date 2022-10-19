@@ -12,23 +12,24 @@ const { getEnabledCategories } = require('trace_events');
 const upload =multer({dest:"uploads/"});
 const path =require('path');
 const { userInfo } = require('os');
+const { authenticate } = require('passport');
+//const passport = require('../../config/passport');
+const passport = require('../../config/passport');
 const ObjectId = require('mongodb').ObjectId;
 //////////////////middleware
 router.use((req,res,next)=>{
 next();
 })
 ////////////////////////////////////
-
 router.get('/login', function(req, res) {
   const user = req.user
   res.render('login',{user:user});
-  });
+  }); 
 //////////////////////////////////
 router.get('/admin', (req,res) =>{
   const user = req.user;
   if(user.isAdmin===true){
 ////
-
    async function gettingEmails(){
     try {
      await client.connect();
@@ -42,7 +43,6 @@ router.get('/admin', (req,res) =>{
   }}
   ///////
  gettingEmails().catch(console.error);
-
   async function getEmails(client){
    const data = await client.db(dbName).collection('registry').find().toArray();
    const blogs= await client.db(dbName).collection('blogs').find().toArray();
