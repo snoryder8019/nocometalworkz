@@ -1,5 +1,7 @@
 var express = require('express');
 var router = express.Router();
+const passport = require('passport')
+const bcrypt = require('bcrypt');
 const app = express();
 const { MongoClient} = require('mongodb');
 var client = require('../config/mongo');
@@ -25,18 +27,29 @@ router.get('/register', function(req, res, next) {
   const user = req.user
   res.render('register', { title: 'Contact Us', user:user });
 });
-router.post('/registerUser', (req,res) => {
+//////
+// router.post('/loginUser', 
+// passport.authenticate('local',
+// {failureRedirect:'/login'},
+// {successRedirect:'/'}
+// ));
+/////
+router.post('/regUser', (req,res) => {
   var ipHit = req.ip;
   async function main(){
    try {
     await client.connect();
    // await checkEmail(client);
-    await createUser(client,{
-      type:req.body.regType,
-      name: req.body.fname,
-      email: req.body.email,
-      agree : req.body.agree,
-      message:req.body.message
+    await createUser(client,{    
+      provider:'local', 
+      providerId:'local'+Date.now(),
+      name: req.body.name,
+      email: req.body.email,    
+      password:bcrypt.hash(req.body.password, 10),
+      isAdmin: false,
+      cart:[],
+      createdAt: Date.now()
+
     });
   }catch (err){
     console.log(err)
@@ -48,42 +61,25 @@ router.post('/registerUser', (req,res) => {
   main().catch(console.error);
 ///
 async function checkEmail(client){
-  const emailCheck = await client.db(dbName).collection('registry').findOne({email:req.body.email});
+  const emailCheck = await client.db(dbName).collection('users').findOne({email:req.body.email});
 if(emailCheck.email===req.body.email){
 }else{
   console.log('tayken')}
 }
 ///
     async function createUser(client,newUser){
-      const emailCheck = await client.db(dbName).collection('registry').findOne({email:req.body.email});
+      const emailCheck = await client.db(dbName).collection('users').findOne({email:req.body.email});
       if(emailCheck){
         console.log(emailCheck);
-        res.render('register',{title:'email taken'})
         throw Error('TAYKEN');
+        res.redirect('/login')
             }else{
-   const result = await client.db(dbName).collection("registry").insertOne(newUser);
+   const result = await client.db(dbName).collection("users").insertOne(newUser);
    const data = await client.db(dbName).collection("blogs").find().toArray();
    const user= req.user
    console.log(' :new user\n id: '+result.insertedId+'\n email: '+ req.body.email+'\nIP:'+ipHit );
-   res.render('index',{title:'thanks for registering! redirected Home.', user:user, data:data})}
+   res.redirect('/login')}
    }
 })
-
-//multer trial
-// router.post( '/upload',upload.single('photo'), (req,res, next)=>{
-// //
-// fs.readdir('./public/images/uploads', 'utf-8',(err,data)=>{
-//   if (err){
-//   console.log(err);
-//   }
-// const fileCount = data.length
-//  })
-// const ext = req.file.originalname.split(".")[1];
-// const newFile = "uploadImage"+fileCount+"."+ext;
-// console.log(newFile);
-//   }
-// );
-
-
 
   module.exports = router;

@@ -48,7 +48,8 @@ app.use(apiRouter);
 app.use(visitorRouter);
 app.use(marketRouter);
 app.use((req,res,next)=>{
-  locals.hellos = "hellos"
+ console.log(req.originalUrl)
+ next()
 })
 
 

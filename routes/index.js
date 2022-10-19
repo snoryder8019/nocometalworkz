@@ -45,7 +45,7 @@ const user= req.user
           ////END CART TOTALS
     res.render('index', {title:'Welcome',cartTotal:cartTotal,cart:cart,user:user, data:data, blogs:blogs,session:req.session})
   }else{
-      res.render('index', {title:'Welcome',user:user, data:data, blogs:blogs,session:req.session})
+      res.render('index', {title:'Welcome',user:null, data:data, blogs:blogs,session:req.session})
 
     }
     }

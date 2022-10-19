@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "alert": "^5.0.10",
+    "bcrypt": "^5.1.0",
     "connect-mongo": "^4.6.0",
     "cookie-parser": "^1.4.6",
     "debug": "~2.6.9",
@@ -15,6 +16,7 @@
     "ejs": "^3.1.7",
     "ejs-lint": "^1.2.2",
     "express": "^4.16.4",
+    "express-flash": "^0.0.2",
     "express-session": "^1.17.3",
     "http-errors": "^1.6.3",
     "logger": "0.0.1",

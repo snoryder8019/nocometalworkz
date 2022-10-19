@@ -3,44 +3,38 @@ const passport = require('passport');
 const { ensureAuth } = require('../middleware/auth');
 const router = express.Router();
 
-router.get('/google', passport.authenticate(
-  'google',
-  {scope:['profile','email','openid']},
-  {failureRedirect:'login'}),
-);
+router.post('/login', passport.authenticate('local',
+  {failureRedirect:'/login'},
+  {successRedirect:'/'}));
 
-router.get('/google/callback', passport.authenticate(
-  'google',
+
+router.get('/google', 
+passport.authenticate('google',
+  {scope:['profile','email','openid']},
+  {failureRedirect:'login'}));
+
+router.get('/google/callback', 
+passport.authenticate('google',
    {failureRedirect:'login'}),
   (req,res)=>{
-   res.redirect('/market')
-  }
-);
+   res.redirect('/market')});
 
 router.get('/facebook',
   passport.authenticate('facebook',
 {scope:['email', 'id']},
   {successRedirect:'/'},
-  {failureRedirect:'/login'}
-    )
-);
+  {failureRedirect:'/login'}));
 
-router.get('facebook/callback',
+router.get('/auth/facebook/callback',
   passport.authenticate('facebook', 
   {successRedirect:'/'},
-  {failureRedirect: '/login' }
-  ),
-  
-  );
-
-
-
+  {failureRedirect: '/login' }));  
 
   router.get('/logout', function(req, res, next) {
     req.logout(function(err){
       if(err){return next(err)}
-      res.redirect('/');
-    }
-    );
-  });
+      res.redirect('/'); })});
+
+      
+
 module.exports = router;
