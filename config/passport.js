@@ -23,7 +23,7 @@ module.exports = function(passport){
       return done(null, user);
     });
   }));
-  
+  //google and facebook strat below here
   passport.use(new GoogleStrategy ({
       clientID:process.env.GGLCID,
       clientSecret:process.env.GGLSEC,
@@ -59,7 +59,7 @@ module.exports = function(passport){
 passport.use(new FacebookStrategy({
   clientID: process.env.FBAPPID,
   clientSecret: process.env.FBAPPSEC,
-  callbackURL: 'http://localhost:8282/auth/facebook/callback',
+  callbackURL: 'localhost:8282/auth/facebook/callback',
   profileFields: ['id', 'email', 'first_name', 'last_name'],
 },
 function(token, refreshToken, profile, done) {
