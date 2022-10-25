@@ -3,10 +3,12 @@ const passport = require('passport');
 const { ensureAuth } = require('../middleware/auth');
 const router = express.Router();
 
-router.post('/login', passport.authenticate('local',
-  {failureRedirect:'/login'},
-  {successRedirect:'/'}));
-
+router.post('/login', 
+  passport.authenticate('local', 
+  { failureRedirect: '/login' },
+  function(req, res) {
+   return res.redirect('/');
+  }));
 
 router.get('/google', 
 passport.authenticate('google',
@@ -22,7 +24,7 @@ passport.authenticate('google',
 router.get('/facebook',
   passport.authenticate('facebook',
 {scope:['email', 'id']},
-  {successRedirect:'/'},
+ // {successRedirect:'/'},
   {failureRedirect:'/login'}));
 
 router.get('/auth/facebook/callback',
@@ -33,7 +35,7 @@ router.get('/auth/facebook/callback',
   router.get('/logout', function(req, res, next) {
     req.logout(function(err){
       if(err){return next(err)}
-      res.redirect('/'); })});
+    return  res.redirect('/'); })});
 
       
 

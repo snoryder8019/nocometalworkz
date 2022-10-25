@@ -10,7 +10,12 @@
     <%- include('config/bkgdImg.ejs')%>
     <%- include('config/header.ejs')%>
     <body>
-         <a href="/auth/facebook">sign in with facebook</a>
+      <div class="eventBody">
+        <div><a style="text-align:center" href="/auth/facebook">sign in with Facebook:
+          <div ><img  class="gglButton" src="/images/icons/facebook.png" alt=""></div></a>
+        </div> 
+        </div>
+       
         <div class="eventBody">
         <div><a style="text-align:center" href="/auth/google">sign in with Google:
           <div ><img  class="gglButton" src="/images/icons/google.png" alt=""></div></a>
@@ -20,7 +25,7 @@
     <h2>
       Sign in with Email:
     </h2>
-    <form action="/login" method="post">
+    <form action="/auth/login" method="post">
       <div>
           <label for="email">email</label>
           <input id="email" name="email" type="text"  required />

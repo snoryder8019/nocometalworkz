@@ -52,7 +52,7 @@ router.get('/admin', (req,res) =>{
    res.render('admin', {title:'Admin Page', data:data, blogs:blogs, catagory:catagory, colors:colors, user:user});
    }
   }else{
-    res.status(401)
+  //  res.status(401)
     res.redirect('config/404')
   }
   })
@@ -220,7 +220,7 @@ router.post('/delColor',(req,res)=>{
   async function getColor(client){
     const newID =ObjectId(req.body.colorDel);
   const deleteIt = await client.db(dbName).collection('nm_colors').deleteOne({"_id":newID});
-  res.redirect('admin');
+return  res.redirect('admin');
   }
 })
 
@@ -246,7 +246,7 @@ router.post('/newCat', function(req,res){
  saveCat().catch(console.error);
    async function createCat(client,newCat){
     const result = await client.db(dbName).collection('nm_catagories').insertOne(newCat);
-    res.redirect('admin');
+  return  res.redirect('admin');
     }
    }
 )
@@ -270,7 +270,7 @@ router.post('/delCat',(req,res)=>{
     const newID =ObjectId(req.body.catDel);
     console.log('modded')
  // const deleteIt = await client.db(dbName).collection('nm_catagories').deleteOne({"_id":newID});
-  res.redirect('admin');
+ return res.redirect('admin');
   }
 })
 module.exports = router;

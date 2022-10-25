@@ -41,7 +41,8 @@
       <th>Blog Title</th><th>Date or Subtitle</th><th>Remove</th>
         </thead>
         <tbody>
-          <% for(var i=0; i<blogs.length;i++){%>
+          <%if(typeof blogs == 'object' && blogs[0]){%>
+          <% for(var i=0; i<blogs?.length;i++){%>
           <tr>
               <td><%= blogs[i].bTitle %></td>
               <td><%= blogs[i].bSubtitle%></td>
@@ -52,6 +53,7 @@
                    </form></td>
            </tr>
           <% } %>
+          <%}%>
         </tbody>
       </table>
      </div>
@@ -67,9 +69,11 @@
       <p>Category Type:</p>
       <select name="catSelect"  id="">
          <option value="">Select a Category</option>
-         <% for(let i=0;i<catagory.length;i++){%>
+         <%if(typeof blogs == 'object' && blogs[0]){%>
+         <% for(let i=0;i<catagory?.length;i++){%>
          <option  value="<%= catagory[i].catName%>"><%= catagory[i].catName%></option>
-          <%}%>
+         <%}%>
+         <%}%>
         </select>
 
         <input placeholder="Item Name"  type="text" name="inventoryName">

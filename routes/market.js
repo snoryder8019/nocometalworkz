@@ -58,9 +58,9 @@ if(user){
             console.log(cartArray)
          ////END CART TOTALS
   
-  res.render('market', {title:"Our Designs",cartTotal:cartTotal,cart:cart,user:user, data:data, catagory:catagory, session:req.session})
+ return res.render('market', {title:"Our Designs",cartTotal:cartTotal,cart:cart,user:user, data:data, catagory:catagory, session:req.session})
   }else{
-    res.render('market', {title:"Our Designs",user:user, data:data, catagory:catagory, session:req.session})
+   return res.render('market', {title:"Our Designs",user:user, data:data, catagory:catagory, session:req.session})
 
   }
   }
@@ -112,9 +112,9 @@ router.get('/marketOp', (req,res)=>{
           cartItemsID.push(pushItem)
           
         }              
-         res.render('marketOp',{title:"filtered: ",cartTotal:cartTotal,responses,user:user,cart:cart ,catagory:catagory, data:data,session:req.session})
+        return res.render('marketOp',{title:"filtered: ",cartTotal:cartTotal,responses,user:user,cart:cart ,catagory:catagory, data:data,session:req.session})
         }else{
-      res.render('marketOp',{title:"filtered: "+responses,user:user, catagory:catagory, data:data,session:req.session})
+     return res.render('marketOp',{title:"filtered: "+responses,user:user, catagory:catagory, data:data,session:req.session})
 
     }
         }})
@@ -155,9 +155,9 @@ router.get('/productID/:_id', (req,res)=>{
                console.log(cartTotal)
         console.log(cartArray)
      ////END CART TOTALS
-         res.render('productID',{title:"Product Page" ,cartTotal:cartTotal,cart:cart,user:user, data:data,session:req.session})
+        return res.render('productID',{title:"Product Page" ,cartTotal:cartTotal,cart:cart,user:user, data:data,session:req.session})
         }else{
-          res.render('productID',{title:"Product Page" ,user:user, data:data,session:req.session})
+         return res.render('productID',{title:"Product Page" ,user:user, data:data,session:req.session})
           
         }
       }})
@@ -195,7 +195,7 @@ router.get('/productID/:_id', (req,res)=>{
         }
 });
 ////////
- res.redirect(req.get('referrer'));
+return res.redirect(req.get('referrer'));
 }}
 )
  
@@ -227,7 +227,7 @@ router.post('/delCart',(req,res)=>{
     console.log(req.body.cartNum[0].name)
     console.log(req.body.cartNum)
    console.log(delItem)
-    res.redirect(req.get('referrer'));
+   return res.redirect(req.get('referrer'));
   }
 })
 //////////
