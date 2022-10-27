@@ -1,28 +1,11 @@
 const GoogleStrategy = require('passport-google-oauth20').Strategy
-const FacebookStrategy = require('passport-facebook').Strategy
-const LocalStrategy = require('passport-local').Strategy
 const mongoose = require('mongoose')
 const flash = require('express-flash')
 const bcrypt = require('bcrypt')
 const User = require('../models/User')
 module.exports = function(passport){
+ 
   
-  passport.use(new LocalStrategy({
-    email: 'email',
-    password: 'password',   
-  },
-  function(email , password, done) {
-    console.log("profile")
-    User.findOne({ 'email':  email }, function(err, user) {
-      if (err)
-          return done(err);
-      if (!user)
-          return done(null, false);
-      if (!user.validPassword(password))
-          return done(null, false);
-      return done(null, user);
-    });
-  }));
   //google and facebook strat below here
   passport.use(new GoogleStrategy ({
       clientID:process.env.GGLCID,
@@ -55,39 +38,7 @@ module.exports = function(passport){
       console.error(err)
           }
   }))
-////////
-passport.use(new FacebookStrategy({
-  clientID: process.env.FBAPPID,
-  clientSecret: process.env.FBAPPSEC,
-  callbackURL: 'localhost:8282/auth/facebook/callback',
-  profileFields: ['id', 'email', 'first_name', 'last_name'],
-},
-function(token, refreshToken, profile, done) {
-  process.nextTick(function() {
-    User.findOne({ "email":email }, function(err, user) {
-      if (err)
-        return done(err);
-      if (user) {
-        console.log(profile)
-        return done(null, user);
-      } else {
-        //var newUser = new User();
-        // newUser.facebook.id = profile.id;
-        // newUser.facebook.token = token;
-        // newUser.facebook.name = profile.name.givenName + ' ' + profile.name.familyName;
-        // newUser.facebook.email = (profile.emails[0].value || '').toLowerCase();
 
-        newUser.save(function(err) {
-          if (err)
-            throw err;
-          return done(null, newUser);
-        });
-      }
-    });
-  });
-}));
-
-////////////
   passport.serializeUser((user, done)=> {     
      done(null, user._id)
     })

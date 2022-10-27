@@ -33,7 +33,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
-  secret:'keyboard cat',
+  secret:process.env.SESHID,
   resave:false,
   saveUninitialized: false,
  store: new MongoStore({mongoUrl:"mongodb+srv://"+process.env.MONGOUSER+":"+encodeURIComponent(process.env.MONGOPASS)+"@cluster0.tpmae.mongodb.net/users?retryWrites=true&w=majority"})
