@@ -5,7 +5,7 @@ const bcrypt = require('bcrypt');
 const app = express();
 const { MongoClient, ObjectId} = require('mongodb');
 var client = require('../config/mongo');
-
+const nodemailer = require('nodemailer')
 const alert = require('alert');
 const dbName= 'nocoMetal';
 // const multer = require('multer');
@@ -79,5 +79,69 @@ router.post('/regUser', (req,res) => {
    }
  
 })
+
+router.post('/contactform', (req,res) => {
+  async function main(){
+  
+   // connection async try catch 
+  try {
+    await client.connect();
+    //main function durin db call
+  
+    //call another function
+    await createUser(client,{
+      name: req.body.regName,
+      email: req.body.regEmail,
+      message : req.body.regType
+    });
+  }catch (err){
+    console.log(err)
+  }finally{
+    await client.close();
+  }
+  }
+  main().catch(console.error);
+  
+  async function createUser(client,newUser){
+   const result = await client.db(dbName).collection("registry").insertOne(newUser);
+   console.log('new user id: '+result.insertedId+'\n email: '+ req.body.email+'from IP: '+ req.body.ip)
+  }
+    console.log("posts initiated")
+    let transporter = nodemailer.createTransport({
+      service: 'Gmail',
+      port:587,
+      auth:{
+         //type:'OAuth2',
+          user: process.env.EMAILNAME,
+          pass:process.env.EMAILPASS,
+          // clientId: cId,
+          // clientSecret:cSec,
+          // refreshToken:rToke,
+          // accessToken:accessToken
+        }
+  })
+      let mailOptions = {
+          from:'Nocometalworkz.com WebApp!! from '+ req.body.fname + ' from email:'+ req.body.email,
+          to:'m.scott.wallace@gmail.com',
+          //to:'zgravityinflatables@gmail.com',
+          subject:'NOCOMETALZ.COM SUBMISSION',
+          text: req.body.message,
+          html:'<h1><span class="logoFont">User Submission</span> </h1><br><h2>'+req.body.message+'</h2>'
+      };
+      transporter.sendMail(mailOptions,function(error,info){
+          if(error){
+              console.log("transporter "+error);
+  
+          }
+          else{
+          console.log('email sent'+ info.response)
+          }
+        
+      })
+   return res.redirect('/');
+    alert('contact information sent!!')
+
+    })
+
 
   module.exports = router;

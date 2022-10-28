@@ -15,7 +15,7 @@
         <h1><%=title%></h1>
         <p>*We keep info private and do not sell information about our customers</p>
     <div class="eventBody">
-  <form action="/registerUser" method="POST">
+  <form action="/contactform" method="POST">
     <br><h2>name</h2>
       <input id="regName" type="text" name="fname"  pattern=".{3,}" title="three or more charachters" >
       <br><h2>email address</h2>
@@ -34,7 +34,7 @@
       <h2 class="validateError" id="regValidateError">*please fill out all fields and "Opt In" to register</h2>
    <h2>Your Message: </h2>
       <textarea name="message" cols="30" rows="10"></textarea>
-      <button disabled id="regSubmit" type="submit"><h2>submit form</h2></button>
+      <button id="regSubmit" type="submit"><h2>submit form</h2></button>
 </form>
 </div>
 </div>

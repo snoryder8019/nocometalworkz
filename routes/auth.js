@@ -8,6 +8,7 @@ const alert = require('alert');
 const dbName= 'nocoMetal';
 const imageFP = 'nocometalworkz'
 const { ensureAuth } = require('../middleware/auth');
+const cookieParser = require('cookie-parser');
 const router = express.Router();
 
 //////////
@@ -28,14 +29,23 @@ router.post('/checkCreds', function(req,res){
 ///////////////////
    async function grabCreds(client){
     const user = await client.db(dbName).collection('users').findOne({"email":req.body.email}); 
-      await bcrypt.compare(req.body.password,user.password, function(err,match){
+    
+    if(!user || !user.password){
+      console.log('no user or password')
+      return res.redirect('/login')}
+           
+        await bcrypt.compare(req.body.password,user.password, function(err,match){
+        
       if (err){throw err}
+
       if(match==true){
         console.log('pass good')
+     // req.cookie.set(req.session._id)
       console.log(req.session.id)
-    req.user;
-    console.log(user)
-         res.redirect('/market')
+      req.session.user = user
+      
+      console.log(req.session.user)
+      return res.redirect('/market')
         }      
         else{
         console.log('bad pass')

@@ -8,7 +8,8 @@ const app = express();
 const ObjectId = require('mongodb').ObjectId;
 const dbName = 'nocoMetal'
 const admin = require('./auth/admin');
-const { ensureAuth, ensureGuest} = require('../middleware/auth')
+const { ensureAuth, ensureGuest} = require('../middleware/auth');
+const { session } = require('passport');
 /* GET home page. */
 router.get('/',(req, res, next)=> {
   async function gettingBlogs(){
@@ -25,6 +26,7 @@ router.get('/',(req, res, next)=> {
   gettingBlogs().catch(console.error);
   async function getBlogs(client){
 const user= req.user
+
     const blogs = await client.db(dbName).collection('blogs').find().toArray();
     const data = await client.db(dbName).collection('nm_inventory').find().toArray();
     if(user){
@@ -44,7 +46,27 @@ const user= req.user
              console.log(cartArray)
           ////END CART TOTALS
     res.render('index', {title:'Welcome',cartTotal:cartTotal,cart:cart,user:user, data:data, blogs:blogs,session:req.session})
-  }else{
+  }else if (req.session.user){
+  const cart = await client.db(dbName).collection('users').findOne({"_id":ObjectId(req.session.user._id)});
+  //////total cart items
+  const cartArray = []
+  var cartTotal=0;
+
+  function cartGather(){
+   for (i=0;i<cart.cart.length;i++){
+       cartArray.push(parseInt(cart.cart[i].price))
+       cartTotal +=cartArray[i]
+   }
+ }
+   cartGather()
+          console.log(cartTotal)
+   console.log(cartArray)
+////END CART TOTALS
+res.render('index', {title:'Welcome',cartTotal:cartTotal,cart:cart,user:user, data:data, blogs:blogs,session:req.session})
+
+
+}
+  else{
       res.render('index', {title:'Welcome',user:null, data:data, blogs:blogs,session:req.session})
 
     }

@@ -5,12 +5,13 @@
 <p><a href="/market">Market</a></p>
 <p><a href="/register">Contact</a></p>
 
-<p><a href="/login">Sign in</a></p>
 
 <% if (typeof user == 'object' && user) { %>
-   <p> <a href="/auth/logout">Logout</a></p>
+    <p> <a href="/auth/logout">Logout</a></p>
     <div><img onclick="getCart()" class="cartIcon" src="/images/icons/cart.png"></div>
-<%}%>
+    <%}else{%>
+        <p><a href="/login">Sign in</a></p>
 
+<%}%>
 </div>
 
