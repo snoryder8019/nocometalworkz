@@ -66,7 +66,47 @@ router.get('/admin', (req,res) =>{
     res.redirect('/login')
   }
   })
-
+//////////////////////////////////
+router.get('/inventory', (req,res) =>{
+  console.log(req.session.user)
+  // const session = req.session.user
+   const user = req.user
+   if( req.session.user.isAdmin == true){
+ ////
+    async function gettingEmails(){
+     try {
+      await client.connect();
+      await getEmails(client);
+     }
+     catch(err){
+       console.log(err);
+     }
+     finally{
+     await client.close();
+   }}
+   ///////
+  gettingEmails().catch(console.error);
+   async function getEmails(client){
+     const session = req.session.user
+     const user = req.user
+   // const data = await client.db(dbName).collection('registry').find().toArray();
+  //  const blogs= await client.db(dbName).collection('blogs').find().toArray();
+    const catagory = await client.db(dbName).collection('nm_catagories').find().toArray();
+   // const colors = await client.db(dbName).collection('nm_colors').find().toArray();
+    if(user){
+    res.render('inventory', {title:'Inventory Page', catagory:catagory,  user:user});
+   }
+   if(req.session.user){
+      res.render('inventory', {title:'Inventory Page', catagory:catagory, user:req.session.user});
+ 
+    }
+   }
+   }else{
+     console.log('not finding creds')
+   //  res.status(401)
+     res.redirect('/login')
+   }
+   })
 
 ///////////////multer
  router.post('/upload',upload.single('photo'), function(req,res){

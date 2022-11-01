@@ -85,7 +85,7 @@ router.post('/contactform', (req,res) => {
   
    // connection async try catch 
   try {
-    await client.connect();
+   // await client.connect();
     //main function durin db call
   
     //call another function
@@ -97,14 +97,14 @@ router.post('/contactform', (req,res) => {
   }catch (err){
     console.log(err)
   }finally{
-    await client.close();
+ //   await client.close();
   }
   }
   main().catch(console.error);
   
   async function createUser(client,newUser){
    const result = await client.db(dbName).collection("registry").insertOne(newUser);
-   console.log('new user id: '+result.insertedId+'\n email: '+ req.body.email+'from IP: '+ req.body.ip)
+   console.log('new user id: '+result.insertedId+'\n email: '+ req.body.email)
   }
     console.log("posts initiated")
     let transporter = nodemailer.createTransport({
@@ -121,12 +121,13 @@ router.post('/contactform', (req,res) => {
         }
   })
       let mailOptions = {
-          from:'Nocometalworkz.com WebApp!! from '+ req.body.fname + ' from email:'+ req.body.email,
-          to:'m.scott.wallace@gmail.com',
-          //to:'zgravityinflatables@gmail.com',
-          subject:'NOCOMETALZ.COM SUBMISSION',
+          from:'Nocometalworkz.com WebApp!! from '+ req.body.fname ,
+          to:'w2marketing.scott@gmail.com, noco_metalworkz@outlook.com', 
+        
+       // to:'snoryder8019@gmail.com',
+          subject:'NOCOMETALWORKZ.COM SUBMISSION',
           text: req.body.message,
-          html:'<h1><span class="logoFont">User Submission</span> </h1><br><h2>'+req.body.message+'</h2>'
+          html:'<body style="background-color:black;color:white>"<h1><span>You Received a message from a guest on your website about <h2>'+req.body.regType+'</h2></span> </h1><br><h1>'+req.body.fname+' says: </h1><br><h2>'+req.body.message+'</h2><br>'+req.body.email+'</body>'
       };
       transporter.sendMail(mailOptions,function(error,info){
           if(error){
