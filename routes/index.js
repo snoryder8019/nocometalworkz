@@ -73,4 +73,11 @@ res.render('index', {title:'Welcome',cartTotal:cartTotal,cart:cart,user:user, da
     }
 });
 
+router.get('/faqs',(req,res)=>{
+  res.render('faqs')
+})
+router.get('/about',(req,res)=>{
+  res.render('about')
+})
+
 module.exports = router;

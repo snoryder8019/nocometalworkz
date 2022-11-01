@@ -10,67 +10,68 @@
     <%- include('config/bkgdImg.ejs')%>
     <%- include('config/header.ejs')%>
     <body>
-      <div class="eventBody">
-        <div><a style="text-align:center" href="/auth/facebook">sign in with Facebook:
-          <div ><img  class="gglButton" src="/images/icons/facebook.png" alt=""></div></a>
-        </div> 
-        </div>
+    <div class="eventBody">
+    <div class="navBox" onclick="loginSwap(loginGroup,'sign in with one touch with:')">Sign In</div>
+    <div class="navBox" onclick="loginSwap(regGroup,'register with one touch')">Register</div>
+
        
-        <div class="eventBody">
-        <div><a style="text-align:center" href="/auth/google">sign in with Google:
-          <div ><img  class="gglButton" src="/images/icons/google.png" alt=""></div></a>
-        </div> 
-        </div>
-  <div class="eventBody">
-    <h2>
-      Sign in with Email:
-    </h2>
-    <form action="/auth/checkCreds" method="post">
-      <div>
-          <label for="email">email</label>
-          <input id="email" name="email" type="text"  required />
-      </div>
-      <div>
-          <label for="password">Password</label>
-          <input id="passwordReg" name="password" type="password" required />
-      </div>
-      <div>
-          <button type="submit">Sign in</button>
-      </div>
+      <div id="localSignin" class="loginBody">
+        <h2>
+          Sign in with Email:
+        </h2>
+        <form action="/auth/checkCreds" method="post">
+          <div>
+            <label for="email">email</label>
+            <input id="email" name="email" type="text"  required />
+          </div>
+          <div>
+            <label for="password">Password</label>
+            <input id="passwordReg" name="password" type="password" required />
+          </div>
+          <div>
+            <button type="submit">Sign in</button>
+          </div>
   </form>
-  </div>
+</div>
 
 
-  <div class="eventBody">
-    <h2>
-      Register Email:
-    </h2>
-    <form action="/regUser" method="post">
-      <div>
-          <label>Name</label>
-          <input id="username" name="username" type="text" autocomplete="username" required />
-      </div>
-      <div>
-          <label >Email</label>
-          <input  name="email" type="email"  required />
-      </div>
-      <div>
-          <label >Password</label>
-          <input  name="password" type="password"  required />
-      </div>
-      <div>
-          <label >Confirm Password</label>
-          <input  type="password"  required />
-      </div>
-      <div>
-          <button type="submit">Register</button>
-      </div>
+<div id="localRegister" class="loginBody">
+  <h2>
+    Register Email:
+  </h2>
+  <form action="/regUser" method="post">
+    <div>
+      <label>Name</label>
+      <input id="username" name="username" type="text" autocomplete="username" required />
+    </div>
+    <div>
+      <label >Email</label>
+      <input  name="email" type="email"  required />
+    </div>
+    <div>
+      <label >Password</label>
+      <input  name="password" type="password"  required />
+    </div>
+    <div>
+      <label >Confirm Password</label>
+      <input  type="password"  required />
+    </div>
+    <div>
+      <button type="submit">Register</button>
+    </div>
   </form>
-  </div>
-        </div>
-        
+</div>
+
+<div id="oauthBody" class="loginBody">
+  <div><a style="text-align:center" href="/auth/google"><h2 id="gglMsg">Single Touch register in with Google:</h2>
+    <div ><img  class="gglButton" src="/images/icons/google.png" alt=""></div></a>
+  </div> 
+</div>
+</div>
+</div>
       </div>
       <%- include('config/footer.ejs')%>
-        <!--script src="javascripts/backgroundFX1.js"></script-->
-</body>
-</html>
+      <!--script src="javascripts/backgroundFX1.js"></script-->
+   <script src="javascripts/login.js"></script> 
+    </body>
+    </html>

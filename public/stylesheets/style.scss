@@ -62,13 +62,18 @@ $textAltColor:white;
     display: flex;
   }
   .introImgDiv{
-    margin: 0 0 15% 0 ;
-    padding: 0;
-    width: 90%;
+     margin: 0 0 15% 0 ;
+    // padding: 0;
+    // width: 90%;
    // background-color: white;
   }
   .introImg{
-    //max-width: 90%;
+width: 100%;
+// @media (min-width:700px) {
+//   width:40%;
+//   margin-left:30%
+// }
+
    //margin-left: 5%;
   }
   .introHead{
@@ -571,6 +576,8 @@ $invGrad2:$transparent;
   transform-style: preserve-3d;
   transform: rotateY(-1%) rotateZ(1%) skewX(20%);
  &:hover{
+  
+  background-color: rgba(255,166,0,0.888);
   transform: scale(1.18) translateY(-1px);
   transition-timing-function: ease-in-out;
   transition-duration: 0.8s;
@@ -625,5 +632,14 @@ $invGrad2:$transparent;
     margin-left: 10%;
    width: 80%;
    min-height: 40px;
+    }
+    .loginBody{
+      transform-style: preserve-3d;
+      animation: 120s ease-in-out infinite fadeIn;
+    display: none;
+    &:last-child{
+      margin-top: 10%;
+      border-top:1px red solid;
+    }
     }
   

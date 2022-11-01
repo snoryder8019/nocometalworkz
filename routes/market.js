@@ -296,6 +296,8 @@ return res.redirect(req.get('referrer'));
 )
 //////DELETE CART ITEM **Stable 10-5-22
 router.post('/delCart',(req,res)=>{
+  const user = req.user
+  const session = req.session
   async function deleteCart(){
     try{
       await client.connect();
@@ -315,7 +317,7 @@ router.post('/delCart',(req,res)=>{
 if(session.user){
     const cartFind = await client.db(dbName).collection('users').findOne({"_id":ObjectId(req.session.user._id)});
     const delItem = await client.db(dbName).collection('users').updateOne(
-    {"_id":ObjectId(req.user._id)},
+    {"_id":ObjectId(session.user._id)},
     {$pull:{"cart":{"name":req.body.cartNum}}});  
     }
 if(user){
@@ -326,7 +328,7 @@ if(user){
     }
     console.log(req.body.cartNum[0].name)
     console.log(req.body.cartNum)
-   console.log(delItem)
+ 
    return res.redirect(req.get('referrer'));
   }
 })

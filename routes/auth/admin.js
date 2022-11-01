@@ -27,8 +27,10 @@ router.get('/login', function(req, res) {
   }); 
 //////////////////////////////////
 router.get('/admin', (req,res) =>{
-  const user = req.user;
-  if(user.isAdmin===true){
+ console.log(req.session.user)
+ // const session = req.session.user
+  const user = req.user
+  if( req.session.user.isAdmin == true){
 ////
    async function gettingEmails(){
     try {
@@ -44,16 +46,24 @@ router.get('/admin', (req,res) =>{
   ///////
  gettingEmails().catch(console.error);
   async function getEmails(client){
+    const session = req.session.user
+    const user = req.user
    const data = await client.db(dbName).collection('registry').find().toArray();
    const blogs= await client.db(dbName).collection('blogs').find().toArray();
    const catagory = await client.db(dbName).collection('nm_catagories').find().toArray();
    const colors = await client.db(dbName).collection('nm_colors').find().toArray();
-   const user = req.user
+   if(user){
    res.render('admin', {title:'Admin Page', data:data, blogs:blogs, catagory:catagory, colors:colors, user:user});
+  }
+  if(req.session.user){
+     res.render('admin', {title:'Admin Page', data:session.data, blogs:blogs, catagory:catagory, colors:colors, user:user});
+
    }
+  }
   }else{
+    console.log('not finding creds')
   //  res.status(401)
-    res.redirect('config/404')
+    res.redirect('/login')
   }
   })
 

@@ -1,29 +1,29 @@
+
+
 function slide(){
+    console.log('slide added')
     const bkgrdImage = document.getElementById('bkgrdImage');
+    const mainBody = document.getElementById('mainBody');
     const bkImg = bkgrdImage.getAttribute('src');
-   
+   document.addEventListener('scroll',function(){ 
+    const winPos =document.body.scrollHeight-window.innerHeight-window.scrollY
+    const winH = document.body.scrollHeight
+    console.log(winPos/winH)
+  if(winPos/winH=.33)
+  bkgrdImage.src="/images/dPlate.png"
+  bkgrdImage.setAttribute('class','okImg')
   
-    let x =0;
-    if(x<2){
-        doSomething(100,0,'i--');
-        bkgrdImage.src='images/bkgrd_'+x+'.jpg';
-         x--;
-      
-    }
-   
-}     
-const sleep = (time) => {
-    return new Promise((resolve) => setTimeout(resolve, time))
-}
+//   if(winPos/winH>.33 && winPos/winH<.66)
+//   bkgrdImage.src="/images/pipeline.png"
+//   bkgrdImage.setAttribute('class','okImg')
+  
+  if(winPos/winH=.66)
+  bkgrdImage.src="/images/bkgrd_0.jpg"
+  bkgrdImage.setAttribute('class','okImg')
 
-const doSomething = async (zed0,zed1,zed2) => {
+   })
+  
 
-    for (let i = zed0; i > zed1; i+zed2) {
-        bkgrdImage.style= '"transform:opacity('+i+'%)"'
-        await sleep(50)
-        console.log(i)
-    }
- 
 
 
   }
