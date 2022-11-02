@@ -91,13 +91,13 @@ router.get('/inventory', (req,res) =>{
      const user = req.user
    // const data = await client.db(dbName).collection('registry').find().toArray();
   //  const blogs= await client.db(dbName).collection('blogs').find().toArray();
+    const inventory = await client.db(dbName).collection('nm_inventory').find().toArray();
     const catagory = await client.db(dbName).collection('nm_catagories').find().toArray();
-   // const colors = await client.db(dbName).collection('nm_colors').find().toArray();
     if(user){
-    res.render('inventory', {title:'Inventory Page', catagory:catagory,  user:user});
+    res.render('inventory', {title:'Inventory Page', inventory:inventory,catagory:catagory , user:user});
    }
    if(req.session.user){
-      res.render('inventory', {title:'Inventory Page', catagory:catagory, user:req.session.user});
+      res.render('inventory', {title:'Inventory Page', inventory:inventory,catagory:catagory, user:req.session.user});
  
     }
    }
@@ -107,7 +107,51 @@ router.get('/inventory', (req,res) =>{
      res.redirect('/login')
    }
    })
+///////////////
+router.post('/deleteInv', (req,res)=>{
+  async function deleteInventory(){
+    try{
+      await client.connect()
+      await invGetter(client)
+    }catch(err){
+      console.log(err)
+    }finally{
+   console.log('complete')
+   await client.close()
+    }
+  }
+  deleteInventory().catch(console.error);
 
+  async function invGetter(client){
+    const newId = ObjectId(req.body.invId)
+     const results = await client.db(dbName).collection('nm_inventory').deleteOne({"_id":newId})
+    console.log(results)
+  return res.redirect('inventory')
+  }
+})
+///////////////
+///////////////
+router.post('/updateInv', (req,res)=>{
+  console.log('update'+req.body.invId)
+  async function updateInventory(){
+    try{await client.connect()
+    await invUpdater(client,{
+name:req.body.name,
+originalPost:req.body.ogPost,
+price:req.body.price,
+catRef:req.body.catRef,
+    })}
+    catch(err){console.log(err)}
+    finally{await client.close()}
+  }
+  updateInventory().catch(console.error);
+  async function invUpdater(client,updateInfo){
+    const newId=ObjectId(req.body.invId)
+const result = await client.db(dbName).collection('nm_inventory').updateOne({"_id":newId},{$set:updateInfo},{upsert:true})
+ 
+return res.redirect('inventory')
+}
+})
 ///////////////multer
  router.post('/upload',upload.single('photo'), function(req,res){
   //isolate file extention

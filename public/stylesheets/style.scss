@@ -134,13 +134,32 @@ span.alert{
   color:$alert;
 }
 button{
-  min-width:92%;
-  min-height:35px;
-  margin-left: 4%;
- 
-  border-radius: 25px;
-  border: inset 3px solid black
-
+  background-color: rgba(255,166,0,0.888);
+  color: white;
+  text-align: center;
+  width: 92;
+  margin-left: 3%;
+  margin: 1%;
+  min-height: 28%;
+  font-family: 'combo';
+  font-size: 3rem;
+  // min-width:92%;
+  // min-height:35px;
+  // margin-left: 4%; 
+  // border-radius: 25px;
+  // border: inset 3px solid black;
+  // @media (min-width:768px) {
+  //   margin-left: 25%;
+  //   min-width:50%
+  // }
+  &:hover{
+  
+    background-color: rgba(252, 207, 124, 0.888);
+    transform: scale(1.05) translateY(-1px);
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.8s;
+    transform-style: preserve-3d;
+    }
 }
 a{
   text-decoration: none;
@@ -277,13 +296,16 @@ input{
 
   border: 1px solid rgba(0,0,0,.9);
  min-width: 96%;
- max-height: 35px;
+
 margin: 1%;
 padding: 1%;
        color: $textColor;
     background-color: $blue;
 
 }
+
+
+
 textarea{
   background-color: $blue;
   min-width:96%;
@@ -356,7 +378,7 @@ width:100%;
   width: 92;
   margin-left: 3%;
   margin: 1%;
-  min-height: 28%;
+ 
   font-family: 'combo';
   font-size: 3rem;
 
@@ -445,13 +467,25 @@ table{
 width: 100%;
 max-height: 50%;
 overflow-y: scroll;
+input{
+  border: 1px solid rgba(0,0,0,.9);
+  min-width: 96%;
+height: 75px;
+
+ margin: 1%;
+ padding: 1%;
+        color: $textColor;
+     background-color: $blue;
+ font-size: 2em;
+}
 }
 td{
   padding: 1%;
 
  img{
-  max-width: 40px;
+  max-width: 100px;
  }
+
 }
 th{
   text-align: left;

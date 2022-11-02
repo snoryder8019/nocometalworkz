@@ -1,25 +1,26 @@
 <div id="cartDiv" class="cart">
     <div class="eventBody">
         <h1>Cart Details</h1>
-<div class="cartContain">
-   
-<%if(typeof user == 'object' && user){%>
- <!--THERE IS A USER-->
-<%=user.name%>
+        
+        <%if(typeof user == 'object' && user){%>
+            <!--THERE IS A USER-->
+            <h2>Welcome <%=user.name%></h2>
+            <div><h2>Your Cart Total: $<%= cartTotal%>.00</h2></div>
+            <div class="cartContain">
     <%if(typeof cart.cart == 'object' && cart.cart[0]){%>
       <table>
         <thead>
-<td>name</td>
-<td>image</td>
-<td>price</td>
+<td><h3> name</h3></td>
+<td><h3> image</h3></td>
+<td><h3> price</h3></td>
         </thead>
 <tbody>
     <%for(let i=0;i<cart.cart.length;i++){%>
     <tr>
        
-        <td> <h4>   <%=cart.cart[i].name%></h4></td>
-        <td>   <img src="/<%=cart.cart[i].img%>"></td>
-        <td>  $  <%=cart.cart[i].price%>.00</td>
+        <td> <h2>   <%=cart.cart[i].name%></h2></td>
+        <td>   <img alt="<%=cart.cart[i].name%>" src="/<%=cart.cart[i].img%>"></td>
+        <td> <h3> $  <%=cart.cart[i].price%>.00</h3></td>
         <td><form action="/delCart"method="post"><button name="cartNum" type="submit" value="<%=cart.cart[i].name%>">delete Item</button></form> </td>
     </tr>
     <%}%>
@@ -27,7 +28,6 @@
     </table>
 
     <div>
-<div><h2>Your Cart Total: $<%= cartTotal%>.00</h2></div>
 
         <%- include('paypal.ejs')%>
 

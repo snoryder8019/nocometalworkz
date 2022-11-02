@@ -14,7 +14,7 @@ function annie1(id,opacity,transY){
 function validateFill(){
     for(i=0;i<regForm.length;i++){
     regForm[i].addEventListener("input", function(){
-     if (regEmail.value==="" || regBox.checked===false){
+     if (regName.value==="" || regEmail.value==="" ){
          console.log('its null')
          annie1(regValidateError,1,0);
        //  regValidateError.style.opacity=1;

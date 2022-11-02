@@ -17,11 +17,9 @@
     <%- include('../views/config/bkgdImg.ejs')%>
     <%- include('../views/config/header.ejs')%>
   <div class="eventBody">
-    <h1 class="h1Span"> <%= title%></h1>
+    <h2 class="h1Span"> <%= title%> :  <%= data.name%></h2>
 </div>
-<div class="eventBody">
-     <h1 class="h1Span"><%= data.name%></h1>
-        </div>
+
         <!----LANDING PAGE CLASS IS GRID DISPLAY-->
         <!----LARGE SCREEN 4 GRID !!!! MEDIUM SCREEN 3 GRID !!!!! SMALL 2 and single GRID-->
   <div class="landingPage">
@@ -35,8 +33,6 @@
 
 
     <div>
-        <a onclick="goBack()"><div class="navBox">back</div></a>
-        <a href="/"><div class="navBox">home</div></a>
         <form action="/addToCart" method="post">
             <input name="prodId" hidden="true" value="<%= data._id%>"></label>
             <input name="prodName" hidden="true" value="<%= data.name%>"></label>
@@ -46,8 +42,10 @@
                 <button id="productAddButton" type="submit" value="submit()" ><h2>add to cart</h2></button>
                 <%}else{%>
                     <a href="/login"><div class="navBox">sign in to add to cart</div></a>
-            <%}%>
-    </form>   
+                    <%}%>
+                </form>   
+                <a onclick="goBack()"><div class="navBox">back</div></a>
+                <a href="/"><div class="navBox">home</div></a>
     </div>
 </div>
       <%- include('../views/config/footer.ejs')%>
