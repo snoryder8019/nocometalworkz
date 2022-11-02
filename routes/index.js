@@ -10,6 +10,9 @@ const dbName = 'nocoMetal'
 const admin = require('./auth/admin');
 const { ensureAuth, ensureGuest} = require('../middleware/auth');
 const { session } = require('passport');
+router.get('/service-agreements',(req,res)=>{
+  return res.render('service-agreements')
+ })   
 /* GET home page. */
 router.get('/',(req, res, next)=> {
   async function gettingBlogs(){

@@ -84,6 +84,6 @@ router.get('/auth/facebook/callback',
       if(err){return next(err)}
     return  res.redirect('/'); })});
 
-      
+ 
 
 module.exports = router;
