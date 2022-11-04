@@ -10,6 +10,7 @@
 
 <body >
     <%- include('partials/cart.ejs')%>
+    <%- include('config/loadScreen.ejs')%>
 <canvas id="bkgdCanvas"></canvas>  
 <div id="backgroundFX">
  <div class="mainStyle">
@@ -39,13 +40,13 @@
             <input name="prodPrice" hidden="true" value="<%= data.price%>"></label>
             <input name="prodImg" hidden="true" value="<%= data.imgName%>"></label>
             <% if (typeof user == 'object' && user || typeof session.user == 'object' && session.user) { %>
-                <button id="productAddButton" type="submit" value="submit()" ><h2>add to cart</h2></button>
+                <button onclick="loading('adding to cart')" id="productAddButton" type="submit" value="submit()" ><h2>add to cart</h2></button>
                 <%}else{%>
                     <a href="/login"><div class="navBox">sign in to add to cart</div></a>
                     <%}%>
                 </form>   
-                <a onclick="goBack()"><div class="navBox">back</div></a>
-                <a href="/"><div class="navBox">home</div></a>
+                <a onclick="loading('...loading previous page'), goBack()"><div class="navBox">back</div></a>
+                <a onclick="loading('getting blogs and inventory')" href="/"><div  class="navBox">home</div></a>
     </div>
 </div>
       <%- include('../views/config/footer.ejs')%>

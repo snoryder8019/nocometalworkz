@@ -1,5 +1,5 @@
 
 function bodyLoader(){
-   slide();
+  
    loadScreen()
 }

@@ -48,7 +48,7 @@ const user= req.user
                     console.log(cartTotal)
              console.log(cartArray)
           ////END CART TOTALS
-    res.render('index', {title:'Welcome',cartTotal:cartTotal,cart:cart,user:user, data:data, blogs:blogs,session:req.session})
+    res.render('index', {title:'Welcome',cartTotal:cartTotal,cart:cart,user:user, data:data, blogs:blogs})
   }else if (req.session.user){
   const cart = await client.db(dbName).collection('users').findOne({"_id":ObjectId(req.session.user._id)});
   //////total cart items
@@ -65,12 +65,12 @@ const user= req.user
           console.log(cartTotal)
    console.log(cartArray)
 ////END CART TOTALS
-res.render('index', {title:'Welcome',cartTotal:cartTotal,cart:cart,user:user, data:data, blogs:blogs,session:req.session})
+res.render('index', {title:'Welcome',cartTotal:cartTotal,cart:cart,user:user, data:data, blogs:blogs})
 
 
 }
   else{
-      res.render('index', {title:'Welcome',user:null, data:data, blogs:blogs,session:req.session})
+      res.render('index', {title:'Welcome',user:null, data:data, blogs:blogs})
 
     }
     }
