@@ -21,7 +21,7 @@
         <td> <h2>   <%=cart.cart[i].name%></h2></td>
         <td>   <img alt="<%=cart.cart[i].name%>" src="/<%=cart.cart[i].img%>"></td>
         <td> <h3> $  <%=cart.cart[i].price%>.00</h3></td>
-        <td><form action="/delCart"method="post"><button name="cartNum" type="submit" value="<%=cart.cart[i].name%>">delete Item</button></form> </td>
+        <td><form action="/delCart"method="post"><button onclick="loading('deleting item from cart')" name="cartNum" type="submit" value="<%=cart.cart[i].name%>">delete Item</button></form> </td>
     </tr>
     <%}%>
 </tbody>
@@ -46,8 +46,9 @@
     
   
 </div>
-
+<%if(typeof cart.cart == 'object' && cart.cart[0]){%>
 <button id="checkoutButton" onclick="getPaypal()"><h2>checkout Now</h2></button>
+<%}%>
 <button id="checkoutShrink" onclick="shrinkPaypal()"><h2>shrink checkout </h2></button>
 <button onclick="shrinkCart()"><h2>shrink cart</h2></button>
 

@@ -26,7 +26,7 @@
             <h2 style="margin: 0;">Step 2: Attach One Image</h2> 
               <input type="file" accept="image/*" name="photo">
             <h2>Step 3: Submit</h2> 
-              <button type="submit" >Submit</button>
+              <button onclick="loading('adding post to home page')" type="submit" >Submit</button>
           </form>
         </div>
      </div>
@@ -49,7 +49,7 @@
               <td><img src="<%= blogs[i].imgName%>" alt=""></td>
              
               <td><form action="/delBlog" method="post">
-                  <button name="blogDelete" value="<%= blogs[i]._id%>"> delete</button>
+                  <button onclick="loading('deleting blog')" name="blogDelete" value="<%= blogs[i]._id%>"> delete</button>
                    </form></td>
            </tr>
           <% } %>
@@ -79,11 +79,11 @@
         <input placeholder="Item Name"  type="text" name="inventoryName">
         <input placeholder="Price w/ Shipping" type="text" name="inventoryPrice">
         <textarea placeholder="Item Details" type="text" name="inventoryDetails"></textarea>
-        <textarea placeholder="Paypal Code" type="text" name="paypalCode"></textarea>
+       
         <h2 style="margin: 0;">Step 2: Attach One Image</h2> 
         <input type="file" accept="image/*" name="photo">
         <h2>Step 3: Submit</h2> 
-          <button type="submit" >Submit</button>
+          <button onclick="loading('adding New Inventory Item')" type="submit" >Submit</button>
      </form>
     </div>
   </div>

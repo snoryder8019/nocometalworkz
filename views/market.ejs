@@ -17,7 +17,7 @@
             </div>
             <form action="/marketOp">
                 <div class="marketFilter">
-                    <select onchange="submit()" name="catID"   id="">
+                    <select onchange="loading('filtering inventory'),submit()" name="catID"   id="">
                         <option >Filter by Category</option>
                         <% for(var i=1;i<catagory.length;i++){%>
                             <option value="<%= catagory[i].catName%>"><%= catagory[i].catName%></option>

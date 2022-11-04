@@ -155,8 +155,6 @@
 .cartContain {
   margin: 1%;
   padding: 1%;
-  display: flex;
-  flex-wrap: wrap;
 }
 
 @font-face {
@@ -203,6 +201,12 @@ body {
 
 .introImg {
   width: 100%;
+}
+@media screen and (min-width: 900px) {
+  .introImg {
+    width: 40%;
+    margin-left: 30%;
+  }
 }
 
 .introHead {
@@ -1070,7 +1074,7 @@ th {
   position: fixed;
   min-height: 100vh;
   min-width: 100vw;
-  z-index: 10;
+  z-index: 1000;
   display: none;
   background-color: rgba(0, 0, 0, 0.85);
 }
@@ -1103,7 +1107,7 @@ th {
 }
 @media screen and (min-width: 1800px) {
   .landingPage {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
