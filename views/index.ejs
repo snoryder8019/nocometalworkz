@@ -4,14 +4,16 @@
     <%- include('config/head.ejs')%>
 
 <body onload="bodyLoader()">
-    <%- include('partials/cart.ejs')%>
     <canvas id="bkgdCanvas"></canvas>  
-   
+    
     <div id="backgroundFX">
- <div id="mainBody" class="mainStyle">
- 
-    <%- include('config/bkgdImg.ejs')%>
-    <%- include('config/header.ejs')%>
+        <div id="mainBody" class="mainStyle">
+            
+            <%- include('config/bkgdImg.ejs')%>
+            
+            <%- include('config/loadScreen.ejs')%>
+            <%- include('config/header.ejs')%>
+            <%- include('partials/cart.ejs')%>
     <%- include('config/intro.ejs')%>
  
     <div class="eventBody">

@@ -3,7 +3,7 @@ const regEmail = document.getElementById('regEmail');
 const regPass = document.getElementById('regPass');
 const regBox = document.getElementById('regBox');
 const regSubmit = document.getElementById('regSubmit');
-const regForm = [regName,regEmail,regPass,regBox];
+const regForm = [regName,regEmail];
 const regValidateError = document.getElementById('regValidateError');
 
 function annie1(id,opacity,transY){

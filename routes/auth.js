@@ -79,10 +79,25 @@ router.get('/auth/facebook/callback',
   {successRedirect:'/'},
   {failureRedirect: '/login' }));  
 
-  router.get('/logout', function(req, res, next) {
+  router.get('/logout', function(req, res) {
+    const user=req.user
+    console.log(user)
+    const sessionUser = req.session.user
+    console.log(sessionUser)
+    if(user)
     req.logout(function(err){
       if(err){return next(err)}
-    return  res.redirect('/'); })});
+    })  
+   if(sessionUser){
+        req.session.destroy(function(err){
+          if(err){return next(err)}})
+  }
+              
+        return  res.redirect('/'); })
+      
+
+    
+  
 
  
 
