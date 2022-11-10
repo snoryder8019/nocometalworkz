@@ -8,10 +8,7 @@ const allGroup = [localSignin,oauthBody,localRegister]
 
 function loginSwap(zzx,zzz){
 for (let i=0;i<allGroup.length;i++){
-    allGroup[i].style.display="none"
- 
-  
-    
+    allGroup[i].style.display="none"    
 }
 for (let x=0;x<zzx.length;x++){
     zzx[x].style.display="block"
