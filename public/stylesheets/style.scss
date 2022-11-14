@@ -8,6 +8,7 @@ $blue:rgba(205, 202, 241, 0.857);
 $green:rgba(174, 241, 165, 0.57);
 $yellow:rgba(255, 242, 0, 0.733);
 $pink:rgba(235, 178, 173, 0.733);
+$grey:rgba(97,97,97,.95);
 //TYPEFACE
 @font-face {
   font-family:"combo" ;
@@ -215,7 +216,7 @@ li{
   left: 0;
   z-index: 50;
   color: $textAltColor;
-  background-color: black;
+  background-color:$grey;
   text-shadow:$textShadow;
   p{
     margin: 0;
@@ -451,14 +452,26 @@ width:100%;
   }
 }
 //MENU STYLES
+@keyframes logoMove() {
+  0%{background-position-y:top;}
+  50%{background-position-y:bottom;}
+  100%{background-position-y:top;}
+}
 .menu{
   position: fixed;
   min-width: 100vw;
   top:0;
   left: 0;
   display: flex;
-  background-color: black;
+  background-image: url('');
+  //background-image: linear-gradient(to right, black,grey);
+  background-repeat: no-repeat;
+ background-clip:unset;
+background-size: contain;
+  background-position-x: right;
+  background-color:$grey;
   z-index: 50;
+  animation: logoMove 15s linear 0 infinite;
   }
  
 select{

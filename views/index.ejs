@@ -20,16 +20,18 @@
         <h1 class="h1Span">Our Newest Workz!</h1>
         <div class="invGrid">
             <% for(var i=0;i<data.length;i++){%>
-                <div class="gridContain">
-                    <a href="/productID/<%= data[i]._id%>">
-                        <div>
-                            <span class="background-image" role="img" aria-label="<%=data[i].details%>"> </span>
-                         
-                            </div>
-                        <div style="background-image: url('<%= data[i].imgName%>');" class="invBox"> </div></a>
-                    
-                </div>
-                <%}%>
+                <a onclick="loading('getting product details')" href="/productID/<%= data[i]._id%>"> 
+                   <div class="gridContain">
+                       <div>
+                           <h2><%=data[i].name%></h2>
+                           <h3>$<%=data[i].price%>.00</h3>
+                       </div>
+                       <div class="imgCont">
+                         <img class="invImg" src=" <%= data[i].imgName%>" alt="">
+                       </div>
+                    </div>                
+                       </a>
+                 <%}%>
             </div>
         </div>
         ////////////
