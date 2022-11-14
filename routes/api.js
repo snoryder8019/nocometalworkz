@@ -1,9 +1,9 @@
 const express = require('express')
 const router = express.Router();
 
-router.get ('/outbound/', (req,res)=>{
+router.get ('api', (req,res)=>{
     const resultsd = 3;
-    res.sendStatus(resultsd);
+   return res.send(resultsd);
 })
 
 
