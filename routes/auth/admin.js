@@ -27,9 +27,6 @@ router.get('/login', function(req, res) {
   }); 
 //////////////////////////////////
 router.get('/admin', (req,res) =>{
- console.log(req.session.user)
- // const session = req.session.user
-  const user = req.user
   if( req.session.user.isAdmin == true){
 ////
    async function gettingEmails(){
@@ -52,25 +49,18 @@ router.get('/admin', (req,res) =>{
    const blogs= await client.db(dbName).collection('blogs').find().toArray();
    const catagory = await client.db(dbName).collection('nm_catagories').find().toArray();
    const colors = await client.db(dbName).collection('nm_colors').find().toArray();
-  //  if(user){
-  //  res.render('admin', {title:'Admin Page', data:data, blogs:blogs, catagory:catagory, colors:colors, user:user});
-  // }
- // if(req.session.user){
+
    return  res.render('admin', {title:'Admin Page', data:session.data, blogs:blogs, catagory:catagory, colors:colors, user:user});
 
-   //}
   }
   }else{
     console.log('not finding creds')
-  //  res.status(401)
+
    return res.redirect('/login')
   }
   })
 //////////////////////////////////
 router.get('/inventory', (req,res) =>{
-  console.log(req.session.user)
-  // const session = req.session.user
-   const user = req.user
    if( req.session.user.isAdmin == true){
  ////
     async function gettingEmails(){
@@ -89,21 +79,17 @@ router.get('/inventory', (req,res) =>{
    async function getEmails(client){
      const session = req.session.user
      const user = req.user
-   // const data = await client.db(dbName).collection('registry').find().toArray();
-  //  const blogs= await client.db(dbName).collection('blogs').find().toArray();
-    const inventory = await client.db(dbName).collection('nm_inventory').find().toArray();
+   const inventory = await client.db(dbName).collection('nm_inventory').find().toArray();
     const catagory = await client.db(dbName).collection('nm_catagories').find().toArray();
     if(user){
     res.render('inventory', {title:'Inventory Page', inventory:inventory,catagory:catagory , user:user});
    }
    if(req.session.user){
-      res.render('inventory', {title:'Inventory Page', inventory:inventory,catagory:catagory, user:req.session.user});
- 
+      res.render('inventory', {title:'Inventory Page', inventory:inventory,catagory:catagory, user:req.session.user}); 
     }
    }
    }else{
      console.log('not finding creds')
-   //  res.status(401)
      res.redirect('/login')
    }
    })
@@ -121,7 +107,6 @@ router.post('/deleteInv', (req,res)=>{
     }
   }
   deleteInventory().catch(console.error);
-
   async function invGetter(client){
     const newId = ObjectId(req.body.invId)
      const results = await client.db(dbName).collection('nm_inventory').deleteOne({"_id":newId})
@@ -129,7 +114,6 @@ router.post('/deleteInv', (req,res)=>{
   return res.redirect('inventory')
   }
 })
-///////////////
 ///////////////
 router.post('/updateInv', (req,res)=>{
   console.log('update'+req.body.invId)
@@ -148,13 +132,12 @@ catRef:req.body.catRef,
   async function invUpdater(client,updateInfo){
     const newId=ObjectId(req.body.invId)
 const result = await client.db(dbName).collection('nm_inventory').updateOne({"_id":newId},{$set:updateInfo},{upsert:true})
- 
 return res.redirect('inventory')
 }
 })
-///////////////multer
+//////////
  router.post('/upload',upload.single('photo'), function(req,res){
-  //isolate file extention
+  /*isolate file extention*/
   const imageData= req.file;
   const ogStr=0;
   const str = imageData.originalname;
@@ -164,16 +147,13 @@ return res.redirect('inventory')
   const oldFilepath = "../"+imageFP+"/uploads/";
   const newFilepath = "../"+imageFP+"/public/images/blog/"
   const newName = 'blog_Image_'+ Date.now()+"."+ext;
-
-
+/*^^end^^*/
   const bImgName = "images/blog/"+newName;
-
   fs.rename(oldFilepath+str2,newFilepath+newName,(err)=>{
 if(err){
   console.log(err);
 }
  })
-
   async function saveBlog(bImgName,data){
     try {
       await client.connect();
@@ -221,7 +201,7 @@ router.post('/delBlog',(req,res)=>{
   res.redirect('admin');
   }
 })
-///////////////multer
+
 /////////////INVENTORY UPLOADS
 router.post('/newItem',upload.single('photo'), function(req,res){
   //isolate file extention
@@ -234,7 +214,7 @@ router.post('/newItem',upload.single('photo'), function(req,res){
   const oldFilepath = "../"+imageFP+"/uploads/";
   const newFilepath = "../"+imageFP+"/public/images/inventory/"
   const newName = 'inventory_image_'+ Date.now()+"."+ext;
-
+/*^^end^^*/
 
   const bImgName = "images/inventory/"+newName;
 
@@ -255,7 +235,7 @@ if(err){
         details:req.body.inventoryDetails,
         catRef:req.body.catSelect,
         imgName:bImgName,
-        //paypalRef:req.body.paypalCode
+     
       });
      }
      catch(err){
@@ -363,7 +343,6 @@ router.post('/delCat',(req,res)=>{
   async function getCat(client){
     const newID =ObjectId(req.body.catDel);
     console.log('modded')
- // const deleteIt = await client.db(dbName).collection('nm_catagories').deleteOne({"_id":newID});
  return res.redirect('admin');
   }
 })
