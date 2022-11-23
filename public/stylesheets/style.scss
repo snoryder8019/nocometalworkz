@@ -216,7 +216,13 @@ li{
   left: 0;
   z-index: 50;
   color: $textAltColor;
+  background-image: url('');
+  background-repeat: no-repeat;
+ background-clip:unset;
+background-size: contain;
+  background-position-x: right;
   background-color:$grey;
+
   text-shadow:$textShadow;
   p{
     margin: 0;
@@ -375,6 +381,10 @@ img.mainImg{
   padding: 2%;
   border: 5px solid $accent;
   background-color: $eventBodyColor;
+  &_about{
+    margin: 5%;
+    display: flex;
+  }
 }
 .pplBody{
 width:100%;
@@ -452,7 +462,7 @@ width:100%;
   }
 }
 //MENU STYLES
-@keyframes logoMove() {
+@keyframes logoMove {
   0%{background-position-y:top;}
   50%{background-position-y:bottom;}
   100%{background-position-y:top;}
@@ -464,7 +474,6 @@ width:100%;
   left: 0;
   display: flex;
   background-image: url('');
-  //background-image: linear-gradient(to right, black,grey);
   background-repeat: no-repeat;
  background-clip:unset;
 background-size: contain;
@@ -482,7 +491,13 @@ select{
   font-size: 1.4rem;
   text-align: center;
 }
-
+.imgSubDiv{
+  min-width: 40%;
+}
+.imgSub{
+width: 96%;
+padding: 7%;
+}
 
 table{
 width: 100%;

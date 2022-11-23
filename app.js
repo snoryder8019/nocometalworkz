@@ -19,12 +19,14 @@ var adminRouter =require('./routes/auth/admin');
 var visitorRouter =require('./routes/visitor');
 var apiRouter =require('./routes/api');
 var marketRouter =require('./routes/market');
+
 const auth = require('./routes/auth');
 var app = express();
 connectDB();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+
 app.use(flash())
 app.use(logger('dev'));
 app.use(express.json());
@@ -51,6 +53,7 @@ app.use((req,res,next)=>{
  console.log(req.originalUrl)
  next()
 })
+
 
 
 // catch 404 and forward to error handler

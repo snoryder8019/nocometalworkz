@@ -717,6 +717,11 @@ li .pricing {
   left: 0;
   z-index: 50;
   color: white;
+  background-image: url("");
+  background-repeat: no-repeat;
+  background-clip: unset;
+  background-size: contain;
+  background-position-x: right;
   background-color: rgba(97, 97, 97, 0.95);
   text-shadow: white;
 }
@@ -919,6 +924,10 @@ img.mainImg {
   border: 5px solid #dcf6ff;
   background-color: #3f4452d6;
 }
+.eventBody_about, .navBox_about, .pplBody_about {
+  margin: 5%;
+  display: flex;
+}
 
 .pplBody {
   width: 100%;
@@ -995,7 +1004,7 @@ img.mainImg {
   }
 }
 
-@keyframes logoMove() {
+@keyframes logoMove {
   0% {
     background-position-y: top;
   }
@@ -1029,6 +1038,15 @@ select {
   height: 45px;
   font-size: 1.4rem;
   text-align: center;
+}
+
+.imgSubDiv {
+  min-width: 40%;
+}
+
+.imgSub {
+  width: 96%;
+  padding: 7%;
 }
 
 table {

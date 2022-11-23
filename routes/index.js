@@ -30,14 +30,18 @@ router.get('/',(req, res, next)=> {
   async function getBlogs(client){
 const user= req.user
 
+
+
+
+
+
     const blogs = await client.db(dbName).collection('blogs').find().toArray();
     const data = await client.db(dbName).collection('nm_inventory').find().toArray();
     if(user){
     const cart = await client.db(dbName).collection('users').findOne({"_id":ObjectId(req.user._id)});
             //////total cart items
             const cartArray = []
-            var cartTotal=0;
-     
+            var cartTotal=0;     
             function cartGather(){
              for (i=0;i<cart.cart.length;i++){
                  cartArray.push(parseInt(cart.cart[i].price))

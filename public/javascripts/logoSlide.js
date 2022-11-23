@@ -2,19 +2,16 @@
 
 function logoSlide(){
    document.addEventListener('scroll', function(){
-    console.log('logoSlide running')
-    const docH = document.body.scrollHeight
+console.log(document.body.offsetHeight)
+
+
     const winPos =window.scrollY
-    const winH = window.innerHeight
-    const winTot = winPos+winH
-    console.log('docH:'+docH)
-    console.log('winPos:'+winPos)
-    console.log('winH'+winH)
-    console.log('winTot'+winTot)
-    if(winPos<180){
+        if(winPos<180){
         menu.style.backgroundImage=""
+        footer.style.backgroundImage=""        
     }else{
         menu.style.backgroundImage="url('../images/logo_thumb.png')"
+        footer.style.backgroundImage="url('../images/logo_thumb.png')"
     }
     })
 }

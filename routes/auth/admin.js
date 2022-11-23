@@ -50,7 +50,7 @@ router.get('/admin', (req,res) =>{
    const catagory = await client.db(dbName).collection('nm_catagories').find().toArray();
    const colors = await client.db(dbName).collection('nm_colors').find().toArray();
 
-   return  res.render('admin', {title:'Admin Page', data:session.data, blogs:blogs, catagory:catagory, colors:colors, user:user});
+   return  res.render('admin', {title:'Admin Page', data:data, blogs:blogs, catagory:catagory, colors:colors, user:user});
 
   }
   }else{

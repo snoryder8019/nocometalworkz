@@ -94,6 +94,9 @@ router.get('/auth/facebook/callback',
   }
               
         return  res.redirect('/'); })
+
+
+        
       
 
     

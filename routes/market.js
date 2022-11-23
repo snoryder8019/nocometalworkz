@@ -49,8 +49,7 @@ if(user){
   const cart = await client.db(dbName).collection('users').findOne({"_id":ObjectId(req.user._id)});
            //////total cart items
            const cartArray = []
-           var cartTotal=0;
-    
+           var cartTotal=0;    
            function cartGather(){
             for (i=0;i<cart.cart.length;i++){
                 cartArray.push(parseInt(cart.cart[i].price))
@@ -60,17 +59,14 @@ if(user){
             cartGather()
                    console.log(cartTotal)
             console.log(cartArray)
-         ////END CART TOTALS
-  
+         ////END CART TOTALS  
  return res.render('market', {title:"Custom Metalworkz",cartTotal:cartTotal,cart:cart,user:user, data:data, catagory:catagory, session:session})
   }else if (req.session.user) {
-    console.log('user local session')
-  
+    console.log('user local session')  
     const cart = await client.db(dbName).collection('users').findOne({"_id":ObjectId(req.session.user._id)});
     //////total cart items
     const cartArray = []
     var cartTotal=0;
-
     function cartGather(){
      for (i=0;i<cart.cart.length;i++){
          cartArray.push(parseInt(cart.cart[i].price))
@@ -84,7 +80,6 @@ if(user){
 return res.render('market', {title:"Custom Metalworkz",cartTotal:cartTotal,cart:cart,user:req.session.user, data:data, catagory:catagory, session:session})
 
   }
-  
   
   
   else{
