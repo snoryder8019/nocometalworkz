@@ -28,34 +28,39 @@ router.get('/login', function(req, res) {
 //////////////////////////////////
 router.get('/admin', (req,res) =>{
   if( req.session.user.isAdmin == true){
-////
-   async function gettingEmails(){
-    try {
-     await client.connect();
-     await getEmails(client);
-    }
-    catch(err){
-      console.log(err);
-    }
-    finally{
-    await client.close();
-  }}
-  ///////
- gettingEmails().catch(console.error);
-  async function getEmails(client){
-    const session = req.session.user
-    const user = req.user
-   const data = await client.db(dbName).collection('registry').find().toArray();
-   const blogs= await client.db(dbName).collection('blogs').find().toArray();
-   const catagory = await client.db(dbName).collection('nm_catagories').find().toArray();
-   const colors = await client.db(dbName).collection('nm_colors').find().toArray();
-
-   return  res.render('admin', {title:'Admin Page', data:data, blogs:blogs, catagory:catagory, colors:colors, user:user});
-
+    console.log('admin trues')
+    ////
+    async function gettingEmails(){
+      try {
+        await client.connect();
+        await getEmails(client);
+      }
+      catch(err){
+        console.log(err);
+      }
+      finally{
+        await client.close();
+      }}
+      ///////
+      gettingEmails().catch(console.error);
+      async function getEmails(client){
+        const session = req.session.user
+        const user = req.user
+        const data = await client.db(dbName).collection('registry').find().toArray();
+        const blogs= await client.db(dbName).collection('blogs').find().toArray();
+        const catagory = await client.db(dbName).collection('nm_catagories').find().toArray();
+        const colors = await client.db(dbName).collection('nm_colors').find().toArray();
+        if(user){
+  console.log('user detected')
+  res.render('admin', {title:'Admin Page', data:data, blogs:blogs, catagory:catagory, colors:colors, user:user});
+}
+if(req.session.user){
+  console.log('user session detected')
+  res.render('admin',{title:'Admin Page', data:data, blogs:blogs,catagory:catagory,colors:colors,user:user})
+}
   }
   }else{
     console.log('not finding creds')
-
    return res.redirect('/login')
   }
   })
