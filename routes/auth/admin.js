@@ -25,7 +25,7 @@ router.get('/login', function(req, res) {
   res.render('login',{user:user});
   }); 
 //////////////////////////////////
-router.get('/admin', (req,res) =>{
+router.get('/useradmin', (req,res) =>{
   if( req.session.user.isAdmin == true){
     console.log('admin trues')
     ////
