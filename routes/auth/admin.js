@@ -13,7 +13,6 @@ const upload =multer({dest:"uploads/"});
 const path =require('path');
 const { userInfo } = require('os');
 const { authenticate } = require('passport');
-//const passport = require('../../config/passport');
 const passport = require('../../config/passport');
 const ObjectId = require('mongodb').ObjectId;
 //////////////////middleware
@@ -44,20 +43,11 @@ router.get('/admin', (req,res) =>{
       ///////
       gettingEmails().catch(console.error);
       async function getEmails(client){
-        const session = req.session.user
         const user = req.user
-        const data = await client.db(dbName).collection('registry').find().toArray();
         const blogs= await client.db(dbName).collection('blogs').find().toArray();
         const catagory = await client.db(dbName).collection('nm_catagories').find().toArray();
-      //  const colors = await client.db(dbName).collection('nm_colors').find().toArray();
-        if(user){
-  console.log('user detected')
-  res.render('admin', {title:'Admin Page', blogs:blogs, catagory:catagory, user:user});
-}
-if(req.session.user){
   console.log('user session detected')
-  res.render('admin',{title:'Admin Page', blogs:blogs,catagory:catagory,user:user})
-}
+  res.render('admin',{title:'Admin Page', blogs:blogs,catagory:catagory})
   }
   }else{
     console.log('not finding creds')
