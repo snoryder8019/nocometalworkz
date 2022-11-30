@@ -47,7 +47,7 @@ router.get('/useradmin', (req,res) =>{
         const blogs= await client.db(dbName).collection('blogs').find().toArray();
         const catagory = await client.db(dbName).collection('nm_catagories').find().toArray();
   console.log('user session detected')
-  res.render('admin',{title:'Admin Page', blogs:blogs,catagory:catagory})
+ return res.render('admin',{title:'Admin Page', blogs:blogs,catagory:catagory})
   }
   }else{
     console.log('not finding creds')
