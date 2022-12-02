@@ -26,7 +26,7 @@ router.get('/login', function(req, res) {
   }); 
 //////////////////////////////////
 router.get('/admin', (req,res) =>{
-  if( req.session.user.isAdmin == true){
+  if( req.session.user.isAdmin === true){
     console.log('admin trues')
     ////
     async function gettingEmails(){
@@ -56,7 +56,8 @@ router.get('/admin', (req,res) =>{
   })
 //////////////////////////////////
 router.get('/inventory', (req,res) =>{
-   if( req.session.user.isAdmin == true){
+  let userComp = req.session.user
+   if( userComp.isAdmin === true){
  ////
     async function gettingEmails(){
      try {
