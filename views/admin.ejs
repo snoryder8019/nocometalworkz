@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script>0</script>
+  
     <link rel="shortcut icon" type="image/png"href="./images/logo_thumb.png">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="stylesheets/style.css">
@@ -15,7 +15,7 @@
 <canvas id="bkgdCanvas"></canvas>  
 <div id="backgroundFX">
     <%- include('config/header.ejs')%>
-    <%- include('partials/cart.ejs')%>
+  
     <%- include('config/bkgdImg.ejs')%>
     <%- include('config/loadScreen.ejs')%>
 <div class="eventBody">
@@ -27,7 +27,7 @@
     <div class="mainStyle">
       <h1 class="h1Span">Post</h1>
         <div class="eventBody" id="admin0">
-          <form action="/upload"method="post" enctype="multipart/form-data">
+          <form action="/upload" enctype="multipart/form-data" method="post" >
             <h2>Step 1: Add Details</h2>
               <input placeholder="Event Title"  type="text" name="title">
               <input placeholder="Date or Subtitle" type="text" name="subtitle">
@@ -73,7 +73,7 @@
 <h1 class="h1Span">Add Inventory</h1>
     <div class="eventBody" id="admin0">
 
-    <form action="/newItem"method="post" enctype="multipart/form-data">
+    <form action="/newItem" enctype="multipart/form-data" method="post">
     
       <h2>Step 1: Add Details</h2>
       <p>Category Type:</p>
