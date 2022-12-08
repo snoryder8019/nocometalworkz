@@ -42,11 +42,11 @@ router.get('/admin', (req,res) =>{
         const blogs= await client.db(dbName).collection('blogs').find().toArray();
         const catagory = await client.db(dbName).collection('nm_catagories').find().toArray();
   console.log('user session detected')
- return res.render('admin',{title:'Admin Page', blogs:blogs,catagory:catagory, user:user})
+  res.render('admin',{title:'Admin Page', blogs:blogs,catagory:catagory, user:user})
   }
   }else{
     console.log('not finding creds')
-   return res.redirect('/login')
+    res.redirect('/login')
   }
   })
 //////////////////////////////////
