@@ -1,20 +1,8 @@
+/* eslint-disable no-inner-declarations */
 const express = require('express');
 const router = express.Router();
-const { MongoClient} = require('mongodb');
 const client = require('../config/mongo');
-const alert = require('alert');
 const dbName= 'nocoMetal';
-const imageFP = 'MEVNmarketV1'
-const cookieParser = require('cookie-parser');
-const fs = require('fs');
-const multer = require('multer');
-const { getEnabledCategories } = require('trace_events');
-const upload =multer({dest:"uploads/"});
-const path =require('path');
-const { stringify } = require('querystring');
-const { get } = require('http');
-const { escapeRegExpChars } = require('ejs/lib/utils');
-const { session } = require('passport');
 const ObjectId = require('mongodb').ObjectId;
 //////////////////middleware
 router.use((req,res,next)=>{
@@ -22,12 +10,9 @@ router.use((req,res,next)=>{
 next();
 })
 ////////////////////////////////////
-
-router.get('/market', (req,res) =>{
-  
+router.get('/market', (req,res) =>{  
   async function gettingBlogs(){
-  console.log(req.session)
- 
+  console.log(req.session) 
     try {
      await client.connect();
      await getBlogs(client);
@@ -51,7 +36,7 @@ if(user){
            const cartArray = []
            var cartTotal=0;    
            function cartGather(){
-            for (i=0;i<cart.cart.length;i++){
+            for (let i=0;i<cart.cart.length;i++){
                 cartArray.push(parseInt(cart.cart[i].price))
                 cartTotal +=cartArray[i]
             }
@@ -68,7 +53,7 @@ if(user){
     const cartArray = []
     var cartTotal=0;
     function cartGather(){
-     for (i=0;i<cart.cart.length;i++){
+     for (let i=0;i<cart.cart.length;i++){
          cartArray.push(parseInt(cart.cart[i].price))
          cartTotal +=cartArray[i]
      }
@@ -79,9 +64,7 @@ if(user){
   ////END CART TOTALS
 return res.render('market', {title:"Custom Metalworkz",cartTotal:cartTotal,cart:cart,user:req.session.user, data:data, catagory:catagory, session:session})
 
-  }
-  
-  
+  }  
   else{
     console.log('no user or session user')
    return res.render('market', {title:"Custom Metalworkz",user:user, data:data, catagory:catagory, session:session})
@@ -118,7 +101,7 @@ router.get('/marketOp', (req,res)=>{
                 var cartTotal=0;
          
                 function cartGather(){
-                 for (i=0;i<cart.cart.length;i++){
+                 for (let i=0;i<cart.cart.length;i++){
                      cartArray.push(parseInt(cart.cart[i].price))
                      cartTotal +=cartArray[i]
                  }
@@ -145,7 +128,7 @@ router.get('/marketOp', (req,res)=>{
                   var cartTotal=0;
            
                   function cartGather(){
-                   for (i=0;i<cart.cart.length;i++){
+                   for (let i=0;i<cart.cart.length;i++){
                        cartArray.push(parseInt(cart.cart[i].price))
                        cartTotal +=cartArray[i]
                    }
@@ -198,7 +181,7 @@ router.get('/productID/:_id', (req,res)=>{
        var cartTotal=0;
 
        function cartGather(){
-        for (i=0;i<cart.cart.length;i++){
+        for (let i=0;i<cart.cart.length;i++){
             cartArray.push(parseInt(cart.cart[i].price))
             cartTotal +=cartArray[i]
         }
@@ -216,7 +199,7 @@ router.get('/productID/:_id', (req,res)=>{
           var cartTotal=0;
       
           function cartGather(){
-           for (i=0;i<cart.cart.length;i++){
+           for (let i=0;i<cart.cart.length;i++){
                cartArray.push(parseInt(cart.cart[i].price))
                cartTotal +=cartArray[i]
            }
@@ -307,8 +290,7 @@ router.post('/delCart',(req,res)=>{
   }
   deleteCart().catch(console.error);
   async function getCart(client){
-    const newID =req.body.delCart;
-    const newCart =ObjectId(req.body.cartID); 
+  
 if(session.user){
     const cartFind = await client.db(dbName).collection('users').findOne({"_id":ObjectId(req.session.user._id)});
     const delItem = await client.db(dbName).collection('users').updateOne(
