@@ -1,22 +1,15 @@
 const express = require('express');
 const router = express.Router();
-const { MongoClient} = require('mongodb');
 const client = require('../../config/mongo');
-const alert = require('alert');
 const dbName= 'nocoMetal';
-const imageFP = 'nocometalworkz'
-const cookieParser = require('cookie-parser');
+const imageFP = 'nocometalworkz';
 const fs = require('fs');
 const multer = require('multer');
-const { getEnabledCategories } = require('trace_events');
 const upload =multer({dest:"uploads/"});
-const path =require('path');
-const { userInfo } = require('os');
-const { authenticate } = require('passport');
-const passport = require('../../config/passport');
 const ObjectId = require('mongodb').ObjectId;
 //////////////////middleware
 router.use((req,res,next)=>{
+console.log('middleware admin')
 next();
 })
 ////////////////////////////////////
@@ -29,6 +22,7 @@ router.get('/admin', (req,res) =>{
   if( req.session.user.isAdmin === true){
     console.log('admin trues')
     ////
+    // eslint-disable-next-line no-inner-declarations
     async function gettingEmails(){
       try {
         await client.connect();
@@ -42,12 +36,13 @@ router.get('/admin', (req,res) =>{
       }}
       ///////
       gettingEmails().catch(console.error);
+      // eslint-disable-next-line no-inner-declarations
       async function getEmails(client){
         const user = req.user
         const blogs= await client.db(dbName).collection('blogs').find().toArray();
         const catagory = await client.db(dbName).collection('nm_catagories').find().toArray();
   console.log('user session detected')
- return res.render('admin',{title:'Admin Page', blogs:blogs,catagory:catagory})
+ return res.render('admin',{title:'Admin Page', blogs:blogs,catagory:catagory, user:user})
   }
   }else{
     console.log('not finding creds')
@@ -59,6 +54,7 @@ router.get('/inventory', (req,res) =>{
   let userComp = req.session.user
    if( userComp.isAdmin === true){
  ////
+    // eslint-disable-next-line no-inner-declarations
     async function gettingEmails(){
      try {
       await client.connect();
@@ -72,8 +68,8 @@ router.get('/inventory', (req,res) =>{
    }}
    ///////
   gettingEmails().catch(console.error);
+   // eslint-disable-next-line no-inner-declarations
    async function getEmails(client){
-     const session = req.session.user
      const user = req.user
    const inventory = await client.db(dbName).collection('nm_inventory').find().toArray();
     const catagory = await client.db(dbName).collection('nm_catagories').find().toArray();

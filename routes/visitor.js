@@ -1,12 +1,7 @@
 const express = require('express');
-const app = express();
 const router = express.Router();
-const { MongoClient} = require('mongodb');
 const client = require('../config/mongo');
-const alert = require('alert');
-
 const dbName= 'nocoMetal';
-
 router.use('/',(req,res, next)=>{
 next();
 })
@@ -51,10 +46,8 @@ router.post('/delRegister',(req,res) =>{
  }}
 getUsertoDelete().catch(console.error);
   async function findThem(client) {
-    const whoGone = await client.db(dbName).collection('registry').deleteOne({"email":req.body.delConfirm})
     const data = await client.db(dbName).collection('registry').find().toArray();
-    const blogs = await client.db(dbName).collection('blogs').find().toArray();
-   
+    const blogs = await client.db(dbName).collection('blogs').find().toArray();   
      console.log();
     res.render('admin',{title:'removed!!\n'+req.body.delConfirm, data:data, blogs:blogs})
   }

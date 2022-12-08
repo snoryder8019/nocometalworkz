@@ -2,7 +2,7 @@
 <html>
   <head>
   
-    <link rel="shortcut icon" type="image/png"href="./images/logo_thumb.png">
+    <link rel="shortcut icon" type="image/png" href="./images/logo_thumb.png">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="stylesheets/style.css">
 
@@ -14,8 +14,7 @@
            
 <canvas id="bkgdCanvas"></canvas>  
 <div id="backgroundFX">
-    <%- include('config/header.ejs')%>
-  
+    <%- include('config/header.ejs')%>  
     <%- include('config/bkgdImg.ejs')%>
     <%- include('config/loadScreen.ejs')%>
 <div class="eventBody">
@@ -56,8 +55,7 @@
           <tr>
               <td><%= blogs[i].bTitle %></td>
               <td><%= blogs[i].bSubtitle%></td>
-              <td><img src="<%= blogs[i].imgName%>" alt=""></td>
-             
+              <td><img src="<%= blogs[i].imgName%>" alt=""></td>             
               <td><form action="/delBlog" method="post">
                   <button onclick="loading('deleting blog')" name="blogDelete" value="<%= blogs[i]._id%>"> delete</button>
                    </form></td>

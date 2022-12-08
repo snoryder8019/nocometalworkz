@@ -1,14 +1,12 @@
 const express = require('express');
 const passport = require('passport');
-const { MongoClient} = require('mongodb');
-const session = require('express-session')
+
 const client = require('../config/mongo');
 const bcrypt = require('bcrypt')
-const alert = require('alert');
+
 const dbName= 'nocoMetal';
-const imageFP = 'nocometalworkz'
-const { ensureAuth } = require('../middleware/auth');
-const cookieParser = require('cookie-parser');
+
+
 const router = express.Router();
 
 //////////
@@ -79,7 +77,7 @@ router.get('/auth/facebook/callback',
   {successRedirect:'/'},
   {failureRedirect: '/login' }));  
 
-  router.get('/logout', function(req, res) {
+  router.get('/logout', function(req, res, next) {
     const user=req.user
     console.log(user)
     const sessionUser = req.session.user

@@ -36,6 +36,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "eslint": "^8.29.0",
     "kill-port": "^2.0.1"
   }
 }

@@ -1,40 +1,24 @@
 var express = require('express');
 var router = express.Router();
-const passport = require('passport')
 const bcrypt = require('bcrypt');
-const app = express();
-const { MongoClient, ObjectId} = require('mongodb');
 var client = require('../config/mongo');
 const nodemailer = require('nodemailer')
-const alert = require('alert');
 const dbName= 'nocoMetal';
-// const multer = require('multer');
-// const upload = multer({dest:'tmp/uploads'});
-// const path = require('path');
-// const fs = require('fs')
 
 //middleware
 router.use((req,res,next)=>{
- 
   next();
 //fs to read photo file length
  })
 router.get('/', (req,res,next) =>{
-
   next();
 })
 //
-router.get('/register', function(req, res, next) {
+router.get('/register', function(req, res) {
   const user = req.user
   res.render('register', { title: 'Contact Us', user:user });
 });
-//////
-// router.post('/loginUser', 
-// passport.authenticate('local',
-// {failureRedirect:'/login'},
-// {successRedirect:'/'}
-// ));
-/////
+
 router.post('/regUser', (req,res) => {
   async function main(){
    try { 
@@ -69,10 +53,10 @@ router.post('/regUser', (req,res) => {
    let hash =await bcrypt.hash(req.body.password, 10);
    var myquery = { "providerId":newUser.providerId};
    var newvalues = { $set: {"password":hash } };
-   await client.db(dbName).collection("users").updateOne(myquery,newvalues, function(err, res) {
+   await client.db(dbName).collection("users").updateOne(myquery,newvalues, function(err) {
     if (err) throw err; 
   })  
-   const data = await client.db(dbName).collection("blogs").find().toArray();
+  
  
    console.log(' :new user\n id: '+result.insertedId);
    res.redirect('/login')}
@@ -140,9 +124,7 @@ router.post('/contactform', (req,res) => {
         
       })
    return res.redirect('/');
-    alert('contact information sent!!')
-
-    })
+     })
 
 
   module.exports = router;
