@@ -39,8 +39,13 @@ const UserSchema = new mongoose.Schema({
       isAdmin:{
         type:Boolean,
         default:false,
-        required:true
+        required:true,
+        creds:{
+            dbName:"n/a",
+            default:"n/a"
+        }
     },
+
     cart:{
         type:Array
     },
