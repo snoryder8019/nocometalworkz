@@ -32,7 +32,7 @@ router.get('/admin', (req,res) =>{
         console.log(err);
       }
       finally{
-        await client.close();
+      //  await client.close();
       }}
       ///////
       gettingEmails().catch(console.error);
