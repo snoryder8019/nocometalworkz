@@ -19,7 +19,7 @@ router.get('/login', function(req, res) {
   }); 
 //////////////////////////////////
 router.get('/admin', (req,res) =>{
-  if( req.session.user.isAdmin === true){
+
     console.log('admin trues')
     ////
     // eslint-disable-next-line no-inner-declarations
@@ -44,10 +44,7 @@ router.get('/admin', (req,res) =>{
   console.log('user session detected')
   res.render('admin',{title:'Admin Page', blogs:blogs,catagory:catagory, user:user})
   }
-  }else{
-    console.log('not finding creds')
-    res.redirect('/login')
-  }
+ 
   })
 //////////////////////////////////
 router.get('/inventory', (req,res) =>{
