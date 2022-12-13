@@ -3,11 +3,11 @@ var express = require('express');
 const mongoose = require('mongoose')
 const env = require('dotenv').config();
 const connectDB = require('./config/db');
-//const passport = require('./config/passport');
+const passport = require('./config/passport');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
-const passport=require('passport')
-require('./config/passport')(passport);
+//const passport=require('passport')
+//require('./config/passport')(passport);
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');

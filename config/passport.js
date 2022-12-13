@@ -10,7 +10,6 @@ const client = require('./mongo');
 const dbName= 'nocoMetal';
 
 
-module.exports = (passport)=>{
 
 
 passport.use(
@@ -46,7 +45,7 @@ passport.use(
       }
     }
   )
-),
+)
 
 //google strat below here
 passport.use(new GoogleStrategy ({
@@ -82,14 +81,14 @@ async (accessToken, refreshToken, profile, done) => {
         console.error(err)
       }
     })  
-    ),
+    )
     
     passport.serializeUser((user, done)=> {     
       done(null, user._id)
-    }),
+    })
     passport.deserializeUser(( id, done)=>{        
       User.findById(id, (err, user)=> done(err,user))    
     })
   
-  }
-    
+  
+    module.exports = passport

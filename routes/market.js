@@ -10,7 +10,7 @@ router.use((req,res,next)=>{
 next();
 })
 ////////////////////////////////////
-router.get('/market', (req,res,user) =>{  
+router.get('/market', (req,res) =>{  
   async function gettingBlogs(){  
     try {
       await client.connect();
