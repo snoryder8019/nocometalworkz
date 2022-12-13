@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const client = require('../../config/mongo');
+const client = require('../config/mongo');
 const dbName= 'nocoMetal';
 const imageFP = 'nocometalworkz';
 const fs = require('fs');
@@ -19,6 +19,7 @@ router.get('/login', function(req, res) {
   }); 
 //////////////////////////////////
 router.get('/admin', (req,res) =>{
+  console.log(req.url)
     // eslint-disable-next-line no-inner-declarations
     async function gettingEmails(){
       try {
