@@ -7,8 +7,6 @@ const passport = require('./config/passport');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 const bodyParser = require('body-parser')
-//const passport=require('passport')
-//require('./config/passport')(passport);
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
