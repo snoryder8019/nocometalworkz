@@ -11,6 +11,7 @@ next();
 })
 ////////////////////////////////////
 router.get('/market', (req,res) =>{  
+  console.log(req.user)
   async function gettingBlogs(){  
     try {
       await client.connect();
