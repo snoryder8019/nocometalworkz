@@ -9,7 +9,7 @@ const upload =multer({dest:"uploads/"});
 const ObjectId = require('mongodb').ObjectId;
 //////////////////middleware
 router.use((req,res,next)=>{
-
+console.log(req.user)
 next();
 })
 ////////////////////////////////////
