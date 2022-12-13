@@ -32,7 +32,7 @@ router.get('/market', (req,res) =>{
   const catagory = await client.db(dbName).collection('nm_catagories').find().toArray();
   const data = await client.db(dbName).collection('nm_inventory').find().toArray();
 if(req.user){
-  const cart = await client.db(dbName).collection('users').findOne({"_id":ObjectId(user._id)});
+  const cart = await client.db(dbName).collection('users').findOne({"_id":ObjectId(req.user._id)});
            //////total cart items
            const cartArray = []
            var cartTotal=0;    
