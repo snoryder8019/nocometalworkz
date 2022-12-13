@@ -47,26 +47,7 @@ if(req.user){
             console.log(cartArray)
          ////END CART TOTALS  
  return res.render('market', {title:"Custom Metalworkz",cartTotal:cartTotal,cart:cart,user:user, data:data, catagory:catagory, session:session})
-  }else if (req.session.user) {
-    console.log('user local session')  
-    const cart = await client.db(dbName).collection('users').findOne({"_id":ObjectId(req.session.user._id)});
-    //////total cart items
-    const cartArray = []
-    var cartTotal=0;
-    function cartGather(){
-     for (let i=0;i<cart.cart.length;i++){
-         cartArray.push(parseInt(cart.cart[i].price))
-         cartTotal +=cartArray[i]
-     }
-   }
-     cartGather()
-            console.log(cartTotal)
-     console.log(cartArray)
-  ////END CART TOTALS
-return res.render('market', {title:"Custom Metalworkz",cartTotal:cartTotal,cart:cart,user:req.session.user, data:data, catagory:catagory, session:session})
-
-  }  
-  else{
+  } else{
     console.log('no user or session user')
    return res.render('market', {title:"Custom Metalworkz",user:user, data:data, catagory:catagory, session:session})
 
@@ -174,7 +155,7 @@ router.get('/productID/:_id', (req,res)=>{
        const user= req.user
       const newID =ObjectId(req.params._id);
        const data = await client.db(dbName).collection('nm_inventory').findOne({"_id":newID});
-       if(user){
+       if(req.user){
          const cart = await client.db(dbName).collection('users').findOne({"_id":ObjectId(req.user._id)});
    
          //////total cart items
