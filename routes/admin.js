@@ -35,11 +35,11 @@ router.get('/admin', (req,res) =>{
       gettingEmails().catch(console.error);
       // eslint-disable-next-line no-inner-declarations
       async function getEmails(client){
-        const user = req.user
+       // const user = req.user
         const blogs= await client.db(dbName).collection('blogs').find().toArray();
         const catagory = await client.db(dbName).collection('nm_catagories').find().toArray();
 
-  res.render('admin',{title:'Admin Page', blogs:blogs,catagory:catagory, user:user})
+  res.render('admin',{title:'Admin Page', blogs:blogs,catagory:catagory})
   }
  
   })
