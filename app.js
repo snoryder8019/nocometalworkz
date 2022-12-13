@@ -6,6 +6,7 @@ const connectDB = require('./config/db');
 const passport = require('./config/passport');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
+const bodyParser = require('body-parser')
 //const passport=require('passport')
 //require('./config/passport')(passport);
 var path = require('path');
@@ -29,6 +30,8 @@ connectDB();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.enable("trust proxy")
+app.use(bodyParser.urlencoded({extended:false}))
+app.use(bodyParser.json())
 //app.set('trust proxy', true)
 app.use(flash())
 app.use(logger('dev'));

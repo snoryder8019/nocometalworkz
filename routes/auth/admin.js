@@ -9,7 +9,7 @@ const upload =multer({dest:"uploads/"});
 const ObjectId = require('mongodb').ObjectId;
 //////////////////middleware
 router.use((req,res,next)=>{
-console.log(req.user)
+console.log("admin middle: "+req.user)
 next();
 })
 ////////////////////////////////////
@@ -64,7 +64,7 @@ router.get('/inventory', (req,res) =>{
      const user = req.user
    const inventory = await client.db(dbName).collection('nm_inventory').find().toArray();
     const catagory = await client.db(dbName).collection('nm_catagories').find().toArray();
-    if(user){
+    if(req.user){
     res.render('inventory', {title:'Inventory Page', inventory:inventory,catagory:catagory , user:user});
    }
    if(req.session.user){
