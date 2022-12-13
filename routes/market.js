@@ -6,32 +6,32 @@ const dbName= 'nocoMetal';
 const ObjectId = require('mongodb').ObjectId;
 //////////////////middleware
 router.use((req,res,next)=>{
-  res.locals.user = req.session.user
+
 next();
 })
 ////////////////////////////////////
-router.get('/market', (req,res) =>{  
-  async function gettingBlogs(){
-  console.log(req.session) 
+router.get('/market', (req,res,user) =>{  
+  async function gettingBlogs(){  
     try {
-     await client.connect();
-     await getBlogs(client);
+      await client.connect();
+      await getBlogs(client);
     }
     catch(err){
       console.log(err)
     }
     finally{
-    await client.close();
-  }}
-  //calling the function
-  gettingBlogs().catch(console.error);
-  async function getBlogs(client){
- const user = req.user
+      await client.close();
+    }}
+    //calling the function
+    gettingBlogs().catch(console.error);
+    async function getBlogs(client){
+     const user = req.session.user
+
  const session = req.session.user
   const catagory = await client.db(dbName).collection('nm_catagories').find().toArray();
   const data = await client.db(dbName).collection('nm_inventory').find().toArray();
 if(user){
-  const cart = await client.db(dbName).collection('users').findOne({"_id":ObjectId(req.user._id)});
+  const cart = await client.db(dbName).collection('users').findOne({"_id":ObjectId(user.id)});
            //////total cart items
            const cartArray = []
            var cartTotal=0;    

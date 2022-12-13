@@ -9,7 +9,7 @@ const upload =multer({dest:"uploads/"});
 const ObjectId = require('mongodb').ObjectId;
 //////////////////middleware
 router.use((req,res,next)=>{
-console.log('middleware admin')
+
 next();
 })
 ////////////////////////////////////
@@ -19,9 +19,6 @@ router.get('/login', function(req, res) {
   }); 
 //////////////////////////////////
 router.get('/admin', (req,res) =>{
-
-    console.log('admin trues')
-    ////
     // eslint-disable-next-line no-inner-declarations
     async function gettingEmails(){
       try {
@@ -33,24 +30,21 @@ router.get('/admin', (req,res) =>{
       }
       finally{
       //  await client.close();
-      }}
-      ///////
+      }}    
       gettingEmails().catch(console.error);
       // eslint-disable-next-line no-inner-declarations
       async function getEmails(client){
         const user = req.user
         const blogs= await client.db(dbName).collection('blogs').find().toArray();
         const catagory = await client.db(dbName).collection('nm_catagories').find().toArray();
-  console.log('user session detected')
+
   res.render('admin',{title:'Admin Page', blogs:blogs,catagory:catagory, user:user})
   }
  
   })
 //////////////////////////////////
-router.get('/inventory', (req,res) =>{
-  let userComp = req.session.user
-   if( userComp.isAdmin === true){
- ////
+router.get('/inventory', (req,res) =>{ 
+
     // eslint-disable-next-line no-inner-declarations
     async function gettingEmails(){
      try {
@@ -77,10 +71,7 @@ router.get('/inventory', (req,res) =>{
       res.render('inventory', {title:'Inventory Page', inventory:inventory,catagory:catagory, user:req.session.user}); 
     }
    }
-   }else{
-     console.log('not finding creds')
-     res.redirect('/login')
-   }
+ 
    })
 ///////////////
 router.post('/deleteInv', (req,res)=>{
