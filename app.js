@@ -28,7 +28,7 @@ var app = express();
 connectDB();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+app.set('view engine', 'ejs',{async:true});
 app.enable("trust proxy")
 app.use(bodyParser.urlencoded({extended:false}))
 app.use(bodyParser.json())
