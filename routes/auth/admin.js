@@ -8,13 +8,13 @@ const multer = require('multer');
 const upload =multer({dest:"uploads/"});
 const ObjectId = require('mongodb').ObjectId;
 //////////////////middleware
-router.get('/',(req,res,next)=>{
-if(req.user.isAdmin==true)
-{next();}else{
- return res.sendStatus(401)
-}
-}
-)
+function isAddy(req,res,next){
+if(req.user.isAdmin==true){
+  next()}
+    else{res.sendStatus(401)}
+  }
+
+
 ////////////////////////////////////
 
 //////////////////////////////////
