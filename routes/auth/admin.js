@@ -8,13 +8,12 @@ const multer = require('multer');
 const upload =multer({dest:"uploads/"});
 const ObjectId = require('mongodb').ObjectId;
 //////////////////middleware
-router.use((req,res,next)=>{
+router.use('/',(req,res,next)=>{
 if(req.user.isAdmin==true)
 {next();}else{
  return res.sendStatus(401)
 }
 }
-
 )
 ////////////////////////////////////
 
