@@ -63,7 +63,7 @@
         <select name="catSelect"  id="">
            <option value="">Select a Category</option>
            <%if(typeof blogs == 'object' && blogs[0]){%>
-           <% for(let i=0;i<catagory?.length;i++){%>
+           <% for(let i=0;i<catagory.length;i++){%>
            <option  value="<%= catagory[i].catName%>"><%= catagory[i].catName%></option>
            <%}%>
            <%}%>
