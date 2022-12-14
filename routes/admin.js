@@ -37,7 +37,7 @@ router.get('/admin', (req,res) =>{
        const user = req.user
         const blogs= await client.db(dbName).collection('blogs').find().toArray();
         const catagory = await client.db(dbName).collection('nm_catagories').find().toArray();
-      res.render('admin',{title:'Admin Page', blogs:blogs,catagory:catagory, user:user})
+   return  res.render('admin',{title:'Admin Page', blogs:blogs,catagory:catagory, user:user})
   }
  
   })
