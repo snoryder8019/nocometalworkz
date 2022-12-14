@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const client = require('../config/mongo');
+const client = require('../../config/mongo');
 const dbName= 'nocoMetal';
 const imageFP = 'nocometalworkz';
 const fs = require('fs');
@@ -65,7 +65,7 @@ router.get('/inventory', (req,res) =>{
    const inventory = await client.db(dbName).collection('nm_inventory').find().toArray();
     const catagory = await client.db(dbName).collection('nm_catagories').find().toArray();
     if(req.user){
-    res.render('inventory', {title:'Inventory Page', inventory:inventory,catagory:catagory , user:user});
+    res.render('inventory', {title:'Inventory Page', inventory:inventory,catagory:catagory , user:req.user});
    }
    if(req.session.user){
       res.render('inventory', {title:'Inventory Page', inventory:inventory,catagory:catagory, user:req.session.user}); 
