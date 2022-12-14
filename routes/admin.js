@@ -19,6 +19,9 @@ router.get('/login', function(req, res) {
   }); 
 //////////////////////////////////
 router.get('/admin', (req,res) =>{
+  if(req.user.isAdmin==true){
+    console.log('user is admin')
+  }
     // eslint-disable-next-line no-inner-declarations
     async function gettingEmails(){
       try {
