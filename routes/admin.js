@@ -11,7 +11,7 @@ const ObjectId = require('mongodb').ObjectId;
 router.use((req,res,next)=>{
 if(req.user.isAdmin==true)
 {next();}else{
- return res.send(401)
+ return res.sendStatus(401)
 }
 }
 
