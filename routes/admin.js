@@ -9,9 +9,13 @@ const upload =multer({dest:"uploads/"});
 const ObjectId = require('mongodb').ObjectId;
 //////////////////middleware
 router.use((req,res,next)=>{
-console.log("admin middle: "+req.user)
-next();
-})
+if(req.user.isAdmin==true)
+{next();}else{
+ return res.send(401)
+}
+}
+
+)
 ////////////////////////////////////
 router.get('/login', function(req, res) {
   const user = req.user
