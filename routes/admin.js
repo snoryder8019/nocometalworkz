@@ -19,10 +19,6 @@ router.get('/login', function(req, res) {
   }); 
 //////////////////////////////////
 router.get('/admin', (req,res) =>{
-  if(req.user){
-    console.log(req.user)
-  }
-  console.log(req.url + " "+ toString(req.params))
     // eslint-disable-next-line no-inner-declarations
     async function gettingEmails(){
       try {
@@ -38,17 +34,15 @@ router.get('/admin', (req,res) =>{
       gettingEmails().catch(console.error);
       // eslint-disable-next-line no-inner-declarations
       async function getEmails(client){
-       // const user = req.user
+       const user = req.user
         const blogs= await client.db(dbName).collection('blogs').find().toArray();
         const catagory = await client.db(dbName).collection('nm_catagories').find().toArray();
-
-  res.render('admin',{title:'Admin Page', blogs:blogs,catagory:catagory, user:req.user})
+      res.render('admin',{title:'Admin Page', blogs:blogs,catagory:catagory, user:user})
   }
  
   })
 //////////////////////////////////
 router.get('/inventory', (req,res) =>{ 
-
     // eslint-disable-next-line no-inner-declarations
     async function gettingEmails(){
      try {

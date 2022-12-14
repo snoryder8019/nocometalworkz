@@ -19,26 +19,20 @@ var adminRouter =require('./routes/admin');
 var visitorRouter =require('./routes/visitor');
 var apiRouter =require('./routes/api');
 var marketRouter =require('./routes/market');
-
-
 const auth = require('./routes/auth');
 var app = express();
 connectDB();
-// view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs',{async:true});
 app.enable("trust proxy")
 app.use(bodyParser.urlencoded({extended:false}))
 app.use(bodyParser.json())
-//app.set('trust proxy', true)
 app.use(flash())
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
-
 app.use(session({
   secret:process.env.SESHID,
   resave:false,
@@ -46,7 +40,6 @@ app.use(session({
  store: new MongoStore({mongoUrl:"mongodb+srv://"+process.env.MONGOUSER+":"+encodeURIComponent(process.env.MONGOPASS)+"@cluster0.tpmae.mongodb.net/users?retryWrites=true&w=majority"}),
 cookie:{secure:true}
 }))
-
 app.use(passport.initialize())
 app.use(passport.session())
 app.use("/auth",auth);
@@ -61,9 +54,6 @@ app.use((req,res,next)=>{
  console.log(req.originalUrl)
  next()
 })
-
-
-
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
@@ -78,7 +68,7 @@ app.use(function(err, req, res, next) {
   res.locals.error = req.app.get('env') === 'development' ? err : {};
   // render the error page
   res.status(err.status || 500);
-  res.render('config/404',{title:err.message});
+  res.render('config/404',{title:err});
 });
 
 module.exports = app;
