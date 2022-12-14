@@ -8,10 +8,10 @@ const multer = require('multer');
 const upload =multer({dest:"uploads/"});
 const ObjectId = require('mongodb').ObjectId;
 //////////////////middleware
-router.use((req,res,next)=>{
-console.log("admin middle: "+req.user)
-next();
-})
+// router.use((req,res,next)=>{
+// console.log("admin middle: "+req.user)
+// next();
+// })
 ////////////////////////////////////
 router.get('/login', function(req, res) {
   const user = req.user
@@ -19,7 +19,10 @@ router.get('/login', function(req, res) {
   }); 
 //////////////////////////////////
 router.get('/admin', (req,res) =>{
-  console.log(req.url)
+  if(req.user){
+    console.log(req.user)
+  }
+  console.log(req.url + " "+ toString(req.params))
     // eslint-disable-next-line no-inner-declarations
     async function gettingEmails(){
       try {
