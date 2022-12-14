@@ -9,6 +9,7 @@ const upload =multer({dest:"uploads/"});
 const ObjectId = require('mongodb').ObjectId;
 //////////////////middleware
 function isAddy(req,res,next){
+  if(!req.user){res.redirect('login')}
 if(req.user.isAdmin==true){
   next()}
     else{res.sendStatus(401)}
