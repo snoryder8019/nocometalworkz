@@ -17,10 +17,7 @@ if(req.user.isAdmin==true)
 
 )
 ////////////////////////////////////
-router.get('/login', function(req, res) {
-  const user = req.user
-  res.render('login',{user:user});
-  }); 
+
 //////////////////////////////////
 router.get('/admin', (req,res) =>{
 
