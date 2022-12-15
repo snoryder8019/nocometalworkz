@@ -78,7 +78,17 @@ res.render('index', {title:'Welcome',cartTotal:cartTotal,cart:cart,user:user, da
 });
 
 router.get('/faqs',(req,res)=>{
-  res.render('faqs')
+  async function faqFe(){
+    try{await client.connect()
+    await faqGetter(client)}
+    catch(err){console.log(err)}
+    finally{client.close()}
+  }
+  faqFe().catch(console.error);
+  async function faqGetter(client){
+const faqs = await client.db(dbName).collection('nm_faqs').find().toArray()
+res.render('faqs',{faqs:faqs})
+  }
 })
 router.get('/about',(req,res)=>{
   res.render('about')
