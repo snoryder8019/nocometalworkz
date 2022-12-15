@@ -301,7 +301,7 @@ router.post('/delCat',(req,res)=>{
     try{
       await client.connect();
       await getCat(client,{
-"catName":"Not_Categorized"
+"catRef":"Not_Categorized"
       });  
     }
     catch(err){
@@ -315,7 +315,7 @@ router.post('/delCat',(req,res)=>{
   async function getCat(client, updateInfo){
     const newID =req.body.catDel;
    const result = await client.db(dbName).collection('nm_catagories').deleteOne({"catName":newID})
-  const result2 = await client.db(dbName).collection('nm_inventory').updateMany({"catName":newID},{$set:updateInfo},{upsert:true})
+  const result2 = await client.db(dbName).collection('nm_inventory').updateMany({"catRef":newID},{$set:updateInfo},{upsert:true})
     console.log(result+' modded '+ "Deleting Category Name "+ newID+"\n\n result2: "+ result2)
  return res.redirect('admin');
   }
