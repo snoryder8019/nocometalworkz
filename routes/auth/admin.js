@@ -316,7 +316,7 @@ router.post('/delCat',(req,res)=>{
     const newID =req.body.catDel;
    const result = await client.db(dbName).collection('nm_catagories').deleteOne({"catName":newID})
   // const result2 = await client.db(dbName).collection('nm_inventory').updateMany({"_id":newId},{$set:updateInfo},{upsert:true})
-    console.log(result+' modded '+ "Deleting Category Name "+ newID+"\n\n result2: "+ result2)
+    console.log(result+' modded '+ "Deleting Category Name "+ newID+"\n\n result2: ")
  return res.redirect('admin');
   }
 })
