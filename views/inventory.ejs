@@ -124,6 +124,14 @@
 
 </div>
 
+<div class="detailsBlock">
+
+  <% for(let i=0;i<inventory.length;i++){%>
+    <input value="<%= inventory[i].details%>">
+    <form action=""><button>update</button></form>
+    <%}%>
+
+</div>
 
 <%- include('./config/baseScripts.ejs')%>
  
