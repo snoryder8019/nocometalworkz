@@ -364,6 +364,7 @@ async function faqAdd(client,faqOptions){
 }
 res.redirect('options')
 })
+
 router.post('/delFaq', (req,res)=>{
   async function delFaqs(){
     try{
@@ -378,7 +379,7 @@ router.post('/delFaq', (req,res)=>{
     const newID =ObjectId(req.body.faqId);
   const deleteIt = await client.db(dbName).collection('nm_faqs').deleteOne({"_id":newID});
   console.log(deleteIt)
-  res.redirect('options')
-  }
+}
+res.redirect('options')
 })
 module.exports = router;
