@@ -332,4 +332,24 @@ router.post('/delCat',(req,res)=>{
 router.get('/options',(req,res)=>{
   res.render('options',{title:"options"})
 })
+router.post('/newFAQ',(req,res)=>{
+async function newFAQ(){
+  try{
+    await client.connect()
+    await FAQadd(client,{
+      faqQ:req.body.faq,
+      faqA:req.body.faqAnswer
+    })
+  }
+  catch (err){console.lof(err)}
+  finally{await client.close()}
+}
+newFAQ().catch(console.error);
+async function FAQadd(client,faqOptions){
+  const result = client.db(dbName).collection('nm_faqs').insertOne(faqOptions)
+  console.log(result)
+
+}
+res.resdirect('options')
+})
 module.exports = router;
