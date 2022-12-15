@@ -115,6 +115,7 @@
       <select placeholder="categories from db" name="catDel" id="">
         <option value="">Select a Category</option>
         <% for(let i=0;i<catagory.length;i++){%>
+
           <option value="<%= catagory[i].catName%>"><%= catagory[i].catName%></option>
           <%}%>
       </select>
@@ -127,6 +128,7 @@
 <div class="detailsBlock">
 
   <% for(let i=0;i<inventory.length;i++){%>
+   <span class="alert"> details for:</span> <%=inventory[i].name%>
     <input value="<%= inventory[i].details%>">
     <form action=""><button>update</button></form>
     <%}%>
