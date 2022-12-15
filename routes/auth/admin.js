@@ -330,13 +330,26 @@ router.post('/delCat',(req,res)=>{
 
 
 router.get('/options',(req,res)=>{
-  res.render('options',{title:"options"})
+  async function faqGetter(){
+    try{
+      await client.connect()
+    await faqPopulate(client)}
+    catch(err){console.log(err)}
+    finally{client.close}
+  }
+  faqGetter().catch(console.error);
+  async function faqPopulate(client){
+    const faqs = await client.db(dbName).collection(nm_faqs).find().toArray()
+    console.log(faqs)
+  }
+  res.render('options',{title:"options", faqs:faqs})
 })
+
 router.post('/newFAQ',(req,res)=>{
 async function newFAQs(){
   try{
     await client.connect()
-    await FAQadd(client,{
+    await faqAdd(client,{
       faqQ:req.body.faq,
       faqA:req.body.faqAnswer
     })
@@ -345,7 +358,7 @@ async function newFAQs(){
   finally{await client.close()}
 }
 newFAQs().catch(console.error);
-async function FAQadd(client,faqOptions){
+async function faqAdd(client,faqOptions){
   const result = await client.db(dbName).collection('nm_faqs').insertOne(faqOptions)
   console.log(result)
 }
