@@ -376,7 +376,7 @@ router.post('/delFaq', (req,res)=>{
   delFaqs().catch(console.error);
   async function faqDeleter(client){
     const newID =ObjectId(req.body.faqId);
-  const deleteIt = await client.db(dbName).collection('faqs').deleteOne({"_id":newID});
+  const deleteIt = await client.db(dbName).collection('nm_faqs').deleteOne({"_id":newID});
   console.log(deleteIt)
   res.redirect('options')
   }
