@@ -22,9 +22,9 @@
     <tbody>
         <%for(let i=0;i<inventory.length;i++){%>
             <form action="/updateInv" method="post">
+              <td><input name="name" required placeholder="<%=inventory[i].name%>"></td>
         <tr>
           
-        <td><input name="name" required placeholder="<%=inventory[i].name%>"></td>
         <td hidden><input name="ogPost" value="<%=inventory[i].postDate%>"></td>
         <td><input name="price" required placeholder="<%=inventory[i].price%>"></td>
       
