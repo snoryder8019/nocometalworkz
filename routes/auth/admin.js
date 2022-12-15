@@ -205,6 +205,12 @@ if(err){
         details:req.body.inventoryDetails,
         catRef:req.body.catSelect,
         imgName:bImgName,
+        shipping:{
+        height:req.body.inventoryHeight,
+        width:req.body.inventoryWidth,
+        depth:req.body.inventoryDepth,
+        weight:req.body.inventoryWeight,        
+        }
      
       });
      }
@@ -289,6 +295,7 @@ router.post('/newCat', function(req,res){
    }}
  saveCat().catch(console.error);
    async function createCat(client,newCat){
+
     const result = await client.db(dbName).collection('nm_catagories').insertOne(newCat);
   return  res.redirect('admin');
     }
