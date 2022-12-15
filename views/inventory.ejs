@@ -53,6 +53,10 @@
 <a onclick="goBack()"><div class="navBox">back to admin</div></a>
 </div>
 
+
+
+
+
 <div class="eventBody">
   <div class="mainStyle">
       <h1 class="h1Span">Add Inventory</h1>
@@ -90,6 +94,37 @@
           </div>
         </div>
 </div>
+
+
+<div class="mainStyle">
+  <h1 class="h1Span">Add Inventory</h1>
+
+  
+  
+  <div class="eventBody" id="admin0">
+  
+    <form action="/newCat"method="post">
+    
+      <h2>Add: New Category Name</h2>
+      <input placeholder="New Name"  type="text" name="catName">
+             <button type="submit" >Submit</button>
+          </form>
+  <form action="/delCat"method="post">
+      <h2><span class="alert">Delete:</span>  A Category</h2>
+   
+      <select placeholder="categories from db" name="catDel" id="">
+        <option value="">Select a Category</option>
+        <% for(let i=0;i<catagory.length;i++){%>
+          <option value="<%= catagory[i].catName%>"><%= catagory[i].catName%></option>
+          <%}%>
+      </select>
+      <button type="submit" >Delete</button>
+       </form>
+</div>
+
+</div>
+
+
 <%- include('./config/baseScripts.ejs')%>
  
 
