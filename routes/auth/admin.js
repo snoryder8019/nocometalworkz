@@ -300,7 +300,9 @@ router.post('/delCat',(req,res)=>{
   async function deleteCat(){
     try{
       await client.connect();
-      await getCat(client);  
+      await getCat(client,{
+
+      });  
     }
     catch(err){
       console.log(err);
@@ -310,10 +312,11 @@ router.post('/delCat',(req,res)=>{
     }
   }
   deleteCat().catch(console.error);
-  async function getCat(client){
-    const newID =ObjectId(req.body.catDel);
-   const result = await client.db(dbName).collection('nm_catagories').deleteOne({"_id":newID})
-    console.log(result+' modded '+ "Deleting Category Name "+ newID)
+  async function getCat(client, updateInfo){
+    const newID =req.body.catDel;
+   const result = await client.db(dbName).collection('nm_catagories').deleteOne({"catName":newID})
+  // const result2 = await client.db(dbName).collection('nm_inventory').updateMany({"_id":newId},{$set:updateInfo},{upsert:true})
+    console.log(result+' modded '+ "Deleting Category Name "+ newID+"\n\n result2: "+ result2)
  return res.redirect('admin');
   }
 })

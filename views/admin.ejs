@@ -77,6 +77,7 @@
          <%if(typeof blogs == 'object' && blogs[0]){%>
          <% for(let i=0;i<catagory.length;i++){%>
          <option  value="<%= catagory[i].catName%>"><%= catagory[i].catName%></option>
+        
          <%}%>
          <%}%>
         </select>
@@ -105,16 +106,17 @@
             </form>
 
 
-          <div class="eventBody" id="admin0">
-    <form action="/delCat"method="post">
-      <h2><span class="alert">Delete:</span>  A Category</h2>
-      <select placeholder="categories from db" name="catDel" id="">
-       <option value="">Select a Category</option>
-       <% for(let i=0;i<catagory.length;i++){%>
-         <option value="<%= catagory[i]._id%>"><%= catagory[i].catName%></option>
-        <%}%>
-      </select>
-      <button type="submit" >Delete</button>
+  <div class="eventBody" id="admin0">
+      <form action="/delCat"method="post">
+          <h2><span class="alert">Delete:</span>  A Category</h2>
+       
+          <select placeholder="categories from db" name="catDel" id="">
+            <option value="">Select a Category</option>
+            <% for(let i=0;i<catagory.length;i++){%>
+              <option value="<%= catagory[i].catName%>"><%= catagory[i].catName%></option>
+              <%}%>
+          </select>
+          <button type="submit" >Delete</button>
            </form>
 </div>
 
