@@ -160,6 +160,10 @@
   padding: 1%;
 }
 
+.cartBtn {
+  width: 70px;
+}
+
 @font-face {
   font-family: "combo";
   src: url("../fonts/Combo/Combo-Regular.ttf");
