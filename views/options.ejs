@@ -34,7 +34,10 @@
             <%for(let i=0;i<faqs.length;i++){%>
                Question: <p><%=faqs[i].faqQ%></p>        
                answer: <p><%=faqs[i].faqA%></p>
-               <form action="/delFaq"><input hidden name="faqId" value="<%faqs[i]._id%>"><button type="submit">delFaq</button></form>
+               <form action="/delFaq">
+                <input hidden name="faqId" value="<%=faqs[i]._id%>">
+                <button type="submit">delFaq</button>
+            </form>
             <%}%>
         </div>
     </div>
