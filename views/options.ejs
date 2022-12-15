@@ -11,10 +11,30 @@
 <div class="eventBody">
 <h1 class="h1Span"><%=title%></h1>
 </div>
-<div class="mainStyle">
+<div class="eventBody">
+    <div class="mainStyle">
+        <h1 class="h1Span">Add FAQ</h1>
+            <div class="eventBody">
+        
+              <form action="/newFAQ"  method="post">
+    
+                <h2>Step 1: Add Details</h2>
+              
+                  <input placeholder="FAQ Question"  type="text" name="faq">
+                  <h2>product details</h2>
+                  <textarea placeholder="FAQ Answer" type="text" name="faqResponse"></textarea>
+                
+                  <h2>Step 2: Submit</h2> 
+                    <button onclick="loading('adding New FAQ Entry')" type="submit" >Submit</button>
+               </form>
+            </div>
+          </div>
+  </div>
+
+
 
 <a onclick="goBack()"><div class="navBox">back to admin</div></a>
-</div>
+
 
 
 <%- include('./config/baseScripts.ejs')%>
