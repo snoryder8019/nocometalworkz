@@ -1072,7 +1072,6 @@ table {
 table input {
   border: 1px solid rgba(0, 0, 0, 0.9);
   min-width: 96%;
-  height: 75px;
   margin: 1%;
   padding: 1%;
   color: black;
