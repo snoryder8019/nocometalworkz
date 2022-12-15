@@ -1,5 +1,8 @@
 .cartIcon {
-  width: 44%;
+  position: fixed;
+  width: 12%;
+  right: 20px;
+  bottom: 20px;
 }
 .cartIcon_inv {
   width: 44%;
@@ -1025,7 +1028,7 @@ img.mainImg {
   background-repeat: no-repeat;
   background-clip: unset;
   background-size: contain;
-  background-position-x: right;
+  background-position-x: 85%;
   background-color: rgba(97, 97, 97, 0.95);
   z-index: 50;
   animation: logoMove 15s linear 0 infinite;

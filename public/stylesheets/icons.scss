@@ -1,6 +1,8 @@
 .cartIcon{
-  
-    width: 44%;
+  position: fixed;
+  width: 12%;
+  right: 20px;
+  bottom: 20px;
     &_inv{
         width:44%;
         filter: invert(50%);
