@@ -312,7 +312,7 @@ router.post('/delCat',(req,res)=>{
   deleteCat().catch(console.error);
   async function getCat(client){
     const newID =ObjectId(req.body.catDel);
-    console.log('modded')
+    console.log('modded'+ " "+ newID)
  return res.redirect('admin');
   }
 })
