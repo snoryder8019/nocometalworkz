@@ -163,6 +163,7 @@
 .cartBtn {
   font-family: "righteous";
   width: 70px;
+  font-size: 1rem;
 }
 
 @font-face {
@@ -1081,6 +1082,7 @@ table input {
 
 td {
   padding: 1%;
+  margin: 1%;
 }
 td img {
   max-width: 100px;
