@@ -15,8 +15,14 @@
               <h1>FAQS page</h1>
               <ul>
               <%for(let i=0;i<faqs.length;i++){%>
-               Questions: <%=faqs[i].faqQ%>
-               Answer: <%=faqs[i].faqA%>
+                <div class="eventBody">
+                    <ul>
+                        <li> Questions: <%=faqs[i].faqQ%></li>
+                    <li> Answer: <%=faqs[i].faqA%></li>
+                    </ul>
+              
+              
+            </div>
               <%}%>
               </ul>
             </div>
