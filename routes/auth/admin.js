@@ -14,13 +14,10 @@ if(req.user.isAdmin==true){
   next()}
     else{res.sendStatus(401)}
   }
-
-
 ////////////////////////////////////
 
 //////////////////////////////////
 router.get('/admin',isAddy, (req,res) =>{
-
     // eslint-disable-next-line no-inner-declarations
     async function gettingEmails(){
       try {
@@ -40,11 +37,10 @@ router.get('/admin',isAddy, (req,res) =>{
         const blogs= await client.db(dbName).collection('blogs').find().toArray();
         const catagory = await client.db(dbName).collection('nm_catagories').find().toArray();
    return  res.render('admin',{title:'Admin Page', blogs:blogs,catagory:catagory, user:user})
-  }
- 
+  } 
   })
 //////////////////////////////////
-router.get('/inventory', (req,res) =>{ 
+router.get('/inventory',isAddy, (req,res) =>{ 
     // eslint-disable-next-line no-inner-declarations
     async function gettingEmails(){
      try {
@@ -63,15 +59,9 @@ router.get('/inventory', (req,res) =>{
    async function getEmails(client){
      const user = req.user
    const inventory = await client.db(dbName).collection('nm_inventory').find().toArray();
-    const catagory = await client.db(dbName).collection('nm_catagories').find().toArray();
-    if(req.user){
-    res.render('inventory', {title:'Inventory Page', inventory:inventory,catagory:catagory , user:req.user});
-   }
-   if(req.session.user){
-      res.render('inventory', {title:'Inventory Page', inventory:inventory,catagory:catagory, user:req.session.user}); 
-    }
-   }
- 
+    const catagory = await client.db(dbName).collection('nm_catagories').find().toArray();   
+    res.render('inventory', {title:'Inventory Page', inventory:inventory,catagory:catagory , user:req.user});      
+   } 
    })
 ///////////////
 router.post('/deleteInv', (req,res)=>{
