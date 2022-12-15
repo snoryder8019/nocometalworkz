@@ -312,7 +312,8 @@ router.post('/delCat',(req,res)=>{
   deleteCat().catch(console.error);
   async function getCat(client){
     const newID =ObjectId(req.body.catDel);
-    console.log('modded'+ " "+ newID)
+   const result = await client.db(dbName).collection('nm_catagories').deleteOne({"_id":newID})
+    console.log(result+' modded '+ "Deleting Category Name "+ newID)
  return res.redirect('admin');
   }
 })
