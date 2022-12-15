@@ -341,8 +341,8 @@ router.get('/options',(req,res)=>{
   async function faqPopulate(client){
     const faqs = await client.db(dbName).collection('nm_faqs').find().toArray()
     console.log(faqs)
+    res.render('options',{title:"options", faqs:faqs})
   }
-  res.render('options',{title:"options", faqs:faqs})
 })
 
 router.post('/newFAQ',(req,res)=>{
