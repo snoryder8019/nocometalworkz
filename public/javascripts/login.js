@@ -16,3 +16,15 @@ for (let x=0;x<zzx.length;x++){
     gglMsg.innerHTML=zzz
 }
 }
+
+function checkPasswords() {
+    // Get the values of the password inputs
+    var password1 = document.getElementById('password1').value;
+    var password2 = document.getElementById('password2').value;
+  
+    // Check if the passwords match
+    if (password1 !== password2) {
+      // If the passwords do not match, display an error message
+      alert('The passwords do not match.');
+    }
+  }

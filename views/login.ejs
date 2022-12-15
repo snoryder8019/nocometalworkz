@@ -24,7 +24,8 @@
           </div>
           <div>
             <label for="password">Password</label>
-            <input id="passwordReg" name="password" type="password" required />
+            <input id="passwordReg" name="password" type="password"  required />
+       
           </div>
           <div>
             <button onclick="loading('logging in...')" type="submit">Sign in</button>
@@ -48,11 +49,18 @@
     </div>
     <div>
       <label >Password</label>
-      <input  name="password" type="password"  required />
+      <input oninput="checkPasswords" id="password1" name="password" type="password" pattern="(?=.{8}" title="format: " required />
     </div>
+
+
+
+
+
+    
     <div>
       <label >Confirm Password</label>
-      <input  type="password"  required />
+      <input id="password2" type="password"  required />
+      <h4>**passwords must be 8 charachters long**</h4>
     </div>
     <div>
       <button onclick="loading('Thank you for registering your cart! Please Login')" type="submit">Register</button>
