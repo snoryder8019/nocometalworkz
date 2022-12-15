@@ -130,7 +130,7 @@
 <div class="detailsBlock">
 
   <% for(let i=0;i<inventory.length;i++){%>
-   <span class="alert"> details for:</span> <%=inventory[i].name%>
+   <h2><span class="alert"> details for:</span> <%=inventory[i].name%></h2>
     <input value="<%= inventory[i].details%>">
     <form action=""><button>update</button></form>
     <%}%>
