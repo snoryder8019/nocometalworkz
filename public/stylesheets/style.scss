@@ -477,7 +477,7 @@ width:100%;
   background-repeat: no-repeat;
  background-clip:unset;
 background-size: contain;
-  background-position-x: right;
+  background-position-x: 85%;
   background-color:$grey;
   z-index: 50;
   animation: logoMove 15s linear 0 infinite;
@@ -733,6 +733,7 @@ object-fit:cover;
    min-height: 40px;
     }
     .loginBody{
+      
       transform-style: preserve-3d;
       animation: 120s ease-in-out infinite fadeIn;
     display: none;
