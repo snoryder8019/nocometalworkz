@@ -1214,9 +1214,15 @@ th {
   grid-template-rows: auto;
   grid-gap: 3%;
 }
+.invGrid:last-child {
+  margin-bottom: 90%;
+}
 @media screen and (min-width: 500px) {
   .invGrid {
     grid-template-columns: 1fr 1fr 1fr;
+  }
+  .invGrid:last-child {
+    margin-bottom: 2%;
   }
 }
 @media screen and (min-width: 800px) {
@@ -1233,9 +1239,6 @@ th {
 .gridContain {
   padding: 2%;
   border: 2px solid black;
-}
-.gridContain:last-child {
-  margin-bottom: 90%;
 }
 
 .gridButton {
