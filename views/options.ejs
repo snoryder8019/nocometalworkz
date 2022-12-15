@@ -31,8 +31,11 @@
     <div class="mainStyle">
         <h1 class="h1Span">Delete FAQs</h1>
         <div class="eventBody">
-            <%for(let i=0;)%>
-            <%%>
+            <%for(let i=0;faqs.length;i++){%>
+               Question <p><%=faqs[i].faqQ%></p>
+        
+               answer <p><%=faqs[i].faqA%></p>
+            <%}%>
         </div>
     </div>
   </div>
