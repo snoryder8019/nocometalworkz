@@ -21,21 +21,21 @@
         <h1 class="h1Span">Our Newest Workz!</h1>
         <div class="invGrid">
             <% for(var i=0;i<data.length;i++){%>
-                <a onclick="loading('getting product details')" href="/productID/<%= data[i]._id%>"> 
-                   <div class="gridContain">
-                       <div>
-                           <h2><%=data[i].name%></h2>
-                           <h3>$<%=data[i].price%>.00</h3>
-                       </div>
-                       <div class="imgCont">
+                <div class="gridContain">
+                    <div>
+                        <h2><%=data[i].name%></h2>
+                        <h3>$<%=data[i].price%>.00</h3>
+                    </div>
+                    <div class="imgCont">
+                           <a onclick="loading('getting product details')" href="/productID/<%= data[i]._id%>"> 
                          <img class="invImg" src=" <%= data[i].imgName%>" alt="">
+                        </a>
                        </div>
-                    </div>                
-                       </a>
+                </div>                
                  <%}%>
             </div>
         </div>
-        ////////////
+     
      
         
         <div class="midBar">

@@ -651,7 +651,9 @@ $invGrad2:$transparent;
  // display: grid;
  // grid-template-columns: 3fr 2fr;
  border: 2px solid black;
- 
+ &:last-child{
+  margin-bottom: 90%;
+ }
 }
 .gridButton{
   margin-bottom: 1%;
