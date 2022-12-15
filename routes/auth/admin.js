@@ -333,7 +333,7 @@ router.get('/options',(req,res)=>{
   res.render('options',{title:"options"})
 })
 router.post('/newFAQ',(req,res)=>{
-async function newFAQ(){
+async function newFAQs(){
   try{
     await client.connect()
     await FAQadd(client,{
@@ -341,10 +341,10 @@ async function newFAQ(){
       faqA:req.body.faqAnswer
     })
   }
-  catch (err){console.log(err)}
+  catch(err){console.log(err)}
   finally{await client.close()}
 }
-newFAQ().catch(console.error);
+newFAQs().catch(console.error);
 async function FAQadd(client,faqOptions){
   const result = client.db(dbName).collection('nm_faqs').insertOne(faqOptions)
   console.log(result)
