@@ -364,4 +364,21 @@ async function faqAdd(client,faqOptions){
 }
 res.redirect('options')
 })
+router.post('/delFaq', (req,res)=>{
+  async function delFaqs(){
+    try{
+      await client.connect()
+      await faqDeleter(client)
+    }
+    catch(err){console.log(err)}
+    finally{client.close()}
+  }
+  delFaqs().catch(console.error);
+  async function faqDeleter(client){
+    const newID =ObjectId(req.body.faqId);
+  const deleteIt = await client.db(dbName).collection('blogs').deleteOne({"_id":newID});
+  console.log(deleteIt)
+  res.redirect('options')
+  }
+})
 module.exports = router;
