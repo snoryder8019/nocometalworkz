@@ -371,7 +371,7 @@ router.post('/delFaq', (req,res)=>{
       await faqDeleter(client)
     }
     catch(err){console.log(err)}
-    finally{client.close()}
+    finally{await client.close()}
   }
   delFaqs().catch(console.error);
   async function faqDeleter(client){
