@@ -346,7 +346,7 @@ async function newFAQs(){
 }
 newFAQs().catch(console.error);
 async function FAQadd(client,faqOptions){
-  const result = client.db(dbName).collection('nm_faqs').insertOne(faqOptions)
+  const result = await client.db(dbName).collection('nm_faqs').insertOne(faqOptions)
   console.log(result)
 }
 res.redirect('options')
