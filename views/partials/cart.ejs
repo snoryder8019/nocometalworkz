@@ -16,9 +16,8 @@
         </thead>
 <tbody>
     <%for(let i=0;i<cart.cart.length;i++){%>
-    <tr>
-       
-        <td> <h2>   <%=cart.cart[i].name%></h2></td>
+        <td> <h3>   <%=cart.cart[i].name%></h3></td>
+        <tr>       
         <td>   <img alt="<%=cart.cart[i].name%>" src="/<%=cart.cart[i].img%>"></td>
         <td> <h3> $  <%=cart.cart[i].price%>.00</h3></td>
         <td><form action="/delCart"method="post"><button onclick="loading('deleting item from cart')" class="cartBtn" name="cartNum" type="submit" value="<%=cart.cart[i].name%>">delete Item</button></form> </td>
