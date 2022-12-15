@@ -341,7 +341,7 @@ async function newFAQ(){
       faqA:req.body.faqAnswer
     })
   }
-  catch (err){console.lof(err)}
+  catch (err){console.log(err)}
   finally{await client.close()}
 }
 newFAQ().catch(console.error);
@@ -350,6 +350,6 @@ async function FAQadd(client,faqOptions){
   console.log(result)
 
 }
-res.resdirect('options')
+res.redirect('options')
 })
 module.exports = router;
