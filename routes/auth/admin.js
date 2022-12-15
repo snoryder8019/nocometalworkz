@@ -327,4 +327,9 @@ router.post('/delCat',(req,res)=>{
  return res.redirect('admin');
   }
 })
+
+
+router.get('/options',(req,res)=>{
+  res.render('options',{title:"options"})
+})
 module.exports = router;
