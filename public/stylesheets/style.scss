@@ -438,17 +438,49 @@ width:100%;
   vertical-align: middle;
  
 }
+.iconDiv{
+  text-align: center; 
+  filter: invert(1);
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-position: 66% 20%;
+  @media (min-width:802px){
+    background-size: 24%;
+      background-position: 50% 50%;
+   
+  }
+  @media (min-width:535px){
+    background-size: 28%;
+      background-position: 50% 50%;
+   
+  }
+  @media (min-width:336px){
+    background-size: 46%;
+      background-position: 50% 50%;
+   
+  }
+  @media (min-width:300px){
+    background-size: 52%;
+      background-position: 50% 50%;
+   
+  }
+}
 .icons{
   filter:invert(100%);
   background-clip:content-box;
 //  background-color: $accent;
-  background-size: 60%;
+  background-size: 80%;
   background-position: 66% 20%;
   background-repeat: no-repeat;
   margin: 1%;
   text-align: center;
   width: 100%;
   min-height: 100px;
+  overflow: auto;
 
   @media (min-width:768px) {
   width: 65%;
@@ -461,7 +493,27 @@ width:100%;
   //background-position: 36% 159%;
   }
 }
+.iconText{
+  font-size: 1rem;
+  width:100%;
+  //font-size: 3rem;
+  color: white;
+  filter: invert(1);
 
+  @media (min-width:802px){
+  font-size: 1.5rem;
+  width:100%;
+  //font-size: 3rem;
+  color: white;
+  filter: invert(1);
+ position: absolute;
+ bottom:2%;
+ @media (min-width:802px){
+ position:relative
+ 
+}
+  }
+}
 .prodHeadline{
   white-space: nowrap;
   overflow: hidden;
