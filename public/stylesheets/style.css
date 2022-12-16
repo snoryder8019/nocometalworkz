@@ -1,12 +1,38 @@
+@keyframes iconScaler {
+  0% {
+    transform: scale(1);
+  }
+  20% {
+    transform: scale(1.1);
+  }
+  40% {
+    transform: scale(1);
+  }
+  60% {
+    transform: scale(1.18);
+  }
+  80% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 .cartIcon {
   position: fixed;
   width: 12%;
   right: 20px;
   bottom: 20px;
+  animation: 5s linear infinite 3s iconScaler;
 }
 .cartIcon_inv {
   width: 44%;
   filter: invert(50%);
+}
+@media (min-width: 700px) {
+  .cartIcon {
+    width: 5%;
+  }
 }
 
 .gglButton {
