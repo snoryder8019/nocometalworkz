@@ -26,9 +26,7 @@
         <tr>
           
         <td hidden><input name="ogPost" value="<%=inventory[i].postDate%>"></td>
-        <td><input name="price" required placeholder="<%=inventory[i].price%>"></td>
-      
-        <td><a href="/updateDetails">Update Details</a></td>
+        <td><input name="price" required placeholder="<%=inventory[i].price%>"></td>     
         <td><select required name="catRef">
        <option value=""><%=inventory[i].catRef%></option>
             <%for(let i =0;i<catagory.length;i++){%>
