@@ -1245,7 +1245,7 @@ th {
 }
 @media screen and (min-width: 500px) {
   .invGrid {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
   }
   .invGrid:last-child {
     margin-bottom: 2%;
@@ -1253,7 +1253,7 @@ th {
 }
 @media screen and (min-width: 800px) {
   .invGrid {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 }
 @media screen and (min-width: 1200px) {

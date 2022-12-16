@@ -637,13 +637,13 @@ display:grid;
     margin-bottom: 90%;
    }
   @media screen and (min-width:500px) {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     &:last-child{
       margin-bottom: 2%;
      }
   }
   @media screen and (min-width:800px) {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
   }
   @media screen and (min-width:1200px) {
     grid-template-columns: 1fr 1fr 1fr 1fr;
