@@ -19,8 +19,9 @@
         <h1>Inventory Home</h1>
   
 
-    
-        <%for(let i=0;i<inventory.length;i++){%>
+    <div class="updateDiv">
+
+            <%for(let i=0;i<inventory.length;i++){%>
             <form action="/updateInv" method="post">
         <input name="name" required placeholder="<%=inventory[i].name%>">         
         <input hidden name="ogPost" value="<%=inventory[i].postDate%>">
@@ -42,10 +43,8 @@
         <input name="invId" value="<%=inventory[i]._id%>" hidden>
         <button class="updateBtn" type="submit">Delete Item</button>
     </form>
-
-
      <%}%>
-
+    </div>
   
 </div>
 

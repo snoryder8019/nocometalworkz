@@ -901,6 +901,10 @@ input:focus {
   background-color: rgba(255, 0, 0, 0.674);
 }
 
+.updateDiv {
+  display: flex;
+}
+
 .updateImgDiv {
   width: 100px;
 }
