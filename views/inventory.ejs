@@ -35,6 +35,8 @@
         </select>
     
     <div class="updateImgDiv"><img class="updateImg" src="<%=inventory[i].imgName%>"></div>
+
+    <div>
     <input name="invId" value="<%=inventory[i]._id%>" hidden>
        <button class="updateBtn" type="submit">Update</button>
      </form>
@@ -42,6 +44,7 @@
     <form action="/deleteInv" method="post"> 
         <input name="invId" value="<%=inventory[i]._id%>" hidden>
         <button class="updateBtn" type="submit">Delete Item</button>
+      </div>
     </form>
      <%}%>
     </div>
