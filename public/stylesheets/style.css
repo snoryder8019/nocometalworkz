@@ -909,6 +909,10 @@ input:focus {
   width: 100%;
 }
 
+.updateBtn {
+  width: 100%;
+}
+
 .validateError {
   padding: 0;
   margin: 1%;
