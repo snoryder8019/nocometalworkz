@@ -901,6 +901,10 @@ input:focus {
   background-color: rgba(255, 0, 0, 0.674);
 }
 
+.updateImg {
+  width: 100px;
+}
+
 .validateError {
   padding: 0;
   margin: 1%;
