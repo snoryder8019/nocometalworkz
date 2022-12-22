@@ -17,25 +17,25 @@
 
 <div class="eventBody">
         <h1>Inventory Home</h1>
-  <table>
+  
 
-    <tbody>
+    
         <%for(let i=0;i<inventory.length;i++){%>
             <form action="/updateInv" method="post">
-              <td><input name="name" required placeholder="<%=inventory[i].name%>"></td>
+              <input name="name" required placeholder="<%=inventory[i].name%>">
         
           
-        <td hidden><input name="ogPost" value="<%=inventory[i].postDate%>"></td>
-        <td><input name="price" required placeholder="<%=inventory[i].price%>"></td>     
+        <input hidden name="ogPost" value="<%=inventory[i].postDate%>">
+        <input name="price" required placeholder="<%=inventory[i].price%>">    
       
-        <td><select required name="catRef">
+        <select required name="catRef">
        <option value=""><%=inventory[i].catRef%></option>
             <%for(let i =0;i<catagory.length;i++){%>
                 <option value="<%=catagory[i].catName%>"><%=catagory[i].catName%></option>
                 <%}%>
         </select>
-    </td>
-    <td><img src="<%=inventory[i].imgName%>"></td>
+    
+    <img src="<%=inventory[i].imgName%>">
     <input name="invId" value="<%=inventory[i]._id%>" hidden>
        <button type="submit">Update</button>
      </form>
@@ -47,8 +47,8 @@
 
 
      <%}%>
-</tbody>
-  </table>
+
+  
 </div>
 
 <%- include('./config/adminNav.ejs')%>
