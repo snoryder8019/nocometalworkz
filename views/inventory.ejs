@@ -22,9 +22,7 @@
     
         <%for(let i=0;i<inventory.length;i++){%>
             <form action="/updateInv" method="post">
-              <input name="name" required placeholder="<%=inventory[i].name%>">
-        
-          
+        <input name="name" required placeholder="<%=inventory[i].name%>">         
         <input hidden name="ogPost" value="<%=inventory[i].postDate%>">
         <input name="price" required placeholder="<%=inventory[i].price%>">    
       
@@ -35,7 +33,7 @@
                 <%}%>
         </select>
     
-    <img src="<%=inventory[i].imgName%>">
+    <div class="updateImg"><img src="<%=inventory[i].imgName%>"></div>
     <input name="invId" value="<%=inventory[i]._id%>" hidden>
        <button type="submit">Update</button>
      </form>
