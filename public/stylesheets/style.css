@@ -901,8 +901,12 @@ input:focus {
   background-color: rgba(255, 0, 0, 0.674);
 }
 
-.updateImg {
+.updateImgDiv {
   width: 100px;
+}
+
+.updateImg {
+  width: 100%;
 }
 
 .validateError {

@@ -340,8 +340,11 @@ input:focus{
   //transform: tranlateY(100%);
 
 }
-.updateImg{
+.updateImgDiv{
   width:100px
+}
+.updateImg{
+  width: 100%;
 }
 //form error styling
 .validateError{
