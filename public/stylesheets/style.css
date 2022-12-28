@@ -232,6 +232,15 @@ body {
 
 .introImgDiv {
   margin: 0 0 15% 0;
+  transform-style: preserve-3d;
+  transition-duration: 0.6s;
+}
+.introImgDiv_L:hover {
+  transform-style: preserve-3d;
+  transition-duration: 1.2s;
+  transform: rotate3d(0, 1, 0, 90deg);
+  backface-visibility: visible;
+  background-color: red;
 }
 
 .introImg {
