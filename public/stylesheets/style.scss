@@ -574,7 +574,7 @@ width: 96%;
 padding: 7%;
 }
 .imgPreviewDiv{
-  
+  z-index: -5;
   transform-style: preserve-3d;
   transition-duration: .8s;
   opacity: 0;

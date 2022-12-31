@@ -1175,6 +1175,7 @@ select {
 }
 
 .imgPreviewDiv {
+  z-index: -5;
   transform-style: preserve-3d;
   transition-duration: 0.8s;
   opacity: 0;
