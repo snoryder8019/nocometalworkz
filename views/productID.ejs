@@ -22,8 +22,11 @@
 
         <!----LANDING PAGE CLASS IS GRID DISPLAY-->
         <!----LARGE SCREEN 4 GRID !!!! MEDIUM SCREEN 3 GRID !!!!! SMALL 2 and single GRID-->
-  <div class="landingPage">
-      <div style="background-image:url('/<%= data.imgName%>');" class="imgBox"></div> 
+ <%if(typeof data == 'object'&& data.imgName){%>
+        <div id="imgPrev"onclick="enlarge()" class="imgPreviewDiv"><img class="imgPreview" src="/<%= data.imgName%>" alt=""></div>
+ <%}%>
+        <div class="landingPage">
+      <div onclick="enlarge()" style="background-image:url('/<%= data.imgName%>');" class="imgBox"></div> 
     <div class="eventBody">
 
         <div class="invPrice"><%= data.price%></div> 
@@ -69,6 +72,7 @@
     </div>
 
 <script src="/javascripts/cart.js"></script>
+<script src="/javascripts/imgPrev.js"></script>
 <%- include('./config/baseScripts.ejs')%>
 
 </body>
