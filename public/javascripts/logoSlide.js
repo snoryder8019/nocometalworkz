@@ -10,8 +10,8 @@ console.log(document.body.offsetHeight)
         menu.style.backgroundImage=""
         footer.style.backgroundImage=""        
     }else{
-        menu.style.backgroundImage="url('../images/logo_thumb.png')"
-        footer.style.backgroundImage="url('../images/logo_thumb.png')"
+        menu.style.backgroundImage="url('../images/loge_sideBySide_white.png')"
+        footer.style.backgroundImage="url('../images/loge_sideBySide_white.png')"
     }
     })
 }

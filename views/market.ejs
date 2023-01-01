@@ -22,21 +22,21 @@
         </div>
         <div class="eventBody">
             <div class="eventBody">
-                 <div class="invGrid">
-                     <% for(var i=0;i<data.length;i++){%>
-                     <a onclick="loading('getting product details')" href="/productID/<%= data[i]._id%>"> 
+                <div class="invGrid">
+                    <% for(var i=0;i<data.length;i++){%>
                         <div class="gridContain">
                             <div>
-                                <h2 class="prodHeadline"><%=data[i].name%></h2>
+                                <h2><%=data[i].name%></h2>
                                 <h3>$<%=data[i].price%>.00</h3>
                             </div>
                             <div class="imgCont">
-                              <img class="invImg" src=" <%= data[i].imgName%>" alt="">
-                            </div>
-                         </div>                
-                            </a>
-                      <%}%>
-                </div>           
+                                   <a onclick="loading('getting product details')" href="/productID/<%= data[i]._id%>"> 
+                                 <img class="invImg" src=" <%= data[i].imgName%>" alt="">
+                                </a>
+                               </div>
+                        </div>                
+                         <%}%>
+                    </div>        
             </div>  
         </div>  
     </div>       
