@@ -871,4 +871,55 @@ background-repeat: no-repeat;
       border-top:1px red solid;
     }
     }
+
+#burgBtn{
+  transform-style: preserve-3d;
+transition-timing-function: ease-in-out;
+transition-duration: .8s;
+}
+    .hamburger{
+      z-index: 100;
+min-width:65px;
+min-height:65px;
+padding:3%
+    }
+    .hm{
+min-height: 12%;
+min-width: 100%;
+margin: 17%;
+background-color: $accent;
+border: $blue;
+transform-style: preserve-3d;
+transition-timing-function: ease-in-out;
+transition-duration: .8s;
+    }
+#menuPage{
+  display: flex;
+  text-align: center;
+  align-items: center;
   
+  transform-style: preserve-3d;
+  transition-duration: .5s;
+  -o-transition-timing-function: ease-in-out;
+opacity: 0;
+z-index: -3;
+position: fixed;
+top: 0;
+left: 0;
+margin: 0;
+padding: 0;
+width: 100vw;
+height: 100vh;
+background-color: black;
+}
+.menuContent{
+  
+  text-align: center;
+  margin-top: 91%;;
+  min-width: 100%;
+  min-height: 100%;
+}
+#hmBot{
+ // transform: rotateZ(-45deg) translateY(200%) translateX(15%);
+
+}

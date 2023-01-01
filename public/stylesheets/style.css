@@ -20,9 +20,9 @@
 }
 .cartIcon {
   position: fixed;
-  width: 12%;
-  right: 20px;
-  bottom: 20px;
+  width: 19%;
+  right: 50px;
+  bottom: 70px;
   animation: 5s linear infinite 3s iconScaler;
 }
 .cartIcon_inv {
@@ -1494,6 +1494,56 @@ th {
 .loginBody:last-child {
   margin-top: 10%;
   border-top: 1px red solid;
+}
+
+#burgBtn {
+  transform-style: preserve-3d;
+  transition-timing-function: ease-in-out;
+  transition-duration: 0.8s;
+}
+
+.hamburger {
+  z-index: 100;
+  min-width: 65px;
+  min-height: 65px;
+  padding: 3%;
+}
+
+.hm {
+  min-height: 12%;
+  min-width: 100%;
+  margin: 17%;
+  background-color: #dcf6ff;
+  border: rgba(205, 202, 241, 0.857);
+  transform-style: preserve-3d;
+  transition-timing-function: ease-in-out;
+  transition-duration: 0.8s;
+}
+
+#menuPage {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  transform-style: preserve-3d;
+  transition-duration: 0.5s;
+  -o-transition-timing-function: ease-in-out;
+  opacity: 0;
+  z-index: -3;
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+}
+
+.menuContent {
+  text-align: center;
+  margin-top: 91%;
+  min-width: 100%;
+  min-height: 100%;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,21 +1,14 @@
 <!DOCTYPE html>
 <html>
-
-    <head>
-        <link rel="stylesheet" href="/stylesheets/style.css">
-        <link rel="shortcut icon" type="image/png"href="/images/logo.png">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style></style>
-    </head>
-
-<body >
-    <%- include('partials/cart.ejs')%>
-    <%- include('config/loadScreen.ejs')%>
-
- <div class="mainStyle">
- 
-    <%- include('../views/config/bkgdImg.ejs')%>
-    <%- include('../views/config/header.ejs')%>
+    <%- include('./config/head.ejs')%>
+<body onload="bodyLoader()">
+    
+    <div class="mainStyle">
+        
+        <%- include('partials/cart.ejs')%>
+        <%- include('../views/config/bkgdImg.ejs')%>
+        <%- include('../views/config/header.ejs')%>
+        <%- include('config/loadScreen.ejs')%>
   <div class="eventBody">
     <h2 class="h1Span"> <%= title%> :  <%= data.name%></h2>
 </div>
