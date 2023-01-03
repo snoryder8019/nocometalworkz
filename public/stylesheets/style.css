@@ -1005,7 +1005,7 @@ img.mainImg {
 }
 @media (min-width: 730px) {
   .indexSpacerBottom {
-    margin-top: 0;
+    margin-bottom: 10%;
   }
 }
 
