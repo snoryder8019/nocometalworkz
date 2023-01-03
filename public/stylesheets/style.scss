@@ -387,6 +387,9 @@ margin-bottom: 2%;
   //background-color: $eventBodyColor;
   animation: .6s ease-in 1 slidein;
   scroll-behavior: smooth;
+  &:first-child{
+    margin-top:12%;
+  }
   @media screen and (min-width:700px) {
     width :100%;
   margin-top: 12%;
@@ -404,6 +407,25 @@ img.mainImg{
   width:100%;
   padding: 0%;
   margin: 0%;
+}
+.indexSpacer{
+  margin-top: 35%;
+  @media (min-width:730px) {
+    margin-top: 0;
+  }
+}
+.indexSpacerBottom{
+  margin-bottom: 10%;
+  @media (min-width:730px) {
+    margin-top: 0;
+  }
+}
+
+.eventBody:first-child{
+  margin-top: 12%;
+  @media (min-width:730px) {
+    margin-top: 0;
+  }
 }
 .eventBody, .navBox, .pplBody{
   padding: 2%;
@@ -492,7 +514,7 @@ width:100%;
    
   }
   @media (min-width:300px){
-    background-size: 52%;
+    background-size: 35%;
       background-position: 50% 50%;
    
   }
@@ -880,13 +902,13 @@ transition-duration: .8s;
     .hamburger{
       z-index: 100;
 min-width:65px;
-min-height:65px;
-padding:3%
+min-height:54px;
+//padding:3%
     }
     .hm{
-min-height: 12%;
-min-width: 100%;
-margin: 17%;
+min-height: 8%;
+min-width: 49%;
+margin: 13%;
 background-color: $accent;
 border: $blue;
 transform-style: preserve-3d;

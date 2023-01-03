@@ -951,6 +951,9 @@ input:focus {
   animation: 0.6s ease-in 1 slidein;
   scroll-behavior: smooth;
 }
+.mainStyle:first-child {
+  margin-top: 12%;
+}
 @media screen and (min-width: 700px) {
   .mainStyle {
     width: 100%;
@@ -985,6 +988,33 @@ img.mainImg {
   img.mainImg {
     width: 20%;
     margin: 0 40%;
+  }
+}
+
+.indexSpacer {
+  margin-top: 35%;
+}
+@media (min-width: 730px) {
+  .indexSpacer {
+    margin-top: 0;
+  }
+}
+
+.indexSpacerBottom {
+  margin-bottom: 10%;
+}
+@media (min-width: 730px) {
+  .indexSpacerBottom {
+    margin-top: 0;
+  }
+}
+
+.eventBody:first-child {
+  margin-top: 12%;
+}
+@media (min-width: 730px) {
+  .eventBody:first-child {
+    margin-top: 0;
   }
 }
 
@@ -1082,7 +1112,7 @@ img.mainImg {
 }
 @media (min-width: 300px) {
   .iconDiv {
-    background-size: 52%;
+    background-size: 35%;
     background-position: 50% 50%;
   }
 }
@@ -1505,14 +1535,13 @@ th {
 .hamburger {
   z-index: 100;
   min-width: 65px;
-  min-height: 65px;
-  padding: 3%;
+  min-height: 54px;
 }
 
 .hm {
-  min-height: 12%;
-  min-width: 100%;
-  margin: 17%;
+  min-height: 8%;
+  min-width: 49%;
+  margin: 13%;
   background-color: #dcf6ff;
   border: rgba(205, 202, 241, 0.857);
   transform-style: preserve-3d;
