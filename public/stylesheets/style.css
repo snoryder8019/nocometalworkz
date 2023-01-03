@@ -1243,9 +1243,9 @@ select {
 @media (min-width: 669px) {
   .imgPreview {
     margin-top: 10%;
-    margin-left: 40%;
+    margin-left: 28%;
     max-width: 20vw;
-    max-height: 50%;
+    max-height: 62%;
     overflow-y: scroll;
   }
 }
