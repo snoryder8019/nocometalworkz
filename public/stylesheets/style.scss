@@ -937,9 +937,12 @@ background-color: black;
 .menuContent{
   
   text-align: center;
-  margin-top: 91%;;
+  margin-top: 50%;;
   min-width: 100%;
   min-height: 100%;
+  @media (min-width:730px) {
+    
+  }
 }
 #hmBot{
  // transform: rotateZ(-45deg) translateY(200%) translateX(15%);
