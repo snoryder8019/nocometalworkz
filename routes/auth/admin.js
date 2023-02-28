@@ -28,7 +28,7 @@ router.get('/admin',isAddy, (req,res) =>{
         console.log(err);
       }
       finally{
-      //  await client.close();
+        await client.close();
       }}    
       gettingEmails().catch(console.error);
       // eslint-disable-next-line no-inner-declarations

@@ -41,7 +41,7 @@ router.post('/regUser', (req,res) => {
   }catch (err){
     console.log(err)
   }finally{
-    //await client.close();
+    await client.close();
   }
   }
 /////////////////
@@ -86,7 +86,7 @@ router.post('/contactform', (req,res) => {
   }catch (err){
     console.log(err)
   }finally{
- //   await client.close();
+   await client.close();
   }
   }
   main().catch(console.error);
