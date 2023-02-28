@@ -33,7 +33,7 @@ app.set('view engine', 'ejs',{async:true});
 //MIDDLEWARES
 
 //hit DB before middlewares
-connectDB();
+//connectDB();
 //possible apache dependancies
 app.enable("trust proxy")
 
