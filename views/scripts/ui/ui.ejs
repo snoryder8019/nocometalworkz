@@ -1,0 +1,30 @@
+
+
+<script>
+    document.addEventListener("DOMContentLoaded",()=>{
+
+
+    //mainViewConfig
+    const mainView =document.getElementById('mainView')
+    mainView.style.backgroundImage = 'url("/images/assets/darkWeld.jpg")';    })
+mainView.style.minWidth = "100vw"
+mainView.style.minHeight = "100vh"
+console.log(`main ui scripts Loaded`)
+
+//headerConfig
+const header =document.getElementById('header')
+setTimeout(()=>
+   { header.style.display="none"}
+,2000)
+//footerConfig
+const footer =document.getElementById('footer')
+setTimeout(()=>
+   { footer.style.display="block"}
+,6000)
+//mainbodyConfig
+const mainbody =document.getElementById('mainbody')
+setTimeout(()=>
+   { mainbody.style.display="none"}
+,4000)
+ 
+</script>

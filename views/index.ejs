@@ -1,11 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+
+    <%-include('./design/head')%>
+  
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <%if(config.debug.index){%>
+    <div class="debug"><p>debug index.ejs</p></div>
+<%}%>
+    <div id="mainView">
+<%-include('./design/lightbox')%>
+<%-include('./design/menu')%>
+<%-include('./design/header')%>
+<%-include('./design/mainbody')%>
+<%-include('./design/footer')%>
+</div>
+    <%-include('./scripts/index', config)%>
   </body>
 </html>
