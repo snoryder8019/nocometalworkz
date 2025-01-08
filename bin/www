@@ -3,16 +3,18 @@
 /**
  * Module dependencies.
  */
+import app from "../app.js";
 
-var app = require('../app');
-var debug = require('debug')('nocometalworkz:server');
-var http = require('http');
+import createDebug from 'debug';
+
+const debug = createDebug('nocometalworkz:server');
+import http from 'http'
 
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3000');
+var port = normalizePort(process.env.PORT || '3014');
 app.set('port', port);
 
 /**
