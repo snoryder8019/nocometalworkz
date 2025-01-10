@@ -1,20 +1,52 @@
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-
         console.log(`innerLinks Loaded`);
 
         const innerLink = document.getElementsByClassName('innerLink');
-        const popup = document.getElementById('popup')
-        const popupClose = document.getElementById('popupClose')
-        popupClose.addEventListener('click',()=>{
-popup.style.display="none"
-        })
-        console.log(innerLink);
+        const popup = document.getElementById('popup');
+        const popupClose = document.getElementById('popupClose');
+        const popupTitle = document.querySelector('.popupTitle h1');
+        const popupSubtitle = document.querySelector('.popupSubtitle');
+        const popupImg = document.querySelector('.popupImg');
+        const popupForm = document.querySelector('.popupForm');
 
+        // Close popup
+        popupClose.addEventListener('click', () => {
+            popup.style.display = "none";
+        });
+
+        // Open popup and render dynamic fields
         Array.from(innerLink).forEach(element => {
             element.addEventListener('click', () => {
-                popup.style.display='block'
-                console.log(element);
+                const key = element.getAttribute('data-link'); // Get the data-link attribute
+                const data = popupdata.find(item => item[key]); // Find the corresponding object in popupdata
+                
+                if (data && data[key]) {
+                    const { title, subtitle, image, form } = data[key];
+                    
+                    // Update title
+                    popupTitle.textContent = title || 'Default Title';
+
+                    // Update subtitle
+                    popupSubtitle.textContent = subtitle || '';
+
+                    // Update image
+                    if (image) {
+                        popupImg.innerHTML = `<img src="${image}" alt="${title}">`;
+                    } else {
+                        popupImg.innerHTML = '';
+                    }
+
+                    // Update form
+                    if (form) {
+                        popupForm.innerHTML = form;
+                    } else {
+                        popupForm.innerHTML = '';
+                    }
+                }
+
+                popup.style.display = 'block';
+                console.log(`Popup data for ${key} rendered.`);
             });
         });
 
