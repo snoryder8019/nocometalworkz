@@ -1,6 +1,32 @@
 <script>
-    document.addEventListener('DOMContentLoaded',()=>{
-        console.log(`menu scripts Loaded`)
-        
-    })
+    document.addEventListener('DOMContentLoaded', () => {
+        console.log(`menu scripts loaded`);
+
+        const menu = document.querySelector('#menu');
+        const targets = [document.querySelector('#footer'), document.querySelector('#header')];
+
+        const observerOptions = {
+            root: null, // Uses the viewport as the root
+            threshold: 0.1 // Trigger when 10% of the element is visible
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Hide the menu when the target is visible
+                    menu.style.display = 'none';
+                } else {
+                    // Show the menu when the target is not visible
+                    menu.style.display = 'grid';
+                  
+                }
+            });
+        }, observerOptions);
+
+        targets.forEach(target => {
+            if (target) {
+                observer.observe(target);
+            }
+        });
+    });
 </script>

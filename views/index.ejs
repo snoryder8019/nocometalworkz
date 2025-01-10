@@ -9,12 +9,11 @@
     <%if(config.debug.index){%>
     <div class="debug"><p>debug index.ejs</p></div>
 <%}%>
-    <div id="mainView">
+    <div id="mainView" style="background-image: url('./images/assets/image1.jpeg');">
 <%-include('./design/lightbox')%>
+<%-include('./design/popup')%>
 <%-include('./design/menu')%>
-<%-include('./design/header')%>
 <%-include('./design/mainbody')%>
-<%-include('./design/footer')%>
 </div>
     <%-include('./scripts/index', config)%>
   </body>

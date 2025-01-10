@@ -1,0 +1,22 @@
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+        console.log(`innerLinks Loaded`);
+
+        const innerLink = document.getElementsByClassName('innerLink');
+        const popup = document.getElementById('popup')
+        const popupClose = document.getElementById('popupClose')
+        popupClose.addEventListener('click',()=>{
+popup.style.display="none"
+        })
+        console.log(innerLink);
+
+        Array.from(innerLink).forEach(element => {
+            element.addEventListener('click', () => {
+                popup.style.display='block'
+                console.log(element);
+            });
+        });
+
+    });
+</script>
