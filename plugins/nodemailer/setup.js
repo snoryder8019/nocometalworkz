@@ -144,7 +144,7 @@ export const emailOutGeneral = async (req, res) => {
     const mailOptions = {
       from: process.env.GMAIL_USER, // Sender's email address
       to: to, // Recipient's email address
-      subject: 'Contact Form Sent from NocoMetalworks.com', // Email subject
+      subject: 'Contact Form Sent from NocoMetalworkz.com', // Email subject
       html: htmlTemplate, // Email content
     };
 
@@ -180,7 +180,7 @@ export const contactFormEmail = async (formData) => {
     const mailOptions = {
       from: process.env.GMAIL_USER, // Sender's email address
       to: 'w2marketing.scott@gmail.com', // Recipient's email address
-      subject: 'Contact Form Sent from NocoMetalworks.com', // Email subject
+      subject: 'Contact Form Sent from NocoMetalworkz.com', // Email subject
       html: htmlForContact, // Email content
     };
 

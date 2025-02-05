@@ -74,3 +74,28 @@ export const uploadToLinode = async (input, newFileKey, oldFileKey = null) => {
     throw error; // Rethrow to handle it in the calling function
   }
 };
+/**
+ * Fetches all object URLs from the Linode Object Storage bucket.
+ * @returns {Promise<String[]>} Array of URLs for all objects in the bucket.
+ */
+
+export const fetchGalleryImages= async()=> {
+  const params = {
+    Bucket: 'scottslab', // Replace with your bucket name
+    Prefix: 'nocometalworkz/gallery/', // Path to the directory
+  };
+
+  try {
+    const data = await s3.listObjectsV2(params).promise();
+
+    // Filter and map objects to return only image URLs
+    const images = data.Contents.map((item) => {
+      return `${process.env.LINODE_URL}/scottslab/${item.Key}`;
+    });
+
+    return images;
+  } catch (error) {
+    console.error('Error fetching gallery images:', error);
+    throw error;
+  }
+}

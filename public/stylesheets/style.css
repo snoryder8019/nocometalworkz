@@ -213,6 +213,15 @@ a:hover {
   height: 150px;
 }
 
+.popupGallery {
+  overflow-y: scroll;
+  height: 400px;
+}
+
+.galleryImg {
+  width: 30%;
+}
+
 /* ===========================
    Utility Classes
 =========================== */

@@ -1,4 +1,7 @@
 <script>
+    const galleryImages = <%- JSON.stringify(galleryImages) %>;
+</script>
+<script>
     document.addEventListener('DOMContentLoaded', () => {
         console.log(`innerLinks Loaded`);
 
@@ -8,6 +11,8 @@
         const popupTitle = document.querySelector('.popupTitle h1');
         const popupSubtitle = document.querySelector('.popupSubtitle');
         const popupImg = document.querySelector('.popupImg');
+        const popupGallery = document.querySelector('.popupGallery');
+        const galleryImagesDiv = document.querySelector('.galleryImagesDiv');
         const popupForm = document.querySelector('.popupForm');
 
         // Close popup
@@ -20,7 +25,7 @@
             element.addEventListener('click', () => {
                 const key = element.getAttribute('data-link'); // Get the data-link attribute
                 const data = popupdata.find(item => item[key]); // Find the corresponding object in popupdata
-                
+
                 if (data && data[key]) {
                     const { title, subtitle, image, form } = data[key];
                     
@@ -30,8 +35,10 @@
                     // Update subtitle
                     popupSubtitle.textContent = subtitle || '';
 
-                    // Update image
-                    if (image) {
+                    // Update image or gallery
+                    if (key === 'gallery') {
+                        galleryImagesDiv.innerHTML = galleryImages.map(img => `<img class=galleryImg src="${img}">`).join('');
+                    } else if (image) {
                         popupImg.innerHTML = `<img src="${image}" alt="${title}">`;
                     } else {
                         popupImg.innerHTML = '';
