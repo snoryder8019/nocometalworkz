@@ -1,0 +1,8 @@
+[
+  {
+    "id": "1",
+    "username": "admin",
+    "passwordHash": "$2b$10$q.Rp5NHjmYhIc77wVbkoVePFX1f2/StUZGteGsoy4PZV2Fw/94G26",
+    "isAdmin": true
+  }
+]

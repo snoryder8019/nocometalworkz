@@ -1,0 +1,39 @@
+{
+  "company": "NoCo Metal Workz",
+  "tagline": "Steel Built. Colorado Strong.",
+  "phone": "(970) 555-0182",
+  "email": "info@nocometalworkz.com",
+  "serviceArea": "Fort Collins, Loveland, Greeley & surrounding areas",
+  "hero": {
+    "eyebrow": "Northern Colorado's Premier Metal Shop",
+    "title": "Steel Built. Colorado Strong.",
+    "subtitle": "Custom welding, fence installation, and metal fabrication done right the first time. No shortcuts, no excuses.",
+    "ctaPrimary": "Get a Free Quote",
+    "ctaSecondary": "View Our Work",
+    "stat1Num": "15+",
+    "stat1Label": "Years Experience",
+    "stat2Num": "800+",
+    "stat2Label": "Projects Completed",
+    "stat3Num": "100%",
+    "stat3Label": "Licensed & Insured"
+  },
+  "about": {
+    "eyebrow": "Who We Are",
+    "title": "Craftsmanship Runs in Our Blood",
+    "body": "NoCo Metal Workz has been serving Northern Colorado since 2009. We're a family-run shop that takes pride in every bead, every post, and every gate we put out. If we wouldn't put it on our own property, we won't put it on yours.",
+    "credentials": [
+      "AWS Certified Welders",
+      "Fully Licensed & Insured in Colorado",
+      "Free on-site estimates",
+      "Residential & Commercial"
+    ],
+    "yearsNum": "15",
+    "yearsLabel": "Years of Metal Work"
+  },
+  "services": [
+    { "icon": "🔥", "name": "Custom Welding", "desc": "MIG, TIG, and stick welding for structural, decorative, and industrial applications." },
+    { "icon": "🏗️", "name": "Fence Installation", "desc": "Chain link, wrought iron, wood, and privacy fencing for residential and commercial." },
+    { "icon": "⚙️", "name": "Metal Fabrication", "desc": "Custom gates, handrails, frames, brackets, and structural components built to spec." },
+    { "icon": "🛡️", "name": "Wrought Iron", "desc": "Ornamental ironwork, railings, and decorative metalwork crafted to last a lifetime." }
+  ]
+}
