@@ -144,6 +144,9 @@ img { display: block; max-width: 100%; }
   font-size: 26px;
   letter-spacing: 0.05em;
   color: var(--white);
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 .nav-logo span { color: var(--orange); }
 
@@ -186,6 +189,16 @@ img { display: block; max-width: 100%; }
     var(--dark);
 }
 
+.hero-bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  opacity: 0.25;
+  z-index: 0;
+  pointer-events: none;
+}
+
 /* Metal texture via CSS pattern */
 .hero::before {
   content: '';
@@ -214,11 +227,12 @@ img { display: block; max-width: 100%; }
   inset: 0;
   background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(249,115,22,0.08) 0%, transparent 70%);
   pointer-events: none;
+  z-index: 1;
 }
 
 .hero-content {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   max-width: 760px;
   padding: 80px 24px;
 }
@@ -294,6 +308,7 @@ img { display: block; max-width: 100%; }
   color: var(--text-muted);
   font-size: 11px;
   letter-spacing: 0.1em;
+  z-index: 2;
   text-transform: uppercase;
 }
 
